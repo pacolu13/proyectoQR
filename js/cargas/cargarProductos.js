@@ -1,7 +1,11 @@
-const apiUrl = 'https://api.ejemplo.com/actualizarStock';
+const apiUrl = 'https://go-postgresql-restapi-tswy.onrender.com/productos';
 
+fetch(apiUrl)
+    .then(response => response.json()) // Parsear el JSON
+    .then(data => loadProducts(data)) // Pasar los datos al método de muestra
+    .catch(error => console.error('Error al leer el archivo JSON:', error));
 // Leer el archivo JSON usando fetch
-fetch('JSON/prueba.JSON')
+fetch(apiUrl)
     .then(response => response.json()) // Parsear el JSON
     .then(data => loadProducts(data)) // Pasar los datos al método de muestra
     .catch(error => console.error('Error al leer el archivo JSON:', error));

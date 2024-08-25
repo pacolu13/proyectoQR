@@ -9,11 +9,11 @@ addProductButton.addEventListener('click', function () {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(productosQR) // Enviar el JSON tal cual
+        body: JSON.stringify('JSON/prueba.JSON') // Enviar el JSON
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error en la actualización del stock: ' + response.statusText);
+                throw new Error('Error en la actualización del stock: ' + response.statusText); //Añadir ventana emergente en caso de problemas
             }
             return response.json(); // Parsear la respuesta JSON si es necesario
         })
