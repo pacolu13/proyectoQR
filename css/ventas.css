@@ -1,0 +1,14 @@
+.lista-ventas {
+    margin: 2%;
+    width: 80%;
+    height: 80%;
+    border: 2px solid gray;
+    border-radius: 2%;
+    padding: 1%;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.lista-ventas li {
+    margin: 1%;
+}

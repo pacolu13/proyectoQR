@@ -1,0 +1,66 @@
+[
+    {
+        "ID":1,
+        "Nombre": "Campera Jean",
+        "Tipo": "Ropa",
+        "Marca" :"Calvin Klein",
+        "Cantidad": 60,
+        "stockMinimo": 50
+
+    },
+    {
+        "ID":2,
+        "Nombre": "Notebook",
+        "Tipo": "Electrodomestico",
+        "Marca" :"Lenovo",
+        "Cantidad": 60,
+        "stockMinimo": 50
+
+    },
+    {
+        "ID":3,
+        "Nombre": "Polera Negra",
+        "Tipo": "Ropa",
+        "Marca" :"Zara",
+        "Cantidad": 60,
+        "stockMinimo": 50
+
+    },
+    {
+        "ID":4,
+        "Nombre": "Gaseosa",
+        "Tipo": "Bebida",
+        "Marca" :"Coca-Cola",
+        "Cantidad": 60,
+        "stockMinimo": 50
+
+    },
+    {
+        "ID":5,
+        "Nombre": "Televisor",
+        "Tipo": "Electrodomestico",
+        "Marca" :"LG",
+        "Cantidad": 60,
+        "stockMinimo": 50
+
+    },
+    {
+        "ID":6,
+        "Nombre": "Hamburguesas",
+        "Tipo": "Alimento",
+        "Marca" :"Patys",
+        "Cantidad": 60,
+        "stockMinimo": 50
+
+    },
+    {
+        "ID":7,
+        "Nombre": "Polera Negra",
+        "Tipo": "Ropa",
+        "Marca" :"EA",
+        "Cantidad": 60,
+        "stockMinimo": 50
+
+    }
+]
+

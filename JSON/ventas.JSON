@@ -1,0 +1,27 @@
+[
+    {
+        "codigoUnico": 1,
+        "cantidad": 150,
+        "fecha": "2023-011-22"
+    },
+    {
+        "codigoUnico": 1,
+        "cantidad": 122,
+        "fecha": "2024-01-27"
+    },
+    {
+        "codigoUnico": 5,
+        "cantidad": 10,
+        "fecha": "2024-02-19"
+    },
+    {
+        "codigoUnico": 2,
+        "cantidad": 50,
+        "fecha": "2024-05-04"
+    },
+    {
+        "codigoUnico": 4,
+        "cantidad": 1734,
+        "fecha": "2024-07-14"
+    }
+]

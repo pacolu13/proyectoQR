@@ -1,0 +1,32 @@
+[
+    {
+        "codigoUnico" : 1,
+        "cantidad": 1000,
+        "fecha": "2024-08-24",
+        "fueRealizada" : true
+    },
+    {
+        "codigoUnico" : 2,
+        "cantidad": 500,
+        "fecha": "2024-08-24",
+        "fueRealizada" : true
+    },
+    {
+        "codigoUnico" : 3,
+        "cantidad": 777,
+        "fecha": "2024-08-24",
+        "fueRealizada" : false
+    },
+    {
+        "codigoUnico" : 1,
+        "cantidad": 1000,
+        "fecha": "2024-08-24",
+        "fueRealizada" : true
+    },
+    {
+        "codigoUnico" : 5,
+        "cantidad": 1000,
+        "fecha": "2024-08-24",
+        "fueRealizada" : false
+    }
+]
