@@ -2,7 +2,7 @@ const video = document.getElementById('video');
 const canvasElement = document.getElementById('canvas');
 const canvas = canvasElement.getContext('2d');
 const output = document.getElementById('output');
-let info = "";
+const productosQR = "";
 let yaPaso = false;
 
 function iniciarEscaneo() {
@@ -23,14 +23,11 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            output.textContent = `Código QR detectado: ${code.data}`;
             if (!yaPaso) {
-                info = JSON.parse(code.data); // Parseo a JSON
-                loadProductsGreen(info);
+                productosQR = JSON.parse(code.data); // Parseo a JSON
+                loadProductsGreen(productosQR);
                 yaPaso = true;
             }
-        } else {
-            output.textContent = "No se detectó ningún código QR.";
         }
     }
     requestAnimationFrame(scanQRCode);

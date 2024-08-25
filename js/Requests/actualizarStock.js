@@ -1,12 +1,16 @@
-function actualizarStock() {
+const modifyStockButton = document.getElementById('modifyStockButton');
 
-    // Configuración de la petición PUT
+modifyStockButton.addEventListener('click', function () {
+    
+    iniciarEscaneo();
+    modalConfirmacion.style.display = 'none';
+    
     fetch(apiUrl, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(qrJson) // Enviar el JSON tal cual
+        body: JSON.stringify(productosQR) // Enviar el JSON tal cual
     })
         .then(response => {
             if (!response.ok) {
@@ -18,4 +22,4 @@ function actualizarStock() {
             console.log('Stock actualizado exitosamente:', data);
         })
         .catch(error => console.error('Error:', error));
-};
+});
