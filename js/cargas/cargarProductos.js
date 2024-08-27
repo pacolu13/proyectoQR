@@ -1,4 +1,4 @@
-const apiUrl = 'https://go-postgresql-restapi-tswy.onrender.com/productos ';
+const apiUrl = 'https://go-postgresql-restapi-tswy.onrender.com/productos';
 
 // Leer el archivo JSON usando fetch
 fetch(apiUrl)
