@@ -21,12 +21,13 @@ function createProduct(producto) {
     let template = `
     <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">
-      <div class="fw-bold">${producto.Nombre} - ${producto.Tipo} </div>
-      Stock: ${producto.Cantidad}
-      <div>Stock Minimo: ${producto.stockMinimo}</div>
+      <div class="fw-bold">${producto.nombre} - ${producto.tipo} </div>
+      Stock: ${producto.stockdisponible}
+      <div>Stock Minimo: ${producto.stockminimo}</div>
     </div>
     <div class="button-trash">
         <a href="#" onclick="eliminarProducto(${producto.ID})"><i class="fa-solid fa-trash"></i></a>
+        <a href="#" onclick="actualizarProducto(${producto.ID})"><i class="fa-solid fa-gear"></i></a>
     </div>
     </li>`;
     return template;

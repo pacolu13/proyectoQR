@@ -70,6 +70,11 @@ main {
 }
 
 .button-trash{
+    display: flex;
+    flex-direction: column;
+}
+
+.button-trash a{
     padding: 10px;
 }
 
