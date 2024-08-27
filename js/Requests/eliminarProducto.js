@@ -11,7 +11,7 @@ function eliminarProducto(productoID) {
     btnSi.onclick = function () {
         modalConfirmacion.style.display = 'none';
         const urlEliminarProducto = `${apiUrl}/${productoID}`;
-        
+
         fetch(urlEliminarProducto, {
             method: 'DELETE',
             headers: {

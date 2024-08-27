@@ -17,15 +17,18 @@ main {
     margin-top: 1%;
 }
 
-.titulo {
+.header{
     display: flex;
-    justify-content: center;
     align-items: center;
 }
 
-.titulo h1 {
-    margin: 10px;
-    font-size: 24px; 
+.titulo {
+    display: flex;
+    justify-content: center;
+}
+
+.titulo h1{
+    font-size: 24px;
 }
 
 .lista-opciones{
