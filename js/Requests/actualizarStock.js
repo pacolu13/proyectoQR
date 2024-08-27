@@ -2,19 +2,28 @@ const btnActualizarStock = document.getElementById("btnActualizarStock");
 const btnConfirmarStock = document.getElementById("confirmarStock");
 const modalConfirmacion = document.getElementById('modalActualizarStock');
 const btnCancelar = document.getElementById("btnCancelar");
+const cantidadMinimaInput = document.getElementById('cantidadMinima');
 
 btnActualizarStock.addEventListener("click", function () {
     modalConfirmacion.style.display = 'block';
+    cantidadMinimaInput.disabled = false; // Habilitar el input cuando se muestra el modal
 });
 
-btnCancelar.addEventListener("click", function (){
+btnCancelar.addEventListener("click", function () {
     modalConfirmacion.style.display = "none";
+    cantidadMinimaInput.disabled = true; // Deshabilitar el input cuando se oculta el modal
 });
 
 btnConfirmarStock.addEventListener("click", function () {
     // Obtener valores de los inputs
     const nombreProducto = document.getElementById("nombreProducto").value;
-    const cantMinimaNueva = document.getElementById('cantidadMinima').value;
+    const cantMinimaNueva = cantidadMinimaInput.value;
+
+    // Validar que los campos no estén vacíos
+    if (nombreProducto.trim() === "" || cantMinimaNueva.trim() === "") {
+        alert("Por favor, completa todos los campos.");
+        return;
+    }
 
     // Buscar el producto por nombre
     fetch('URL_DE_TU_API/productos') //poner la URL para obtener la lista de productos
@@ -50,7 +59,7 @@ btnConfirmarStock.addEventListener("click", function () {
         .then(data => {
             console.log('Stock actualizado exitosamente:', data);
             modalConfirmacion.style.display = 'none'; // Ocultar modal después de la actualización
+            cantidadMinimaInput.disabled = true; // Deshabilitar el input después de la actualización
         })
         .catch(error => console.error('Error:', error));
 });
-
