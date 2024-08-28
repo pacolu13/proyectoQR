@@ -3,15 +3,19 @@ const btnConfirmarStock = document.getElementById("confirmarStock");
 const modalConfirmacion = document.getElementById('modalActualizarStock');
 const btnCancelar = document.getElementById("btnCancelar");
 const cantidadMinimaInput = document.getElementById('cantidadMinima');
+const nombreProductoInput = document.getElementById("nombreProducto");
 
 btnActualizarStock.addEventListener("click", function () {
     modalConfirmacion.style.display = 'block';
     cantidadMinimaInput.disabled = false; // Habilitar el input cuando se muestra el modal
+    nombreProductoInput.disabled = false;
 });
 
 btnCancelar.addEventListener("click", function () {
     modalConfirmacion.style.display = "none";
     cantidadMinimaInput.disabled = true; // Deshabilitar el input cuando se oculta el modal
+    nombreProductoInput.disabled = true;
+
 });
 
 btnConfirmarStock.addEventListener("click", function () {

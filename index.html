@@ -77,7 +77,13 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <!--Solapa Principal-->
-                <button id="btnActualizarStock">actualizar Stock</button>
+
+                <div id="modalConfiguration" class="modal">
+                    <div class="modal-content">
+                        <button id="btnActualizarStock">actualizar Stock</button>
+                        <button id="btnCancelar-actualizacion" class="btn-close">Cerrar</button>
+                    </div>
+                </div>
 
                 <div id="modalActualizarStock" class="modal">
                     <div class="modal-content">
@@ -146,6 +152,7 @@
     <script src="js/cargas/cargarVentas.js"></script>
     <script src="js/cargas/cargarCompras.js"></script>
     <script src="js/Requests/añadirProductos.js"></script>
+    <script src="js/Requests/actualizarProducto.js"></script>
     <script src="js/Requests/actualizarStock.js"></script>
     <script src="js/Requests/eliminarProducto.js"></script>
     <script src="js/Scanner/mostrarScanner.js"></script>

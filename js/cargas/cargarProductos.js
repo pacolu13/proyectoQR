@@ -1,6 +1,5 @@
 const apiUrl = 'https://go-postgresql-restapi-tswy.onrender.com/productos';
 
-// Leer el archivo JSON usando fetch
 fetch(apiUrl)
     .then(response => response.json()) // Parsear el JSON
     .then(data => loadProducts(data)) // Pasar los datos al método de muestra
@@ -26,8 +25,8 @@ function createProduct(producto) {
       <div>Stock Minimo: ${producto.StockMinimo}</div>
     </div>
     <div class="button-trash">
-        <a href="#" onclick="eliminarProducto(${producto.CodigoUnico})"><i class="fa-solid fa-trash"></i></a>
-        <a href="#" onclick="actualizarProducto(${producto.CodigoUnico})"><i class="fa-solid fa-gear"></i></a>
+        <a href="#" onclick="eliminarProducto(${producto.ID})"><i class="fa-solid fa-trash"></i></a>
+        <a href="#" onclick="actualizarProducto(${producto.ID})"><i class="fa-solid fa-gear"></i></a>
     </div>
     </li>`;
     return template;
