@@ -23,10 +23,11 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            output.textContent = `Código QR detectado: ${code.data}`;
             if (!yaPaso) {
                 info = JSON.parse(code.data); // Parseo a JSON
                 loadProductsGreen(info);
+                añadirProducto();
+                document.getElementById('container').style.display = 'none';
                 yaPaso = true;
             }
         } else {
