@@ -1,4 +1,7 @@
 function añadirProducto() {
+
+    document.getElementById('container').style.display = 'block';
+
     iniciarEscaneo();
     
     fetch(apiUrl, {
@@ -6,7 +9,7 @@ function añadirProducto() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(postData) // Convertir los datos en una cadena JSON
+        body: JSON.stringify(info) // Convertir los datos en una cadena JSON
     })
         .then(response => {
             if (!response.ok) {
