@@ -9,7 +9,7 @@ function añadirProducto() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(info) // Convertir los datos en una cadena JSON
+        body: info // Convertir los datos en una cadena JSON
     })
         .then(response => {
             if (!response.ok) {

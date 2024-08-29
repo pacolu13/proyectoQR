@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/pestañaEmergente.css">
     <link rel="stylesheet" href="css/ventas.css">
     <link rel="stylesheet" href="css/compras.css">
-    <link rel="stylesheet" href="css/filtros.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -85,6 +84,9 @@
                     </div>
                 </div>
 
+                <ul class="filtros-prueba">
+                </ul>
+
                 <div id="modalActualizarStock" class="modal">
                     <div class="modal-content">
                         <form id="formActualizarStock">
@@ -148,15 +150,22 @@
         crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/b97dc99dd0.js" crossorigin="anonymous"></script>
+
+    <script src="js/cargas/filtrar.js"></script>
+
     <script src="js/cargas/cargarProductos.js"></script>
     <script src="js/cargas/cargarVentas.js"></script>
     <script src="js/cargas/cargarCompras.js"></script>
+    <script src="js/cargas/cargarFiltros.js"></script>
+
     <script src="js/Requests/añadirProductos.js"></script>
     <script src="js/Requests/actualizarProducto.js"></script>
     <script src="js/Requests/actualizarStock.js"></script>
     <script src="js/Requests/eliminarProducto.js"></script>
+
     <script src="js/Scanner/scannerQR.js"></script>
     <script src="js/sidebar.js"></script>
+
 </body>
 
 </html>

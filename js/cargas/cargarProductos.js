@@ -1,12 +1,6 @@
-const apiUrl = 'https://go-postgresql-restapi-tswy.onrender.com/productos';
-
-fetch(apiUrl)
-    .then(response => response.json()) // Parsear el JSON
-    .then(data => loadProducts(data)) // Pasar los datos al método de muestra
-    .catch(error => console.error('Error al leer el archivo JSON:', error));
-
-function loadProducts(listaProductos) {
+function cargarProductos(listaProductos) {
     const container = document.querySelector('.lista-productos');
+    container.innerHTML = "";
     listaProductos.forEach(element => {
         let card = document.createElement('li');
         card.innerHTML = createProduct(element);
@@ -18,16 +12,13 @@ function loadProducts(listaProductos) {
 function createProduct(producto) {
 
     let template = `
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">${producto.Nombre} - ${producto.Tipo} </div>
-      Stock: ${producto.StockDisponible}
-      <div>Stock Minimo: ${producto.StockMinimo}</div>
-    </div>
-    <div class="button-trash">
+    <li class="producto">
+        <div class="nombre-producto">${producto.Nombre} - ${producto.Tipo} - ${producto.Marca}</div>
+        <div class="stock-producto">${producto.StockDisponible} - ${producto.StockMinimo}</div>
+        <div class="button-trash">
         <a href="#" onclick="eliminarProducto(${producto.ID})"><i class="fa-solid fa-trash"></i></a>
         <a href="#" onclick="actualizarProducto(${producto.ID})"><i class="fa-solid fa-gear"></i></a>
-    </div>
+        </div>
     </li>`;
     return template;
 }
