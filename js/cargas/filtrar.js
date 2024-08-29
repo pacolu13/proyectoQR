@@ -1,8 +1,8 @@
 const apiUrl = 'https://go-postgresql-restapi-tswy.onrender.com/productos';
 
-let productosJson = [];
+let productosJson = []; //Lugar donde voy a añadir los productos que me traiga la API
 
-fetch('JSON/prueba.JSON')
+fetch(apiUrl)   // Reemplazar por URL de la API
     .then(response => response.json())
     .then(data => {
         productosJson = data;
@@ -10,20 +10,30 @@ fetch('JSON/prueba.JSON')
     })
     .catch(error => console.error('Error al cargar productos:', error));
 
-const checkboxesTipo = document.querySelectorAll('input[name="Tipo"]');
 
-checkboxesTipo.forEach(element => {
-    element.addEventListener("change", filtrar);
-});
+function añadirFiltros() {  //Funcion que se llama dentro de cargarFiltros.js a medida que se CREAN los filtros
 
+    const checkboxesTipo = document.querySelectorAll('input[name="Tipo"]');
 
-function filtrar() {
-    console.log("Hola")    
-    const productosFiltrados = productosJson.filter(producto => {
-        return Array.from(checkboxesTipo).some(checkbox => checkbox.checked && checkbox.value === producto.Tipo);
+    checkboxesTipo.forEach(element => {
+        element.addEventListener("change", function () {
+            const algunCheckboxMarcado = Array.from(checkboxesTipo).some(checkbox => checkbox.checked);
+
+            // Si no hay ningún checkbox marcado, mostrar todos los productos
+            if (!algunCheckboxMarcado) {
+                cargarProductos(productosJson);
+                return;
+            }
+
+            // Si hay checkboxes marcados, filtrar los productos
+            const productosFiltrados = productosJson.filter(producto => {
+                return Array.from(checkboxesTipo).some(checkbox => checkbox.checked && checkbox.value === producto.Tipo);
+            });
+
+            cargarProductos(productosFiltrados);
+        });
     });
 
-    cargarProductos(productosFiltrados);
 }
 
 
