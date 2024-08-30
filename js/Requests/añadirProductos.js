@@ -1,7 +1,4 @@
 function añadirProducto() {
-
-    iniciarEscaneo();
-
     const response = fetch(urlProductos, {
         method: 'POST',
         headers: {
