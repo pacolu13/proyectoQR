@@ -16,13 +16,6 @@ function cargarCompras(listaCompras) {
 }
 
 function crearCompra(compra) {
-    let color = "";
-    if(compra.fueRealizada){
-        color = "";
-    }
-    else{
-        color = "";
-    }
     let template = `
     <li class="list-group-item d-flex justify-content-between align-items-start">
     <div class="ms-2 me-auto">

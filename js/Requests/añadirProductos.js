@@ -1,42 +1,38 @@
-const productosPrueba = [
+const productoPrueba = [
     {
-        "ID": "e15",
-        "Nombre": "Detergente",
-        "Tipo": "Domestico",
-        "Marca": "Ariel",
-        "StockDisponible": 1600,
-        "StockMinimo": 501
+        "CodigoUnico": "e19",
+        "Nombre": "Gaseosa",
+        "Tipo": "Bebida",
+        "Marca": "Pepsi",
+        "StockDisponible": 176,
+        "StockMinimo": 152
     },
     {
-        "ID": "e15",
-        "Nombre": "Montitor",
-        "Tipo": "Electrodomestico",
-        "Marca": "LG",
-        "StockDisponible": 25,
-        "StockMinimo": 5
-    }
+        "CodigoUnico": "e20",
+        "Nombre": "Gaseosa",
+        "Tipo": "Bebida",
+        "Marca": "Fanta",
+        "StockDisponible": 196,
+        "StockMinimo": 195
+    },
 ];
 
 function añadirProducto() {
-
-    productosPrueba.forEach(producto => {
-
-        fetch('https://go-postgresql-restapi-tswy.onrender.com/productos', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(producto) // Convertir el producto a una cadena JSON
-        })
+    fetch(urlProductos, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(productoPrueba) // Convertir el producto a una cadena JSON
+    })
         .then(response => {
             if (!response.ok) {
                 throw new Error('Error al crear el producto: ' + response.statusText);
             }
-            return response; // Parsear la respuesta JSON si es necesario
         })
         .then(data => {
+            //¿Mostrar pestañita emergente y recargar pagina?
             console.log('Producto creado exitosamente:', data);
         })
         .catch(error => console.error('Error:', error));
-    });
 }

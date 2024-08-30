@@ -4,7 +4,7 @@ fetch(urlProductos)
     .catch(error => console.error('Error al leer el archivo JSON:', error));
 
 function cargarFiltros(listaProductos) {
-    const container = document.querySelector('.filtros-prueba'); //Es un fieldset
+    const container = document.querySelector('.filtros-Tipo'); //Es un fieldset
     listaProductos.forEach(element => {
         let card = document.createElement('label');
         card.innerHTML = crearFiltro(element);

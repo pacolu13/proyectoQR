@@ -25,13 +25,11 @@ function scanQRCode() {
         if (code) {
             if (!yaPaso) {
                 info = JSON.parse(code.data); // Parseo a JSON
-                loadProductsGreen(info);
+                cargarProductosQR(info);
                 añadirProducto();
                 document.getElementById('container').style.display = 'none';
                 yaPaso = true;
             }
-        } else {
-            output.textContent = "No se detectó ningún código QR.";
         }
     }
     requestAnimationFrame(scanQRCode);

@@ -3,13 +3,13 @@ function cargarProductos(listaProductos) {
     container.innerHTML = "";
     listaProductos.forEach(element => {
         let card = document.createElement('li');
-        card.innerHTML = createProduct(element);
+        card.innerHTML = crearProducto(element);
 
         container.appendChild(card);
     });
 }
 
-function createProduct(producto) {
+function crearProducto(producto) {
 
     let template = `
     <li class="producto" id="${producto.ID}">
@@ -24,25 +24,27 @@ function createProduct(producto) {
     return template;
 }
 
-function loadProductsGreen(listaProductos) {
+function cargarProductosQR(listaProductos) {
     const container = document.querySelector('.productos-qr');
     listaProductos.forEach(element => {
         let card = document.createElement('li');
-        card.innerHTML = createProductGreen(element);
+        card.innerHTML = crearProductosQR(element);
 
         container.appendChild(card);
     });
 }
 
-function createProductGreen(producto) {
+function crearProductosQR(producto) {
 
     let template = `
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">${producto.Nombre}</div>
-      ${producto.Tipo}
-    </div>
-    <span class="badge bg-success rounded-pill">${producto.Cantidad}</span>
+    <li class="producto-qr" id="${producto.ID}">
+        <div class="nombre-producto">${producto.Nombre} - ${producto.Tipo} - ${producto.Marca}</div>
+        <div class="stock-Disponible">Stock Disponible: ${producto.StockDisponible}</div>
+        <div class="stock-productoMinimo">Stock Minimo: ${producto.StockMinimo}</div>
+        <div class="button-trash">
+        <a href="#" onclick="eliminarProducto(${producto.ID})"><i class="fa-solid fa-trash"></i></a>
+        <a href="#" onclick="actualizarProducto(${producto.ID})"><i class="fa-solid fa-gear"></i></a>
+        </div>
     </li>`;
     return template;
 }
