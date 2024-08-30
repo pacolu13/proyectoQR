@@ -7,20 +7,16 @@ let Productos = ""; // Corregido a "let" para poder reasignar valor
 function iniciarEscaneo() {
     document.getElementById('container').style.display = 'block';
 
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-    .then(function (stream) {
+    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
         video.srcObject = stream;
         video.setAttribute("playsinline", true); // necesario para que funcione en iOS
         video.play();
         requestAnimationFrame(scanQRCode);
-    })
-    .catch(function (err) {
-        console.error('Error al acceder a la cámara: ', err);
-        closeSesion();
     });
 }
 
 function scanQRCode() {
+
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
         canvasElement.height = video.videoHeight;
         canvasElement.width = video.videoWidth;
@@ -32,15 +28,10 @@ function scanQRCode() {
             output.textContent = `Código QR detectado: ${code.data}`;
             Productos = code.data; // Asigna el valor escaneado a "Productos"
             cargarProductosQR(Productos);
-            añadirProducto()
-                .then(() => {
-                    document.getElementById('container').style.display = 'none';
-                    // Detener el video y el escaneo
-                    video.srcObject.getTracks().forEach(track => track.stop());
-                })
-                .catch(error => console.error('Error al añadir producto: ', error));
+            añadirProducto();
+
         } else {
-            output.textContent = `Código QR no detectado`;
+            output.textContent = "No se detectó ningún código QR.";
         }
     }
     requestAnimationFrame(scanQRCode);
@@ -54,12 +45,12 @@ function closeSesion() {
     }
 }
 
-async function añadirProducto() {
+function añadirProducto() {
 
     document.getElementById('container').style.display = 'none';
-    
+
     try {
-        const response = await fetch(urlProductos, {
+        const response = fetch(urlProductos, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -71,7 +62,7 @@ async function añadirProducto() {
             throw new Error('Error al crear el producto: ' + response.statusText);
         }
 
-        const data = await response.json();
+        const data = response.json();
         // Mostrar una notificación o hacer cualquier otra acción después de la creación exitosa
         console.log('Producto creado exitosamente:', data);
     } catch (error) {
