@@ -55,6 +55,9 @@ function closeSesion() {
 }
 
 async function añadirProducto() {
+
+    document.getElementById('container').style.display = 'none';
+    
     try {
         const response = await fetch(urlProductos, {
             method: 'POST',
