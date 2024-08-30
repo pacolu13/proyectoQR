@@ -16,8 +16,6 @@ function iniciarEscaneo() {
         video.play();
         requestAnimationFrame(scanQRCode);
     });
-
-    return true;
 }
 
 function scanQRCode() {
