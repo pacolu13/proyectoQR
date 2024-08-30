@@ -29,20 +29,17 @@ function scanQRCode() {
         if (code) {
             output.textContent = `Código QR detectado: ${code.data}`;
 
-            if (!yaPaso) {
-                Productos = JSON.parse(code.data); // Parseo a JSON
-                cargarProductosQR(Productos);
-                añadirProducto();
+            Productos = JSON.parse(code.data); // Parseo a JSON
+            cargarProductosQR(Productos);
+            añadirProducto();
 
-                document.getElementById('container').style.display = 'none';
-                yaPaso = true;
+            document.getElementById('container').style.display = 'none';
+            yaPaso = true;
 
-                // Detener el video y el escaneo
-                video.srcObject.getTracks().forEach(track => track.stop());
-            }
-        }else{
+            // Detener el video y el escaneo
+            video.srcObject.getTracks().forEach(track => track.stop());
+        } else {
             output.textContent = `Código QR no detectado`;
-
         }
     }
     requestAnimationFrame(scanQRCode);
