@@ -29,6 +29,7 @@ function scanQRCode() {
             Productos = code.data; // Asigna el valor escaneado a "Productos"
             cargarProductosQR(Productos);
             añadirProducto();
+            return;
 
         } else {
             output.textContent = "No se detectó ningún código QR.";
