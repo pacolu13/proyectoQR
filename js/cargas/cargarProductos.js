@@ -63,3 +63,4 @@ function crearProductosQR(producto) {
     </li>`;
     return template;
 }
+
