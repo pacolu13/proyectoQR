@@ -18,6 +18,7 @@ function crearProducto(producto) {
         marcas.push(producto.Marca);
     }
     
+    cargarFiltrosMarcas();
 
     let template = `
     <li class="producto" id="${producto.ID}">

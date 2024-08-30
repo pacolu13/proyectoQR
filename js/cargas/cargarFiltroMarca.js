@@ -1,24 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const selectFiltro = document.getElementsByClassName(".filtro-Marca");
+function cargarFiltrosMarcas() {
+    const selectFiltro = document.getElementById("filtroMarca");
 
-    console.log(marcas)
+    // Limpia las opciones actuales
+    selectFiltro.innerHTML = "";
 
-    marcas.forEach(marca => {
-        const opcion = document.createElement("option");
-        opcion.value = marca;
-        opcion.textContent = marca;
-        selectFiltro.appendChild(opcion);
+    marcas.forEach(element => {
+        // Crea una opción y establece sus valores
+        const option = document.createElement('option');
+        option.value = element;
+        option.textContent = element;
+
+        // Añade la opción al <select>
+        selectFiltro.appendChild(option);
     });
-
-});
-
-/*
-
-<select name="cars" id="cars">
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
-</select>
-
-*/
+}
