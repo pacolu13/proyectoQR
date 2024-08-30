@@ -13,10 +13,11 @@ fetch(urlProductos)
 
 function añadirFiltros() {
     const checkboxesTipo = document.querySelectorAll('input[name="Tipo"]');
-    const filtroNombre = document.getElementById('filtro-nombre');  // Asegúrate que el id sea correcto
+    const filtroNombre = document.getElementById('filtro-nombre');
 
     function aplicarFiltros() {
         const nombreFiltrado = filtroNombre.value.toLowerCase(); // Convertir a minúsculas para una búsqueda case-insensitive
+        const marcaFiltrada = selectFiltro.value; // Obtener el valor seleccionado del SELECT
         const algunCheckboxMarcado = Array.from(checkboxesTipo).some(checkbox => checkbox.checked);
 
         let productosFiltrados = productosJson;
@@ -35,6 +36,13 @@ function añadirFiltros() {
             });
         }
 
+        // Filtrar por marca si se ha seleccionado alguna opción diferente a 'Ninguno'
+        if (marcaFiltrada && marcaFiltrada !== 'Ninguno') {
+            productosFiltrados = productosFiltrados.filter(producto => {
+                return producto.Marca === marcaFiltrada;
+            });
+        }
+
         // Cargar los productos filtrados
         cargarProductos(productosFiltrados);
     }
@@ -46,6 +54,9 @@ function añadirFiltros() {
 
     // Añadir event listener para el input de nombre
     filtroNombre.addEventListener("input", aplicarFiltros);
+
+    // Añadir event listener para el SELECT de marca
+    selectFiltro.addEventListener("change", aplicarFiltros);
 }
 
 

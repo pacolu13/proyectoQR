@@ -1,5 +1,6 @@
+const selectFiltro = document.getElementById("filtroMarca");
+
 function cargarFiltrosMarcas() {
-    const selectFiltro = document.getElementById("filtroMarca");
 
     // Limpia las opciones actuales
     selectFiltro.innerHTML = "";
