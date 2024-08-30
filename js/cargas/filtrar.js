@@ -12,22 +12,21 @@ fetch(urlProductos)
 
 
 function añadirFiltros() {
-    const checkboxesTipo = document.querySelectorAll('input[name="Tipo"]');
     const filtroNombre = document.getElementById('filtro-nombre');
+    const selectFiltroTipo = document.getElementById("filtroTipo");
+    const selectFiltroMarca = document.getElementById("filtroMarca");
 
+    
     function aplicarFiltros() {
         const nombreFiltrado = filtroNombre.value.toLowerCase(); // Convertir a minúsculas para una búsqueda case-insensitive
-        const marcaFiltrada = selectFiltro.value; // Obtener el valor seleccionado del SELECT
-        const algunCheckboxMarcado = Array.from(checkboxesTipo).some(checkbox => checkbox.checked);
+        const marcaFiltrada = selectFiltroMarca.value; // Obtener el valor seleccionado del SELECT
+        const tipoFiltrada = selectFiltroTipo.value; // Obtener el valor seleccionado del SELECT
+
+        console.log('Nombre:', nombreFiltrado);
+        console.log('Marca:', marcaFiltrada);
+        console.log('Tipo:', tipoFiltrada);
 
         let productosFiltrados = productosJson;
-
-        // Filtrar por tipo si algún checkbox está marcado
-        if (algunCheckboxMarcado) {
-            productosFiltrados = productosFiltrados.filter(producto => {
-                return Array.from(checkboxesTipo).some(checkbox => checkbox.checked && checkbox.value === producto.Tipo);
-            });
-        }
 
         // Filtrar por nombre si el input no está vacío
         if (nombreFiltrado) {
@@ -43,20 +42,25 @@ function añadirFiltros() {
             });
         }
 
-        // Cargar los productos filtrados
+        // Filtrar por tipo si se ha seleccionado alguna opción diferente a 'Ninguno'
+        if (tipoFiltrada && tipoFiltrada !== 'Ninguno') {
+            productosFiltrados = productosFiltrados.filter(producto => {
+                return producto.Tipo === tipoFiltrada;
+            });
+        }
+
+        console.log('Productos filtrados:', productosFiltrados);
+
         cargarProductos(productosFiltrados);
     }
-
-    // Añadir event listeners para los checkboxes
-    checkboxesTipo.forEach(element => {
-        element.addEventListener("change", aplicarFiltros);
-    });
 
     // Añadir event listener para el input de nombre
     filtroNombre.addEventListener("input", aplicarFiltros);
 
     // Añadir event listener para el SELECT de marca
-    selectFiltro.addEventListener("change", aplicarFiltros);
+    selectFiltroTipo.addEventListener("change", aplicarFiltros);
+
+    selectFiltroMarca.addEventListener("change", aplicarFiltros);
 }
 
 

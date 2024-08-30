@@ -1,23 +1,23 @@
-let selectFiltroMarca = document.getElementById("filtroMarca");
+let selectFiltroTipo = document.getElementById("filtroTipo");
 
-function cargarFiltrosMarca() {
+function cargarFiltrosTipo() {
 
     // Limpia las opciones actuales
-    selectFiltroMarca.innerHTML = "";
+    selectFiltroTipo.innerHTML = "";
 
     // Añade la opción "Ninguno" al principio
     const opcionNinguno = document.createElement('option');
     opcionNinguno.value = "";
-    opcionNinguno.textContent = "Marca";
-    selectFiltroMarca.appendChild(opcionNinguno);
+    opcionNinguno.textContent = "Tipo";
+    selectFiltroTipo.appendChild(opcionNinguno);
 
-    marcas.forEach(element => {
+    tipos.forEach(element => {
         // Crea una opción y establece sus valores
         const option = document.createElement('option');
         option.value = element;
         option.textContent = element;
 
         // Añade la opción al <select>
-        selectFiltroMarca.appendChild(option);
+        selectFiltroTipo.appendChild(option);
     });
 }

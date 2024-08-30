@@ -10,15 +10,21 @@ function cargarProductos(listaProductos) {
 }
 
 const marcas = [];
+const tipos = [];
 
 
 function crearProducto(producto) {
 
-    if(!marcas.includes(producto.Marca)){
+    if (!marcas.includes(producto.Marca)) {
         marcas.push(producto.Marca);
     }
-    
-    cargarFiltrosMarcas();
+
+    if (!tipos.includes(producto.Tipo)) {
+        tipos.push(producto.Tipo);
+    }
+
+    cargarFiltrosMarca();
+    cargarFiltrosTipo();
 
     let template = `
     <li class="producto" id="${producto.ID}">
