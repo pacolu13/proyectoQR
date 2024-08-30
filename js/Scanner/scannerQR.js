@@ -25,7 +25,7 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            output.textContent = `Código QR detectado: ${code.data}`;
+            //AÑADIR ALGO EMERGENTE DE QUE SE AÑADIO EL PRODUCTO
             Productos = JSON.parse(code.data); // Parsear el JSON a un objeto
             cargarProductosQR(Productos);
             añadirProducto();

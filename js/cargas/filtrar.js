@@ -11,28 +11,42 @@ fetch(urlProductos)
     .catch(error => console.error('Error al cargar productos:', error));
 
 
-function añadirFiltros() {  // Funcion que se llama dentro de cargarFiltros.js a medida que se CREAN los filtros
-
+function añadirFiltros() {
     const checkboxesTipo = document.querySelectorAll('input[name="Tipo"]');
+    const filtroNombre = document.getElementById('filtro-nombre');  // Asegúrate que el id sea correcto
 
-    checkboxesTipo.forEach(element => {
-        element.addEventListener("change", function () {
-            const algunCheckboxMarcado = Array.from(checkboxesTipo).some(checkbox => checkbox.checked);
+    function aplicarFiltros() {
+        const nombreFiltrado = filtroNombre.value.toLowerCase(); // Convertir a minúsculas para una búsqueda case-insensitive
+        const algunCheckboxMarcado = Array.from(checkboxesTipo).some(checkbox => checkbox.checked);
 
-            // Si no hay ningún checkbox marcado, mostrar todos los productos
-            if (!algunCheckboxMarcado) {
-                cargarProductos(productosJson);
-                return;
-            }
+        let productosFiltrados = productosJson;
 
-            // Si hay checkboxes marcados, filtrar los productos
-            const productosFiltrados = productosJson.filter(producto => {
+        // Filtrar por tipo si algún checkbox está marcado
+        if (algunCheckboxMarcado) {
+            productosFiltrados = productosFiltrados.filter(producto => {
                 return Array.from(checkboxesTipo).some(checkbox => checkbox.checked && checkbox.value === producto.Tipo);
             });
+        }
 
-            cargarProductos(productosFiltrados);
-        });
+        // Filtrar por nombre si el input no está vacío
+        if (nombreFiltrado) {
+            productosFiltrados = productosFiltrados.filter(producto => {
+                return producto.Nombre.toLowerCase().includes(nombreFiltrado);
+            });
+        }
+
+        // Cargar los productos filtrados
+        cargarProductos(productosFiltrados);
+    }
+
+    // Añadir event listeners para los checkboxes
+    checkboxesTipo.forEach(element => {
+        element.addEventListener("change", aplicarFiltros);
     });
+
+    // Añadir event listener para el input de nombre
+    filtroNombre.addEventListener("input", aplicarFiltros);
 }
+
 
 

@@ -7,15 +7,15 @@ function cargarFiltros(listaProductos) {
     const container = document.querySelector('.filtros-Tipo'); //Es un fieldset
     listaProductos.forEach(element => {
         let card = document.createElement('label');
-        card.innerHTML = crearFiltro(element);
+        card.innerHTML = crearFiltroTipo(element);
 
         container.appendChild(card);
     });
 }
 
-const TipoFiltros = [];
+const TipoFiltros = []; 
 
-function crearFiltro(producto) {
+function crearFiltroTipo(producto) {
     let template = '';
 
     if (!TipoFiltros.includes(producto.Tipo)) {
@@ -29,3 +29,5 @@ function crearFiltro(producto) {
 
     return template;
 }
+
+

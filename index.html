@@ -86,9 +86,20 @@
                     </div>
                 </div>
 
-                <ul class="filtros-Tipo">
-                    <!--Filtros generados-->
-                </ul>
+                <div class="filtros">
+                    <label for="filtro-nombre">Nombre:</label>
+                    <input type="text" id="filtro-nombre" name="filtroNombre" placeholder="Ingrese un nombre" required>
+
+                    <div class="filtro-marca">
+                        <select id="filtro-Marca">
+                            <!-- Las opciones se generarán aquí -->
+                        </select>
+                    </div>
+
+                    <ul class="filtros-Tipo">
+                        <!--Filtros generados-->
+                    </ul>
+                </div>
 
                 <div id="modalActualizarStock" class="modal">
                     <div class="modal-content">
@@ -156,6 +167,7 @@
     <script src="js/cargas/cargarVentas.js"></script>
     <script src="js/cargas/cargarCompras.js"></script>
     <script src="js/cargas/cargarFiltros.js"></script>
+    <script src="js/cargas/cargarFiltroMarca.js"></script>
 
     <script src="js/Requests/actualizarProducto.js"></script>
     <script src="js/Requests/eliminarProducto.js"></script>

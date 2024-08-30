@@ -9,7 +9,15 @@ function cargarProductos(listaProductos) {
     });
 }
 
+const marcas = [];
+
+
 function crearProducto(producto) {
+
+    if(!marcas.includes(producto.Marca)){
+        marcas.push(producto.Marca);
+    }
+    
 
     let template = `
     <li class="producto" id="${producto.ID}">
