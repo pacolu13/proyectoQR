@@ -26,12 +26,10 @@ function scanQRCode() {
 
         if (code) {
             output.textContent = `Código QR detectado: ${code.data}`;
-            closeSesion();
             Productos = code.data; // Asigna el valor escaneado a "Productos"
             cargarProductosQR(Productos);
             añadirProducto();
-            return;
-
+            closeSesion();
         } else {
             output.textContent = "No se detectó ningún código QR.";
         }
