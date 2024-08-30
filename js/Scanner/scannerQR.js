@@ -26,7 +26,7 @@ function scanQRCode() {
 
         if (code) {
             output.textContent = `Código QR detectado: ${code.data}`;
-            Productos = code.data; // Asigna el valor escaneado a "Productos"
+            Productos = JSON.parse(code.data); // Parsear el JSON a un objeto
             cargarProductosQR(Productos);
             añadirProducto();
             closeSesion();
