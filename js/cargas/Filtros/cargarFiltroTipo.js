@@ -1,4 +1,4 @@
-let selectFiltroTipo = document.getElementById("filtroTipo");
+const selectFiltroTipo = document.getElementById("filtroTipo");
 
 function cargarFiltrosTipo() {
 

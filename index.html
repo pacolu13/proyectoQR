@@ -7,6 +7,7 @@
     <title>Escáner de QR</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/pestañaEmergente.css">
+    <link rel="stylesheet" href="css/filtros.css">
     <link rel="stylesheet" href="css/ventas.css">
     <link rel="stylesheet" href="css/compras.css">
     <link rel="stylesheet" href="css/sidebar.css">
@@ -76,7 +77,6 @@
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                 <!--Solapa Principal-->
-                <button id="añadirProductos" onclick="iniciarEscaneo()">Añadir producto</button>
 
                 <!--Actualizar el stock-->
                 <div id="modalConfiguration" class="modal">
@@ -87,18 +87,25 @@
                 </div>
 
                 <div class="filtros">
-                    <label for="filtro-nombre">Nombre:</label>
-                    <input type="text" id="filtro-nombre" name="filtroNombre" placeholder="Ingrese un nombre" required>
+                    <div class="filtro-input">
+                        <input type="text" id="filtro-nombre" name="filtroNombre" placeholder="Buscar un producto..."
+                            required>
+                        <button id="añadirProductos" onclick="iniciarEscaneo()">Añadir producto</button>
+                    </div>
 
-                    <select id="filtroMarca">
-                        <!-- Las opciones se generarán aquí -->
-                    </select>
+                    <div class="filtro-select">
+                        <select id="filtroMarca">
+                            <!-- Las opciones se generarán aquí -->
+                        </select>
+    
+                        <select id="filtroTipo">
+                            <!-- Las opciones se generarán aquí -->
+                        </select>
+                        <button onclick="añadirFiltros()">Filtrar</button>
+                    </div>
 
-                    <select id="filtroTipo">
-                        <!-- Las opciones se generarán aquí -->
-                    </select>
                 </div>
-
+                
                 <div id="modalActualizarStock" class="modal">
                     <div class="modal-content">
                         <form id="formActualizarStock">
@@ -168,7 +175,6 @@
     <script src="js/cargas/Filtros/cargarFiltroMarca.js"></script>
 
     <script src="js/cargas/Filtros/añadirFiltros.js"></script>
-    <script src="js/cargas/Filtros/filtrar.js"></script>
 
     <script src="js/Requests/actualizarProducto.js"></script>
     <script src="js/Requests/eliminarProducto.js"></script>

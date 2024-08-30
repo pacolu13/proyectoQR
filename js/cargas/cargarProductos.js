@@ -25,7 +25,7 @@ function crearProducto(producto) {
 
     cargarFiltrosMarca();
     cargarFiltrosTipo();
-
+    
     let template = `
     <li class="producto" id="${producto.ID}">
         <div class="nombre-producto">${producto.Nombre} - ${producto.Tipo} - ${producto.Marca}</div>

@@ -1,0 +1,12 @@
+.filtros{
+    display: flex;
+    flex-direction: column;
+}
+.filtro-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.filtro-select{
+    display: flex;
+}

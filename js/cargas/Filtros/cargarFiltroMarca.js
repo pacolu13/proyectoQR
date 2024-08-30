@@ -1,4 +1,4 @@
-let selectFiltroMarca = document.getElementById("filtroMarca");
+const selectFiltroMarca = document.getElementById("filtroMarca");
 
 function cargarFiltrosMarca() {
 
