@@ -10,7 +10,7 @@ function eliminarProducto(productoID) {
     // Acciones para el botón "Sí"
     btnSi.onclick = function () {
         modalConfirmacion.style.display = 'none';
-        const urlEliminarProducto = `${apiUrl}/${productoID}`;
+        const urlEliminarProducto = `${urlProductos}/${productoID}`;
 
         fetch(urlEliminarProducto, {
             method: 'DELETE',
@@ -22,7 +22,6 @@ function eliminarProducto(productoID) {
                 if (!response.ok) {
                     throw new Error('Error en la eliminación del producto: ' + response.statusText);
                 }
-                return response.json();
             })
             .then(data => {
                 // Mostrar el modal de notificación con mensaje de éxito
@@ -30,7 +29,7 @@ function eliminarProducto(productoID) {
             })
             .catch(error => {
                 // Mostrar el modal de notificación con mensaje de error
-                mostrarNotificacion('Error al eliminar el producto: ' + error.message);
+                mostrarNotificacion('Error al eliminar el producto.');
             });
     };
 
@@ -43,7 +42,7 @@ function eliminarProducto(productoID) {
 function mostrarNotificacion(mensaje) {
     const modalNotificacion = document.getElementById('modalNotificacion');
     const mensajeNotificacion = document.getElementById('mensajeNotificacion');
-    
+
     mensajeNotificacion.textContent = mensaje;
     modalNotificacion.style.display = 'block';
 
@@ -55,10 +54,10 @@ function mostrarNotificacion(mensaje) {
 }
 
 // Cerrar modales si el usuario hace clic fuera de ellos
-window.onclick = function(event) {
+window.onclick = function (event) {
     const modalConfirmacion = document.getElementById('modalConfirmacion');
     const modalNotificacion = document.getElementById('modalNotificacion');
-    
+
     if (event.target === modalConfirmacion) {
         modalConfirmacion.style.display = 'none';
     } else if (event.target === modalNotificacion) {

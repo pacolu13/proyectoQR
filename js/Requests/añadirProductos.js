@@ -1,38 +1,29 @@
-const productoPrueba = [
-    {
-        "CodigoUnico": "e19",
-        "Nombre": "Gaseosa",
-        "Tipo": "Bebida",
-        "Marca": "Pepsi",
-        "StockDisponible": 176,
-        "StockMinimo": 152
-    },
-    {
-        "CodigoUnico": "e20",
-        "Nombre": "Gaseosa",
-        "Tipo": "Bebida",
-        "Marca": "Fanta",
-        "StockDisponible": 196,
-        "StockMinimo": 195
-    },
-];
+async function añadirProducto() {
+    document.getElementById('container').style.display = 'block';
 
-function añadirProducto() {
-    fetch(urlProductos, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(productoPrueba) // Convertir el producto a una cadena JSON
-    })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Error al crear el producto: ' + response.statusText);
-            }
-        })
-        .then(data => {
-            //¿Mostrar pestañita emergente y recargar pagina?
-            console.log('Producto creado exitosamente:', data);
-        })
-        .catch(error => console.error('Error:', error));
+    try {
+        // Esperar a que el escaneo se complete
+        await iniciarEscaneo();
+
+        // Luego de que el escaneo termine, hacer la solicitud fetch
+        const response = await fetch(urlProductos, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Productos) // Convertir el producto a una cadena JSON
+        });
+
+        if (!response.ok) {
+            throw new Error('Error al crear el producto: ' + response.statusText);
+        }
+
+        const data = await response.json();
+        // Mostrar una notificación o hacer cualquier otra acción después de la creación exitosa
+        console.log('Producto creado exitosamente:', data);
+    } catch (error) {
+        console.error('Error:', error);
+    }
 }
+
+

@@ -27,7 +27,7 @@ function actualizarProducto(productoID) {
 }
 
 btnConfirmarStock.addEventListener("click", function () {
-    // Asegúrate de que urlActualizarProducto sea correcta
+
     let urlActualizarProducto = `${urlProductos}/${idProducto}`;
     fetch(urlActualizarProducto, {
         method: 'PUT',

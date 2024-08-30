@@ -2,15 +2,19 @@ const video = document.getElementById('video');
 const canvasElement = document.getElementById('canvas');
 const canvas = canvasElement.getContext('2d');
 const output = document.getElementById('output');
-let info = "";
+const Productos = "";
 let yaPaso = false;
 
+
 function iniciarEscaneo() {
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
-        video.srcObject = stream;
-        video.setAttribute("playsinline", true); // necesario para que funcione en iOS
-        video.play();
-        requestAnimationFrame(scanQRCode);
+    return new Promise((resolve, reject) => {
+
+        navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
+            video.srcObject = stream;
+            video.setAttribute("playsinline", true); // necesario para que funcione en iOS
+            video.play();
+            requestAnimationFrame(scanQRCode);
+        });
     });
 }
 
@@ -24,13 +28,20 @@ function scanQRCode() {
 
         if (code) {
             if (!yaPaso) {
-                info = JSON.parse(code.data); // Parseo a JSON
-                cargarProductosQR(info);
+                Productos = JSON.parse(code.data); // Parseo a JSON
+                cargarProductosQR(Productos);
                 añadirProducto();
+
                 document.getElementById('container').style.display = 'none';
                 yaPaso = true;
             }
         }
     }
     requestAnimationFrame(scanQRCode);
+}
+
+function closeSesion() {
+
+    document.getElementById('container').style.display = 'none';
+
 }
