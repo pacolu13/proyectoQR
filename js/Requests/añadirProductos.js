@@ -1,12 +1,7 @@
-async function añadirProducto() {
-    document.getElementById('container').style.display = 'block';
+function añadirProducto() {
 
-    try {
-        // Esperar a que el escaneo se complete
-        await iniciarEscaneo();
-
-        // Luego de que el escaneo termine, hacer la solicitud fetch
-        const response = await fetch(urlProductos, {
+    if (iniciarEscaneo()) {
+        const response = fetch(urlProductos, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -18,11 +13,9 @@ async function añadirProducto() {
             throw new Error('Error al crear el producto: ' + response.statusText);
         }
 
-        const data = await response.json();
+        const data = response.json();
         // Mostrar una notificación o hacer cualquier otra acción después de la creación exitosa
         console.log('Producto creado exitosamente:', data);
-    } catch (error) {
-        console.error('Error:', error);
     }
 }
 
