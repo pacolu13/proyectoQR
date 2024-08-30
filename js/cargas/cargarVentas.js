@@ -1,6 +1,6 @@
-//Modificar URL de la API
+const urlVentas = 'https://go-postgresql-restapi-tswy.onrender.com/ventas';
 
-fetch('JSON/ventas.JSON')
+fetch(urlVentas)
     .then(response => response.json()) // Parsear el JSON
     .then(data => cargarVentas(data)) // Pasar los datos al método de muestra
     .catch(error => console.error('Error al leer el archivo JSON:', error));

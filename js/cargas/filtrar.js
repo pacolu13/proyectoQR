@@ -1,8 +1,8 @@
-const apiUrl = 'https://go-postgresql-restapi-tswy.onrender.com/productos';
+const urlProductos = 'https://go-postgresql-restapi-tswy.onrender.com/productos';
 
 let productosJson = []; //Lugar donde voy a añadir los productos que me traiga la API
 
-fetch(apiUrl)   // Reemplazar por URL de la API
+fetch(urlProductos)
     .then(response => response.json())
     .then(data => {
         productosJson = data;
@@ -11,7 +11,7 @@ fetch(apiUrl)   // Reemplazar por URL de la API
     .catch(error => console.error('Error al cargar productos:', error));
 
 
-function añadirFiltros() {  //Funcion que se llama dentro de cargarFiltros.js a medida que se CREAN los filtros
+function añadirFiltros() {  // Funcion que se llama dentro de cargarFiltros.js a medida que se CREAN los filtros
 
     const checkboxesTipo = document.querySelectorAll('input[name="Tipo"]');
 
@@ -33,7 +33,6 @@ function añadirFiltros() {  //Funcion que se llama dentro de cargarFiltros.js a
             cargarProductos(productosFiltrados);
         });
     });
-
 }
 
 

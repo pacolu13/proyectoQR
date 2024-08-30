@@ -6,13 +6,22 @@ const productosPrueba = [
         "Marca": "Ariel",
         "StockDisponible": 1600,
         "StockMinimo": 501
+    },
+    {
+        "ID": "e15",
+        "Nombre": "Montitor",
+        "Tipo": "Electrodomestico",
+        "Marca": "LG",
+        "StockDisponible": 25,
+        "StockMinimo": 5
     }
 ];
 
 function añadirProducto() {
+
     productosPrueba.forEach(producto => {
 
-        fetch(apiUrl, {
+        fetch('https://go-postgresql-restapi-tswy.onrender.com/productos', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

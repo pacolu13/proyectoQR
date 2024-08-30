@@ -12,9 +12,10 @@ function cargarProductos(listaProductos) {
 function createProduct(producto) {
 
     let template = `
-    <li class="producto">
+    <li class="producto" id="${producto.ID}">
         <div class="nombre-producto">${producto.Nombre} - ${producto.Tipo} - ${producto.Marca}</div>
-        <div class="stock-producto">${producto.StockDisponible} - ${producto.StockMinimo}</div>
+        <div class="stock-Disponible">Stock Disponible: ${producto.StockDisponible}</div>
+        <div class="stock-productoMinimo">Stock Minimo: ${producto.StockMinimo}</div>
         <div class="button-trash">
         <a href="#" onclick="eliminarProducto(${producto.ID})"><i class="fa-solid fa-trash"></i></a>
         <a href="#" onclick="actualizarProducto(${producto.ID})"><i class="fa-solid fa-gear"></i></a>

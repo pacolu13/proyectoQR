@@ -1,6 +1,6 @@
-//Modificar url de la API
+const urlComprasAutomaticas = 'https://go-postgresql-restapi-tswy.onrender.com/compra';
 
-fetch('JSON/compras.JSON')
+fetch(urlComprasAutomaticas)
     .then(response => response.json()) // Parsear el JSON
     .then(data => cargarCompras(data)) // Pasar los datos al método de muestra
     .catch(error => console.error('Error al leer el archivo JSON:', error));

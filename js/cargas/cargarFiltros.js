@@ -1,4 +1,4 @@
-fetch(apiUrl)
+fetch(urlProductos)
     .then(response => response.json()) // Parsear el JSON
     .then(data => cargarFiltros(data)) // Pasar los datos al método de muestra
     .catch(error => console.error('Error al leer el archivo JSON:', error));
