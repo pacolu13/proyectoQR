@@ -10,13 +10,14 @@ function iniciarEscaneo() {
 
     document.getElementById('container').style.display = 'block';
 
-
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
         video.srcObject = stream;
         video.setAttribute("playsinline", true); // necesario para que funcione en iOS
         video.play();
         requestAnimationFrame(scanQRCode);
     });
+
+    return true;
 }
 
 function scanQRCode() {
