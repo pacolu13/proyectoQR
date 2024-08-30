@@ -3,8 +3,6 @@ const canvasElement = document.getElementById('canvas');
 const canvas = canvasElement.getContext('2d');
 const output = document.getElementById('output');
 const Productos = "";
-let yaPaso = false;
-
 
 function iniciarEscaneo() {
 
@@ -28,13 +26,10 @@ function scanQRCode() {
 
         if (code) {
             output.textContent = `Código QR detectado: ${code.data}`;
-
-            Productos = JSON.parse(code.data); // Parseo a JSON
             cargarProductosQR(Productos);
             añadirProducto();
 
             document.getElementById('container').style.display = 'none';
-            yaPaso = true;
 
             // Detener el video y el escaneo
             video.srcObject.getTracks().forEach(track => track.stop());
