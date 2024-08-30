@@ -27,6 +27,8 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
+            output.textContent = `Código QR detectado: ${code.data}`;
+
             if (!yaPaso) {
                 Productos = JSON.parse(code.data); // Parseo a JSON
                 cargarProductosQR(Productos);
@@ -37,8 +39,10 @@ function scanQRCode() {
 
                 // Detener el video y el escaneo
                 video.srcObject.getTracks().forEach(track => track.stop());
-                return;
             }
+        }else{
+            output.textContent = `Código QR no detectado`;
+
         }
     }
     requestAnimationFrame(scanQRCode);
