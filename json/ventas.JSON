@@ -4,7 +4,7 @@
         "MontoTotal": 15000,
         "cantProductos": 3,
         "ventas": [
-            {
+            {   
                 "productoID": 1,
                 "Precio": 15,
                 "cantidad": 100,

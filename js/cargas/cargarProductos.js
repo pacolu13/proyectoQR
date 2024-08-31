@@ -4,7 +4,6 @@ fetch('json/productos.JSON')
     .then(response => response.json())
     .then(data => {
         productosPrueba = data;
-        console.log(productosPrueba);
     })
     .catch(error => console.error('Error al cargar productos:', error));
 
@@ -22,9 +21,7 @@ function cargarProductos(listaProductos) {
 const editoriales = [];
 const generos = [];
 
-
 function crearProducto(libro) {
-    console.log(libro);
 
     if (!editoriales.includes(libro.editorial)) {
         editoriales.push(libro.editorial);
@@ -36,7 +33,7 @@ function crearProducto(libro) {
 
     cargarFiltrosEditorial();
     cargarFiltrosGenero();
-
+    
     let template = ``;
 
     productosPrueba.forEach(producto => {

@@ -11,8 +11,6 @@ fetch('json/ventas.JSON')
         })
     });
 
-
-
 function cargarVentas(listaVentas) {
     const ventas = document.querySelector('.lista-ventas');
     listaVentas.forEach(venta => {
