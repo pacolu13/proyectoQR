@@ -12,3 +12,7 @@
 .lista-ventas li {
     margin: 1%;
 }
+
+#modalVentaUnitaria{
+    display: none;
+}
