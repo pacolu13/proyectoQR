@@ -1,6 +1,6 @@
-const urlComprasAutomaticas = 'https://go-postgresql-restapi-tswy.onrender.com/compra';
+const urlComprasAutomaticas = 'https://go-postgresql-restapi-tswy.onrender.com/compras';
 
-fetch(urlComprasAutomaticas)
+fetch('json/compras.JSON')
     .then(response => response.json()) // Parsear el JSON
     .then(data => cargarCompras(data)) // Pasar los datos al método de muestra
     .catch(error => console.error('Error al leer el archivo JSON:', error));
