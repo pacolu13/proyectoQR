@@ -14,7 +14,6 @@
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
 </head>
 
 <body>
@@ -24,7 +23,7 @@
                 <button id="openbtn" class="openbtn" onclick="openNav()">&#9776; Menú</button>
             </div>
             <div class="titulo">
-                <h1>Gestión de stock utilizando código QR</h1>
+                <img src="Agregar_un_titulo.png" alt="" srcset="">
             </div>
         </div>
         <div id="container">
@@ -46,7 +45,7 @@
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button"
-                    role="tab" aria-controls="profile" aria-selected="false">Consultar Movimientos</button>
+                    role="tab" aria-controls="profile" aria-selected="false">Ventas</button>
             </li>
             <li class="nav-item" role="presentation">
                 <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button"
@@ -90,7 +89,7 @@
                     <div class="filtro-input">
                         <input type="text" id="filtro-nombre" name="filtroNombre" placeholder="Buscar un producto..."
                             required>
-                        <button id="añadirProductos" onclick="iniciarEscaneo()">Añadir producto</button>
+                        <button id="añadirProductos" onclick="iniciarEscaneo()"><p>Añadir producto</p></button>
                     </div>
 
                     <div class="filtro-select">
@@ -133,8 +132,8 @@
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
 
-                <div id="modalVentaUnitaria" class="modal-ventaUnitaria">
-
+                <div class ="modal-ventaUnitaria">
+                        <!--Ventas unitarias-->
                 </div>
                 <div class="productos">
                     <ul class="lista-ventas">
@@ -174,7 +173,6 @@
     <script src="js/cargas/cargarProductos.js"></script>
     <script src="js/cargas/cargarVentas.js"></script>
     <script src="js/cargas/cargarCompras.js"></script>
-    <script src="js/cerrarPestaña.js"></script>
 
     <script src="js/cargas/Filtros/cargarFiltroTipo.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroMarca.js"></script>
@@ -185,6 +183,7 @@
     <script src="js/Requests/eliminarProducto.js"></script>
 
     <script src="js/Scanner/scannerQR.js"></script>
+    <script src="js/cerrarPestaña.js"></script>
     <script src="js/sidebar.js"></script>
 
 </body>

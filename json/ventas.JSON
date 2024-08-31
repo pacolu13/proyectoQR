@@ -2,6 +2,7 @@
     {
         "ventaID": 1,
         "MontoTotal": 15000,
+        "cantProductos": 3,
         "ventas": [
             {
                 "productoID": 1,
@@ -26,6 +27,7 @@
     {
         "ventaID": 2,
         "MontoTotal": 65000,
+        "cantProductos": 3,
         "ventas": [
             {
                 "productoID": 4,
@@ -50,6 +52,7 @@
     {
         "ventaID": 3,
         "MontoTotal": 1500,
+        "cantProductos": 1,
         "ventas": [
             {
                 "productoID": 1,

@@ -4,7 +4,7 @@ const urlProductos = 'https://go-postgresql-restapi-tswy.onrender.com/productos'
 
 let productosJson = []; //Lugar donde voy a añadir los productos que me traiga la API
 
-fetch(urlProductos)
+fetch('json/libros.JSON')
     .then(response => response.json())
     .then(data => {
         productosJson = data;

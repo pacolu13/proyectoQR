@@ -1,3 +1,12 @@
+:root {
+    --color-primario: #5B1647;
+    --color-secundario: #93063E;
+    --color-terciario: #C90035;
+    --cuarto-color: #FF5627;
+    --quinto-color: #FFC400;
+}
+
+
 .lista-ventas {
     margin: 2%;
     width: 80%;
@@ -13,6 +22,30 @@
     margin: 1%;
 }
 
-#modalVentaUnitaria{
-    display: none;
+
+.modal-venta-unitaria{
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-venta-unitaria-medio {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.venta-unitaria{
+    border: 1 px solid;
 }

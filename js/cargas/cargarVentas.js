@@ -3,31 +3,32 @@ const urlVentas = 'https://go-postgresql-restapi-tswy.onrender.com/ventas';
 fetch('json/ventas.JSON')
     .then(response => response.json()) // Parsear el JSON
     .then(data => {
-        // data es un array de ventas, iteramos sobre cada venta
+
+        cargarVentas(data);
+
         data.forEach(venta => {
-            cargarVentas([venta]); // Pasamos la venta como un array para mantener la estructura
-            cargarVentasUnitarias(venta.ventas); // Pasamos la lista de productos a cargarVentasUnitarias
-        });
-    })
-    .catch(error => console.error('Error al leer el archivo JSON:', error));
+            cargarVentasUnitarias(venta.ventas);
+        })
+    });
+
+
 
 function cargarVentas(listaVentas) {
-    const container = document.querySelector('.lista-ventas');
+    const ventas = document.querySelector('.lista-ventas');
     listaVentas.forEach(venta => {
         let card = document.createElement('li');
         card.innerHTML = crearVenta(venta);
 
-        container.appendChild(card);
+        ventas.appendChild(card);
     });
 }
 
 function cargarVentasUnitarias(listaVentasUnitarias) {
-    const container = document.querySelector('.modal-VentaUnitaria');
-    listaVentasUnitarias.forEach(element => {
+    const VentaUnitaria = document.querySelector('.modal-ventaUnitaria');
+    listaVentasUnitarias.forEach(venta => {
         let card = document.createElement('div');
-        card.innerHTML = crearVentaUnitaria(element);
-
-        container.appendChild(card);
+        card.innerHTML = crearVentaUnitaria(venta);
+        VentaUnitaria.appendChild(card);
     });
 }
 
@@ -36,19 +37,22 @@ function crearVenta(venta) {
     <div class="carrito">
         <div class="carrito-id">Venta: ${venta.ventaID}</div>
         <div class="carrito-monto">Monto total: ${venta.MontoTotal}</div>
-        <a href="#" onclick="abrirPestaña(modalVentaUnitaria)">Ver resumen</a>
+        <a href="#" onclick="abrirPestaña(${venta.ventaID})">Ver resumen</a>
     </div>`;
     return template;
 }
 
-function crearVentaUnitaria(ventaUnitaria){
-   let template =  `
-   <div class="venta-unitaria">
-        <div class="producto-id">${ventaUnitaria.productoID}</div>
-        <div class="producto-precio">${ventaUnitaria.Precio}</div>
-        <div class="producto-cantidad">${ventaUnitaria.cantidad}</div>
-        <div class="producto-monto">${ventaUnitaria.Monto}</div>
-        <a href="#" onclick="cerrarPestaña(modalVentaUnitaria)">Cerrar</a>
+function crearVentaUnitaria(ventaUnitaria) {
+    let template = `
+    <div class="modal-venta-unitaria" id="${ventaUnitaria.productoID}">
+        <div class="modal-venta-unitaria-medio">
+            <div class="venta-unitaria">
+                <div class="producto-id">Codigo de producto: ${ventaUnitaria.productoID}</div>
+                <div class="producto-precio">Precio: ${ventaUnitaria.Precio}</div>
+                <div class="producto-cantidad">Cantidad: ${ventaUnitaria.cantidad}</div>
+                <div class="producto-monto">Monto: ${ventaUnitaria.Monto}</div>
+                <a href="#" onclick="cerrarPestaña(${ventaUnitaria.productoID})">Cerrar</a>
+            </div>
     </div>`;
-   return template;
+    return template;
 }

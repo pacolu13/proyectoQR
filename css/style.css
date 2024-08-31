@@ -1,8 +1,19 @@
+:root {
+    --color-fondo: #FBF0DC;
+    --color-primario: #5B1647;
+    --color-secundario: #93063E;
+    --color-terciario: #C90035;
+    --cuarto-color: #FF5627;
+    --quinto-color: #FFC400;
+}
+
 body {
+
     border: 1px solid gray;
 }
 
 header {
+    background: linear-gradient(to right, var(--color-fondo) 50%, var(--color-primario));
     border-bottom: 1px solid gray;
     padding: 1%;
 }
@@ -14,6 +25,7 @@ footer {
 
 footer,
 main {
+    background-color: var(--color-fondo);
     margin-top: 1%;
 }
 
@@ -22,14 +34,12 @@ main {
     align-items: center;
 }
 
-.titulo {
-    display: flex;
-    justify-content: center;
+.titulo img {
+    width: 40%; /* Ajusta el porcentaje según el tamaño deseado */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    max-width: 100%; /* Asegura que la imagen no se extienda más allá de su contenedor */
 }
 
-.titulo h1{
-    font-size: 24px;
-}
 
 .lista-opciones{
     display: flex;

@@ -1,12 +1,75 @@
+:root {
+    --color-fondo: #FBF0DC;
+    --color-primario: #5B1647;
+    --color-secundario: #93063E;
+    --color-terciario: #C90035;
+    --cuarto-color: #FF5627;
+    --quinto-color: #FFC400;
+}
+
 .filtros{
     display: flex;
     flex-direction: column;
 }
+
 .filtro-input{
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 
+#filtro-nombre{
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--color-terciario);
+    border-radius: 25px;
+    border-style: none;
+    text-align: center; /* Centra el texto horizontalmente */
+
+}
+
+#filtro-nombre::placeholder{
+    color: white;
+
+}
+
+
 .filtro-select{
     display: flex;
+}
+
+
+#añadirProductos{
+    margin: 10px;
+    padding: 6px;
+    background-color: var(--color-primario);
+    justify-content: center;
+    display: flex;
+    width: 40%;
+    border-style: none;
+    border-radius: 25px;
+
+}
+
+#añadirProductos p{
+    color: white;
+    text-align: center;
+    margin: 5px; /* Asegura que no haya margen extra que pueda afectar el centrado */
+
+
+}
+
+@media only screen and (max-width: 1290px) {
+    #añadirProductos {
+        width: 20%;
+
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    #añadirProductos {
+        width: 40%;
+
+    }
 }
