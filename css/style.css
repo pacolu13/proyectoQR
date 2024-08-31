@@ -54,31 +54,6 @@ main {
     margin-left: 10%;
 }
 
-.productos {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centra verticalmente */
-    align-items: center; /* Centra horizontalmente */
-    width: 100%;
-    height: 80%;
-    padding: 10px;
-}
-
-.lista-productos {
-    margin: 2%;
-    width: 80%;
-    height: 80%;
-    border: 2px solid gray;
-    border-radius: 2%;
-    padding: 1%;
-    list-style: none;
-    overflow-y: auto;
-}
-
-.lista-productos li {
-    margin: 1%;
-}
-
 .button-trash{
     display: flex;
     flex-direction: column;

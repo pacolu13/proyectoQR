@@ -1,18 +1,18 @@
 [
     {
-        "productoID": 1,
+        "codigoCompra": 1,
         "Precio": 15,
         "cantidad": 100,
         "Monto": 1500
     },
     {
-        "productoID": 2,
+        "codigoCompra": 2,
         "Precio": 100,
         "cantidad": 100,
         "Monto": 10000
     },
     {
-        "productoID": 3,
+        "codigoCompra": 3,
         "Precio": 175,
         "cantidad": 20,
         "Monto": 3500

@@ -1,0 +1,55 @@
+:root {
+    --color-fondo: #FBF0DC;
+    --color-primario: #5B1647;
+    --color-secundario: #93063E;
+    --color-terciario: #C90035;
+    --cuarto-color: #FF5627;
+    --quinto-color: #FFC400;
+}
+
+.productos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+}
+
+.lista-productos {
+    margin: 2%;
+    width: 90%;
+    height: 100%;
+    border-top: 2px solid var(--color-terciario);
+    padding: 1%;
+    list-style: none;
+    overflow-y: auto;
+}
+
+.lista-productos li {
+    margin-bottom: 3px;
+}
+
+
+.producto{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 5px;
+}
+
+
+
+
+/*
+<li class="producto" id="${producto.productoID}">
+        <div class="nombre-producto">${producto.nombre} - ${producto.autor} - ${producto.genero}</div>
+        <div class="stock-Disponible">Stock Disponible: ${producto.stockDisponible}</div>
+        <div class="stock-productoMinimo">Stock Minimo: ${producto.stockMinimo}</div>
+        <div class="button-trash">
+        <a href="#" onclick="eliminarProducto(${producto.productoID})"><i class="fa-solid fa-trash"></i></a>
+        <a href="#" onclick="actualizarProducto(${producto.productoID})"><i class="fa-solid fa-gear"></i></a>
+        </div>
+    </li>*/

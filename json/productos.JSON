@@ -1,0 +1,17 @@
+[
+    {
+        "codigoUnico": 1,
+        "stockDisponible": 15000,
+        "stockMinimo": 133
+    },
+    {
+        "codigoUnico": 2,
+        "stockDisponible": 5000,
+        "stockMinimo": 30
+    },
+    {
+        "codigoUnico": 3,
+        "stockDisponible": 1500,
+        "stockMinimo": 13
+    }
+]

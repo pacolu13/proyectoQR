@@ -1,20 +1,26 @@
 [
     {
-        "productoID": 1,
-        "Precio": 15,
-        "cantidad": 100,
-        "Monto": 1500
+        "libroID": 1,
+        "nombre": "Romper el Circulo",
+        "autor": "Luca",
+        "genero": "Romance",
+        "editorial": "Planeta",
+        "precio": 15000
     },
     {
-        "productoID": 2,
-        "Precio": 100,
-        "cantidad": 100,
-        "Monto": 10000
+        "libroID": 3,
+        "nombre": "After",
+        "autor": "Valen",
+        "genero": "Terror",
+        "editorial": "VYR",
+        "precio": 100
     },
     {
-        "productoID": 3,
-        "Precio": 175,
-        "cantidad": 20,
-        "Monto": 3500
+        "libroID": 2,
+        "nombre": "Circulo",
+        "autor": "Jose",
+        "genero": "Policial",
+        "editorial": "Canva",
+        "precio": 150
     }
 ]

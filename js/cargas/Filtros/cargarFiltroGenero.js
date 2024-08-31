@@ -1,23 +1,23 @@
-const selectFiltroMarca = document.getElementById("filtroMarca");
+const selectFiltroGenero = document.getElementById("filtroGenero");
 
-function cargarFiltrosMarca() {
+function cargarFiltrosGenero() {
 
     // Limpia las opciones actuales
-    selectFiltroMarca.innerHTML = "";
+    selectFiltroGenero.innerHTML = "";
 
     // Añade la opción "Ninguno" al principio
     const opcionNinguno = document.createElement('option');
     opcionNinguno.value = "";
-    opcionNinguno.textContent = "Marca";
-    selectFiltroMarca.appendChild(opcionNinguno);
+    opcionNinguno.textContent = "Género";
+    selectFiltroGenero.appendChild(opcionNinguno);
 
-    marcas.forEach(element => {
+    generos.forEach(element => {
         // Crea una opción y establece sus valores
         const option = document.createElement('option');
         option.value = element;
         option.textContent = element;
 
         // Añade la opción al <select>
-        selectFiltroMarca.appendChild(option);
+        selectFiltroGenero.appendChild(option);
     });
 }

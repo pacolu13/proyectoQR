@@ -26,6 +26,8 @@
     border-radius: 25px;
     border-style: none;
     text-align: center; /* Centra el texto horizontalmente */
+    box-shadow: 5px 5px 5px gray;
+
 
 }
 
@@ -34,10 +36,34 @@
 
 }
 
-
 .filtro-select{
+    align-items: center;
+    justify-content: center;
     display: flex;
+    margin: 10px;
+    padding: 5px;
 }
+
+#filtroGenero, #filtroEditorial{
+    color: white;
+    margin: 5px;
+    padding: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 5px 5px 5px gray;
+
+}
+
+#filtroGenero{
+    background-color: var(--color-secundario);
+}
+
+#filtroEditorial{
+    background-color: var(--cuarto-color);
+}
+
 
 
 #añadirProductos{
@@ -49,7 +75,7 @@
     width: 40%;
     border-style: none;
     border-radius: 25px;
-
+    box-shadow: 5px 5px 5px gray;
 }
 
 #añadirProductos p{

@@ -1,23 +1,23 @@
-const selectFiltroTipo = document.getElementById("filtroTipo");
+const filtroEditorial = document.getElementById("filtroEditorial");
 
-function cargarFiltrosTipo() {
+function cargarFiltrosEditorial() {
 
     // Limpia las opciones actuales
-    selectFiltroTipo.innerHTML = "";
+    filtroEditorial.innerHTML = "";
 
     // Añade la opción "Ninguno" al principio
     const opcionNinguno = document.createElement('option');
     opcionNinguno.value = "";
-    opcionNinguno.textContent = "Tipo";
-    selectFiltroTipo.appendChild(opcionNinguno);
+    opcionNinguno.textContent = "Editorial";
+    filtroEditorial.appendChild(opcionNinguno);
 
-    tipos.forEach(element => {
+    editoriales.forEach(element => {
         // Crea una opción y establece sus valores
         const option = document.createElement('option');
         option.value = element;
         option.textContent = element;
 
         // Añade la opción al <select>
-        selectFiltroTipo.appendChild(option);
+        filtroEditorial.appendChild(option);
     });
 }
