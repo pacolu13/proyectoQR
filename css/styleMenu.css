@@ -1,0 +1,20 @@
+:root {
+    --color-fondo: #FBF0DC;
+    --color-primario: #5B1647;
+    --color-secundario: #93063E;
+    --color-terciario: #C90035;
+    --cuarto-color: #FF5627;
+    --quinto-color: #FFC400;
+}
+
+.openbtn{
+    font-size: 36px;
+    color: var(--color-primario);
+    background-color: var(--color-fondo);
+}
+
+.sidebar {
+    background-color: var(--color-fondo);
+    box-shadow: 5px 5px 1px #f1ddbf;
+    border-radius: 15px;
+}

@@ -33,18 +33,27 @@ function crearProducto(libro) {
 
     cargarFiltrosEditorial();
     cargarFiltrosGenero();
-    
+
     let template = ``;
 
     productosPrueba.forEach(producto => {
         if (producto.codigoUnico === libro.libroID) {
+
+            let signoExclamacion = "";
+
+            if(producto.stockMinimo === 0){
+                signoExclamacion = `<i class="fa-solid fa-exclamation"></i>`;
+            };
+
             template = `
             <li class="producto" id="${libro.libroID}">
                 <div class="libro-Titulo">${libro.nombre}</div>
                 <div class="libro-caracteristicas">Autor: ${libro.autor} - Genero: ${libro.genero}</div>
                 <div class="libro-caracteristicas">Editorial: ${libro.editorial}</div>
                 <div class="stock-Disponible">Stock Disponible: ${producto.stockDisponible}</div>
-                <div class="stock-productoMinimo">Stock Minimo: ${producto.stockMinimo}</div>
+                <div class="stock-productoMinimo">Stock Minimo: ${producto.stockMinimo}
+                <a href="#" onclick="abrirPopup()">${signoExclamacion}</a>
+                </div>
                 <div class="button-trash">
                 <a href="#" onclick="eliminarProducto(${libro.libroID})"><i class="fa-solid fa-trash"></i></a>
                 <a href="#" onclick="actualizarProducto(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
@@ -70,12 +79,27 @@ function crearProductosQR(libro) {
     let template = `
     <li class="producto-qr" id="${libro.libroID}">
         <div class="nombre-producto">${libro.nombre} - ${libro.autor} - ${libro.genero}</div>
-        <div class="stock-Disponible">Stock Disponible: ${producto.StockDisponible}</div>
-        <div class="stock-productoMinimo">Stock Minimo: ${producto.StockMinimo}</div>
+        <div class="stock-Disponible">Stock Disponible: ${producto.StockDisponible} </div>
+        <div class="stock-productoMinimo">Stock Minimo: ${producto.StockMinimo} </div>
         <div class="button-trash">
         <a href="#" onclick="eliminarProducto(${libro.libroID})"><i class="fa-solid fa-trash"></i></a>
         <a href="#" onclick="actualizarProducto(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
         </div>
     </li>`;
     return template;
+}
+
+
+function abrirPopup() {
+    popup.style.display = 'block';
+}
+
+function cerrarPopup() {
+    popup.style.display = 'none';
+}
+
+window.onclick = function (event) {
+    if (event.target == popup) {
+        popup.style.display = 'none';
+    }
 }
