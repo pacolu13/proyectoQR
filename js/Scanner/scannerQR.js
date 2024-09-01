@@ -29,7 +29,7 @@ function scanQRCode() {
             Productos = JSON.parse(code.data); // Parsear el JSON a un objeto
             cargarProductosQR(Productos);
             añadirProducto();
-            closeSesion();
+            cerrarPestaña('container');
         } else {
             output.textContent = "No se detectó ningún código QR.";
         }
