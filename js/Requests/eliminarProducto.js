@@ -1,13 +1,11 @@
 function eliminarProducto(productoID) {
-    // Mostrar el modal de confirmación
+
     const modalConfirmacion = document.getElementById('modalConfirmacion');
     modalConfirmacion.style.display = 'block';
-
-    // Obtener botones del modal
     const btnSi = document.getElementById('btnSi');
     const btnNo = document.getElementById('btnNo');
 
-    // Acciones para el botón "Sí"
+    //DECLARAR URL DE PRODUCTOS
     btnSi.onclick = function () {
         modalConfirmacion.style.display = 'none';
         const urlEliminarProducto = `${urlProductos}/${productoID}`;
@@ -24,32 +22,15 @@ function eliminarProducto(productoID) {
                 }
             })
             .then(data => {
-                // Mostrar el modal de notificación con mensaje de éxito
-                mostrarNotificacion("Producto eliminado exitosamente.");
+                //Ventana emergente de que se elimino el producto
             })
             .catch(error => {
-                // Mostrar el modal de notificación con mensaje de error
-               generarError(error);
+                generarError(error);
             });
     };
 
-    // Acción para el botón "No"
     btnNo.onclick = function () {
         modalConfirmacion.style.display = 'none';
-    };
-}
-
-function mostrarNotificacion(mensaje) {
-    const modalNotificacion = document.getElementById('modalNotificacion');
-    const mensajeNotificacion = document.getElementById('mensajeNotificacion');
-
-    mensajeNotificacion.textContent = mensaje;
-    modalNotificacion.style.display = 'block';
-
-    // Cerrar el modal de notificación
-    const btnCerrar = document.getElementById('btnCerrar');
-    btnCerrar.onclick = function () {
-        modalNotificacion.style.display = 'none';
     };
 }
 

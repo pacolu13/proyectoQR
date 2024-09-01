@@ -1,4 +1,3 @@
-const urlVentas = 'https://go-postgresql-restapi-tswy.onrender.com/ventas';
 
 fetch('json/ventas.JSON')
     .then(response => response.json()) // Parsear el JSON

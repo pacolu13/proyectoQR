@@ -1,4 +1,3 @@
-const urlComprasAutomaticas = 'https://go-postgresql-restapi-tswy.onrender.com/compras';
 
 fetch('json/compras.JSON')
     .then(response => response.json()) // Parsear el JSON

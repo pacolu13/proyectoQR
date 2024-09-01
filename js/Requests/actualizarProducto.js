@@ -5,6 +5,8 @@ let cantMinimaActual = 0;
 let precioDeseadoActual = 0;
 let cantAcomprarActual = 0;
 
+//REEMPLAZAR POR URL DE CONFIGURACION
+
 fetch('json/productos.JSON')
     .then(response => response.json())
     .then(data => {

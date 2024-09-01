@@ -1,6 +1,7 @@
 function añadirProducto(Productos) {
 
     try {
+        //DECLARAR URL DE PRODUCTOS
         const response = fetch(urlProductos, {
             method: 'POST',
             headers: {
@@ -12,10 +13,10 @@ function añadirProducto(Productos) {
         if (!response.ok) {
             generarError(response.statusText);
         }
-
         const data = response.json();
-        // Mostrar una notificación o hacer cualquier otra acción después de la creación exitosa
-        console.log('Producto creado exitosamente:', data);
+
+        //PESTAÑA EMERGENTE DE QUE SE AÑADIERON CORRECTAMENTE
+        
     } catch (error) {
         generarError(error);
     }
