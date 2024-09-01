@@ -93,20 +93,13 @@ function crearProductosQR(libro) {
                 <div class="producto-caracteristicas">Autor: ${libro.autor} - Genero: ${libro.genero}</div>
                 <div class="producto-caracteristicas">Editorial: ${libro.editorial}</div>
                 <div class="producto-caracteristicas">Stock Disponible: ${producto.stockDisponible}</div>
-                <div class="producto-caracteristicas">Stock Minimo: ${producto.stockMinimo} 
-                    <a href="#" class="exclamation-button" onclick="abrirPopup()">${signoExclamacion}</a>
-                </div>
-                <div class="producto-buttons">
-                    <a href="#" onclick="eliminarProducto(${libro.libroID})"><i class="fa-solid fa-trash"></i></a>
-                    <a href="#" onclick="actualizarProducto(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
-                </div>
+                <div class="producto-caracteristicas">Stock Minimo: ${producto.stockMinimo}</div>
             </li>`;
         }
     })
     return template;
 }
 
-
 function abrirPopup() {
-            popup.style.display = 'block';
+    popup.style.display = 'block';
 }

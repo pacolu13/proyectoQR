@@ -22,5 +22,21 @@
         "genero": "Policial",
         "editorial": "Canva",
         "precio": 150
+    },
+    {
+        "libroID": 4,
+        "nombre": "Circulo",
+        "autor": "Jose",
+        "genero": "Policial",
+        "editorial": "Canva",
+        "precio": 150
+    },
+    {
+        "libroID": 5,
+        "nombre": "Circulo",
+        "autor": "Jose",
+        "genero": "Policial",
+        "editorial": "Canva",
+        "precio": 150
     }
 ]

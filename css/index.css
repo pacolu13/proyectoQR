@@ -7,25 +7,20 @@
     --quinto-color: #FFC400;
 }
 
-body {
-    border: 1px solid gray;
-}
-
 header {
     background: linear-gradient(to right, var(--color-fondo) 55%, var(--color-fondo) 30%, var(--color-primario));
-    border-bottom: 1px solid gray;
+    border-bottom: 2px solid var(--color-primario);
     padding: 1%;
 }
 
 footer {
-    border-top: 1px solid gray;
-    padding: 1%;
+    padding-bottom: 5px;
+    border-top: 2px solid var(--color-primario);
 }
 
 footer,
 main {
     background-color: var(--color-fondo);
-    margin-top: 1%;
 }
 
 .header{
@@ -58,8 +53,8 @@ main {
     margin: 2%;
     width: 80%;
     height: 80%;
-    border: 2px solid green;
-    border-radius: 2%;
+    border: 2px solid #C90035;
+    border-radius: 5px;
     padding: 1%;
     list-style: none;
     overflow-y: auto;
@@ -122,4 +117,23 @@ main {
     margin-top: 20px;
     text-align: center;
     font-size: 1.2em;
+}
+
+.nav-footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-footer ul{
+    display: flex;
+    list-style: none;
+
+}
+
+.nav-footer ul li{
+    margin: 10px;
+}
+.nav-footer ul li a{
+    color: var(--color-primario);
 }
