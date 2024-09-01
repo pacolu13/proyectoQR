@@ -9,13 +9,13 @@ const cantAcomprar = document.getElementById('cantAcomprar');
 
 let idProducto = ""; // Cambiado a let
 
-function actualizarProducto(libroID) {
+function actualizarProducto(productoID) {
     modalConfiguration.style.display = 'block';
 }
 
 btnConfirmarStock.addEventListener("click", function () {
 
-    let urlActualizarProducto = `${urlProductos}/${idProducto}`;
+    let urlActualizarProducto = `${urlConfiguracion}/${productoID}`;
     fetch(urlActualizarProducto, {
         method: 'PUT',
         headers: {

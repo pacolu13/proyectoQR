@@ -17,11 +17,9 @@ function cargarCompras(listaCompras) {
 
 function crearCompra(compra) {
     let template = `
-    <li class="list-group-item d-flex justify-content-between align-items-start">
-    <div class="ms-2 me-auto">
-      <div class="fw-bold">Codigo de producto: ${compra.codigoUnico} - ${compra.fecha} </div>
+    <div>
+      <div>Codigo de producto: ${compra.codigoUnico} - ${compra.fecha} </div>
       Stock comprado: ${compra.cantidad}
-    </div>
-    </li>`;
+    </div>`;
     return template;
 }
