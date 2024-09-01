@@ -1,17 +1,38 @@
 [
     {
         "codigoUnico": 1,
+        "Tipo": "?",
+        "Nombre": "?",
+        "Marca": "?",
+        "stockMinimo": 0,
         "stockDisponible": 15000,
-        "stockMinimo": 0
+        "precio": 0,
+        "cantAComprar": 0,
+        "precioDeseado": 0,
+        "Descripcion":"?"
     },
     {
-        "codigoUnico": 2,
-        "stockDisponible": 5000,
-        "stockMinimo": 30
+        "codigoUnico": 1,
+        "Tipo": "?",
+        "Nombre": "?",
+        "Marca": "?",
+        "stockMinimo": 0,
+        "stockDisponible": 15000,
+        "precio": 0,
+        "cantAComprar": 0,
+        "precioDeseado": 0,
+        "Descripcion":"?"
     },
     {
-        "codigoUnico": 3,
-        "stockDisponible": 1500,
-        "stockMinimo": 13
+        "codigoUnico": 1,
+        "Tipo": "?",
+        "Nombre": "?",
+        "Marca": "?",
+        "stockMinimo": 0,
+        "stockDisponible": 15000,
+        "precio": 0,
+        "cantAComprar": 0,
+        "precioDeseado": 0,
+        "Descripcion":"?"
     }
 ]
