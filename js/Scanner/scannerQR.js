@@ -2,7 +2,7 @@ const video = document.getElementById('video');
 const canvasElement = document.getElementById('canvas');
 const canvas = canvasElement.getContext('2d');
 const output = document.getElementById('output');
-let Productos = ""; // Corregido a "let" para poder reasignar valor
+let Productos = "";
 
 function iniciarEscaneo() {
     document.getElementById('container').style.display = 'block';
@@ -25,11 +25,13 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            //AÑADIR ALGO EMERGENTE DE QUE SE AÑADIO EL PRODUCTO
             Productos = JSON.parse(code.data); // Parsear el JSON a un objeto
-            cargarProductosQR(Productos);
-            añadirProducto();
             cerrarPestaña('container');
+            cargarProductosQR(Productos);
+            añadirProducto(Productos);
+            if (video.srcObject) {
+                video.srcObject.getTracks().forEach(track => track.stop());
+            }
         } else {
             output.textContent = "No se detectó ningún código QR.";
         }
@@ -37,36 +39,5 @@ function scanQRCode() {
     requestAnimationFrame(scanQRCode);
 }
 
-function closeSesion() {
-    document.getElementById('container').style.display = 'none';
-    // Detener el video si aún está activo
-    if (video.srcObject) {
-        video.srcObject.getTracks().forEach(track => track.stop());
-    }
-}
 
-function añadirProducto() {
 
-    document.getElementById('container').style.display = 'none';
-
-    try {
-        const response = fetch(urlProductos, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(Productos) // Convertir el producto a una cadena JSON
-        });
-
-        if (!response.ok) {
-            throw new Error('Error al crear el producto: ' + response.statusText);
-        }
-
-        const data = response.json();
-        // Mostrar una notificación o hacer cualquier otra acción después de la creación exitosa
-        console.log('Producto creado exitosamente:', data);
-    } catch (error) {
-        console.error('Error en añadirProducto:', error);
-        throw error;
-    }
-}

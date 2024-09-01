@@ -76,20 +76,37 @@ function cargarProductosQR(listaProductos) {
 
 function crearProductosQR(libro) {
 
-    let template = `
-    <li class="producto-qr" id="${libro.libroID}">
-        <div class="nombre-producto">${libro.nombre} - ${libro.autor} - ${libro.genero}</div>
-        <div class="stock-Disponible">Stock Disponible: ${producto.StockDisponible} </div>
-        <div class="stock-productoMinimo">Stock Minimo: ${producto.StockMinimo} </div>
-        <div class="button-trash">
-        <a href="#" onclick="eliminarProducto(${libro.libroID})"><i class="fa-solid fa-trash"></i></a>
-        <a href="#" onclick="actualizarProducto(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
-        </div>
-    </li>`;
+    let template = ``;
+
+    productosPrueba.forEach(producto => {
+        if (producto.codigoUnico === libro.libroID) {
+
+            let signoExclamacion = "";
+
+            if (producto.stockMinimo === 0) {
+                signoExclamacion = `<i class="fa-solid fa-exclamation"></i>`;
+            };
+
+            template = `
+            <li class="producto" id="${libro.libroID}">
+                <div class="producto-titulo">${libro.nombre}</div>
+                <div class="producto-caracteristicas">Autor: ${libro.autor} - Genero: ${libro.genero}</div>
+                <div class="producto-caracteristicas">Editorial: ${libro.editorial}</div>
+                <div class="producto-caracteristicas">Stock Disponible: ${producto.stockDisponible}</div>
+                <div class="producto-caracteristicas">Stock Minimo: ${producto.stockMinimo} 
+                    <a href="#" class="exclamation-button" onclick="abrirPopup()">${signoExclamacion}</a>
+                </div>
+                <div class="producto-buttons">
+                    <a href="#" onclick="eliminarProducto(${libro.libroID})"><i class="fa-solid fa-trash"></i></a>
+                    <a href="#" onclick="actualizarProducto(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
+                </div>
+            </li>`;
+        }
+    })
     return template;
 }
 
 
 function abrirPopup() {
-    popup.style.display = 'block';
+            popup.style.display = 'block';
 }
