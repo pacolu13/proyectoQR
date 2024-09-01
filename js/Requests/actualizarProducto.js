@@ -1,29 +1,16 @@
 const modalConfiguration = document.getElementById('modalConfiguration');
-const modalConfirmacion = document.getElementById('modalActualizarStock');
-
-const btnActualizarStock = document.getElementById("btnActualizarStock");
-const btnConfirmarStock = document.getElementById("confirmarStock");
-
-const btnCancelar = document.getElementById("btnCancelar");
-const btnCancelarActualizacion = document.getElementById("btnCancelar-actualizacion");
+const btnActualizarStock = document.getElementById('btnActualizarStock');
+const btnConfirmarStock = document.getElementById('confirmarStock');
 
 const cantidadMinimaInput = document.getElementById('cantidadMinima');
+const precioDeseado = document.getElementById('precioDeseado');
+const cantAcomprar = document.getElementById('cantAcomprar');
+
 
 let idProducto = ""; // Cambiado a let
 
-function actualizarProducto(productoID) {
+function actualizarProducto(libroID) {
     modalConfiguration.style.display = 'block';
-
-    fetch(urlProductos)
-        .then(response => response.json())
-        .then(productos => {
-            productos.forEach(producto => {
-                if (producto.ID === productoID) {
-                    idProducto = productoID;
-                    cantidadMinimaInput.value = producto.StockMinimo; // Inicializa el valor en el stock minimo anterior
-                }
-            });
-        });
 }
 
 btnConfirmarStock.addEventListener("click", function () {
@@ -35,7 +22,9 @@ btnConfirmarStock.addEventListener("click", function () {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            StockMinimo: cantidadMinimaInput.value // Corregido: usar JSON.stringify para el cuerpo
+            StockMinimo: cantidadMinimaInput.value,
+            PrecioDeseado: precioDeseado.value,
+            CantAcomprar: cantAcomprar.value
         })
     })
         .then(response => {
@@ -46,24 +35,11 @@ btnConfirmarStock.addEventListener("click", function () {
         })
         .then(data => {
             console.log('Producto actualizado exitosamente:', data);
-            modalConfiguration.style.display = 'none'; // Cerrar modal al guardar cambios
+            modalConfiguration.style.display = 'none';
         })
         .catch(error => console.error('Error:', error));
 });
 
-btnCancelarActualizacion.addEventListener("click", function () {
-    modalConfiguration.style.display = 'none';
-});
-
-btnActualizarStock.addEventListener("click", function () {
-    modalConfirmacion.style.display = 'block';
-    cantidadMinimaInput.disabled = false; // Habilitar el input cuando se muestra el modal
-});
-
-btnCancelar.addEventListener("click", function () {
-    modalConfirmacion.style.display = "none";
-    cantidadMinimaInput.disabled = true; // Deshabilitar el input cuando se oculta el modal
-});
 
 
 

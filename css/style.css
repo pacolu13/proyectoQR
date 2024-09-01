@@ -55,15 +55,6 @@ main {
     margin-left: 10%;
 }
 
-.button-trash{
-    display: flex;
-    flex-direction: column;
-}
-
-.button-trash a{
-    padding: 10px;
-}
-
 .productos-qr {
     margin: 2%;
     width: 80%;

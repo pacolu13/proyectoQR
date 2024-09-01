@@ -57,7 +57,7 @@
     </div>
 
     <main>
-        <!-- Modal de confirmación -->
+        <!-- Popup de eliminar Producto -->
         <div id="modalConfirmacion" class="modal">
             <div class="modal-content">
                 <p>¿Estás seguro de que deseas eliminar este producto?</p>
@@ -66,34 +66,34 @@
             </div>
         </div>
 
-        <!-- Modal de notificación -->
-        <div id="modalNotificacion" class="modal">
-            <div class="modal-content">
-                <p id="mensajeNotificacion"></p>
-                <button id="btnCerrar" class="btn-close">Cerrar</button>
-            </div>
-        </div>
-
-        <!--Modal configuracion-->
+        <!-- Popup alerta-->
         <div id="popup" class="popup">
             <div class="popup-content">
                 <p>STOCK MINIMO NO DEFINIDO.</p>
-                <a href="#" onclick="cerrarPopup()">Cerrar</a>
+                <a href="#" onclick="cerrarPestaña('popup')">Cerrar</a>
+
             </div>
         </div>
+
+        <!--Popup configuracion-->
+        <div id="modalConfiguration" class="modal">
+            <div class="modal-content">
+                <form action="">
+                    <input type="text" id="cantidadMinima"  placeholder="Stock mínimo">
+                    <input type="text" id="precioDeseado" placeholder="Precio deseado">
+                    <input type="text" id="cantAcomprar" placeholder="Cantidad a comprar">
+                </form>
+                <button id="btnActualizarStock" type="button">Actualizar</button>
+                <a href="#" onclick="cerrarPestaña('modalConfiguration')">Cerrar</a>
+            </div>
+        </div>
+
 
         <!--MENU-->
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                <!--Solapa Principal-->
 
-                <!--Actualizar el stock-->
-                <div id="modalConfiguration" class="modal">
-                    <div class="modal-content">
-                        <button id="btnActualizarStock">actualizar Stock</button>
-                        <button id="btnCancelar-actualizacion" class="btn-close">Cerrar</button>
-                    </div>
-                </div>
+                <!--Solapa Principal-->
 
                 <div class="filtros">
                     <div class="filtro-input">
