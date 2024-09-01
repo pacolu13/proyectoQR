@@ -61,6 +61,55 @@
                 "Monto": 1500
             }
         ]
+    },
+    {
+        "ventaID": 4,
+        "MontoTotal": 65000,
+        "cantProductos": 3,
+        "ventas": [
+            {
+                "productoID": 4,
+                "Precio": 10000,
+                "cantidad": 4,
+                "Monto": 40000
+            },
+            {
+                "productoID": 5,
+                "Precio": 50,
+                "cantidad": 100,
+                "Monto": 5000
+            },
+            {
+                "productoID": 6,
+                "Precio": 100,
+                "cantidad": 200,
+                "Monto": 20000
+            }
+        ]
+    },
+    {
+        "ventaID": 5,
+        "MontoTotal": 65000,
+        "cantProductos": 3,
+        "ventas": [
+            {
+                "productoID": 4,
+                "Precio": 10000,
+                "cantidad": 4,
+                "Monto": 40000
+            },
+            {
+                "productoID": 5,
+                "Precio": 50,
+                "cantidad": 100,
+                "Monto": 5000
+            },
+            {
+                "productoID": 6,
+                "Precio": 100,
+                "cantidad": 200,
+                "Monto": 20000
+            }
+        ]
     }
-
 ]

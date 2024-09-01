@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escáner de QR</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/pestañaEmergente.css">
     <link rel="stylesheet" href="css/filtros.css">
     <link rel="stylesheet" href="css/ventas.css">
@@ -79,12 +79,15 @@
         <div id="modalConfiguration" class="modal">
             <div class="modal-content">
                 <form action="">
-                    <input type="text" id="cantidadMinima"  placeholder="Stock mínimo">
-                    <input type="text" id="precioDeseado" placeholder="Precio deseado">
-                    <input type="text" id="cantAcomprar" placeholder="Cantidad a comprar">
+                    <label for="">Nuevo stock Minimo:</label>
+                    <input type="text" id="cantidadMinima"  placeholder="Stock mínimo...">
+                    <label for="">Precio deseado:</label>
+                    <input type="text" id="precioDeseado" placeholder="Precio deseado...">
+                    <label for="">Cantidad a comprar:</label>
+                    <input type="text" id="cantAcomprar" placeholder="Cantidad a comprar...">
+                    <button id="btnActualizarStock" type="button">Actualizar</button>
+                    <a href="#" onclick="cerrarPestaña('modalConfiguration')">Cancelar</a>
                 </form>
-                <button id="btnActualizarStock" type="button">Actualizar</button>
-                <a href="#" onclick="cerrarPestaña('modalConfiguration')">Cerrar</a>
             </div>
         </div>
 
@@ -178,8 +181,9 @@
     <script src="https://kit.fontawesome.com/b97dc99dd0.js" crossorigin="anonymous"></script>
 
     <script src="js/cargas/cargarProductos.js"></script>
-    <script src="js/cargas/cargarVentas.js"></script>
     <script src="js/cargas/cargarCompras.js"></script>
+    <script src="js/cargas/cargarVentas.js"></script>
+    <script src="js/cargas/cargarVentasUnitarias.js"></script>
 
     <script src="js/cargas/Filtros/cargarFiltroGenero.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroEditorial.js"></script>
@@ -190,7 +194,6 @@
     <script src="js/Requests/eliminarProducto.js"></script>
 
     <script src="js/Scanner/scannerQR.js"></script>
-    <script src="js/cerrarPestaña.js"></script>
     <script src="js/sidebar.js"></script>
 
 </body>

@@ -8,12 +8,11 @@
 }
 
 body {
-
     border: 1px solid gray;
 }
 
 header {
-    background: linear-gradient(to right, var(--color-fondo) 60%, var(--color-fondo) 30%, var(--color-primario));
+    background: linear-gradient(to right, var(--color-fondo) 55%, var(--color-fondo) 30%, var(--color-primario));
     border-bottom: 1px solid gray;
     padding: 1%;
 }

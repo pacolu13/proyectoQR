@@ -22,7 +22,7 @@
 .modal-content {
     max-width: 350px;
     width: 65%;
-    background-color: var(--color-primario);
+    background-color: var(--color-fondo);
     margin: 15% auto;
     padding: 20px;
     text-align: center;
@@ -51,19 +51,35 @@
 
 /*
 
-        Modal Configurar producto
+    Modal Configurar producto
 
 */
+
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content a {
+    margin-top: 8px ;
+    padding: 2px;
+    border-radius: 5px;
+    width: 35%;
+    background-color: var(--color-buttons);
+    color: var(--color-primario);
+    text-decoration: none;
+}
 
 #cantidadMinima,
 #precioDeseado,
 #cantAcomprar {
     margin: 3px;
-    width: 50%;
+    width: 60%;
     border-radius: 5px;
     border-style: none;
     border-color: var(--color-terciario);
-    background-color: var(--color-terciario);
+    background: linear-gradient(to right, var(--color-primario), var(--color-secundario), var(--color-terciario));
     text-align: center;
 }
 
@@ -75,9 +91,11 @@
 }
 
 #btnActualizarStock {
-    width: 50%;
+    margin-top: 15px;
+    width: 35%;
+    padding: 5px;
     border-radius: 5px;
     border-style: none;
     color: white;
-    background-color: var(--cuarto-color);
+    background-color: var(--color-terciario);
 }

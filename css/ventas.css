@@ -1,4 +1,5 @@
 :root {
+    --color-fondo: #FBF0DC;
     --color-primario: #5B1647;
     --color-secundario: #93063E;
     --color-terciario: #C90035;
@@ -10,18 +11,33 @@
 .lista-ventas {
     margin: 2%;
     width: 80%;
-    height: 80%;
-    border: 2px solid gray;
-    border-radius: 2%;
+    height: 100%;
+    border-top: 2px solid var(--color-terciario);
+    border-bottom: 2px solid var(--color-terciario);
     padding: 1%;
     list-style: none;
     overflow-y: auto;
 }
 
 .lista-ventas li {
-    margin: 1%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid var(--color-terciario);
+    border-radius: 10px;
+    background-color: white;
 }
 
+.lista-ventas a {
+    padding: 3px;
+    color: var(--color-primario);
+    text-decoration: underline;
+    text-underline-offset: 3px; /* Ajusta el valor según el espacio que desees */
+}
 
 .modal-venta-unitaria {
     display: none;
@@ -49,3 +65,40 @@
 .venta-unitaria {
     border: 1 px solid;
 }
+
+/*
+    modal-venta
+*/
+
+.modal-venta {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    display: none; /* Inicialmente oculto */
+}
+
+.modal.show {
+    display: block; /* Mostrar el modal cuando se agregue la clase 'show' */
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none; /* Inicialmente oculto */
+}
+
+.modal-overlay.show {
+    display: block; /* Mostrar el overlay cuando se agregue la clase 'show' */
+}
+

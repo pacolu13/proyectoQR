@@ -33,9 +33,9 @@ function cargarVentasUnitarias(listaVentasUnitarias) {
 function crearVenta(venta) {
     let template = `
     <div class="carrito">
-        <div class="carrito-id">Venta: ${venta.ventaID}</div>
-        <div class="carrito-monto">Monto total: ${venta.MontoTotal}</div>
-        <a href="#" onclick="abrirPestaña(${venta.ventaID})">Ver resumen</a>
+        <div class="carrito-id">NRO VENTA: ${venta.ventaID}</div>
+        <div class="carrito-monto">MONTO TOTAL: $${venta.MontoTotal}</div>
+        <a href="#" onclick="abrirPestaña(${venta.ventaID})">Ver detalle</a>
     </div>`;
     return template;
 }
@@ -46,7 +46,7 @@ function crearVentaUnitaria(ventaUnitaria) {
         <div class="modal-venta-unitaria-medio">
             <div class="venta-unitaria">
                 <div class="producto-id">Codigo de producto: ${ventaUnitaria.productoID}</div>
-                <div class="producto-precio">Precio: ${ventaUnitaria.Precio}</div>
+                <div class="producto-precio">Precio: $${ventaUnitaria.Precio}</div>
                 <div class="producto-cantidad">Cantidad: ${ventaUnitaria.cantidad}</div>
                 <div class="producto-monto">Monto: ${ventaUnitaria.Monto}</div>
                 <a href="#" onclick="cerrarPestaña(${ventaUnitaria.productoID})">Cerrar</a>
