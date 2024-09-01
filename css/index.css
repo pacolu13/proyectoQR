@@ -8,7 +8,7 @@
 }
 
 header {
-    background: linear-gradient(to right, var(--color-fondo) 55%, var(--color-fondo) 30%, var(--color-primario));
+    background: linear-gradient(to right, var(--color-fondo) 75%, var(--color-fondo) 25%, var(--color-primario));
     border-bottom: 2px solid var(--color-primario);
     padding: 1%;
 }
