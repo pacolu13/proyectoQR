@@ -1,12 +1,21 @@
+:root {
+    --color-fondo: #FBF0DC;
+    --color-primario: #5B1647;
+    --color-secundario: #93063E;
+    --color-terciario: #C90035;
+    --cuarto-color: #FF5627;
+    --quinto-color: #FFC400;
+}
+
 .lista-compras {
     margin: 2%;
     width: 80%;
-    height: 80%;
-    border: 2px solid gray;
-    border-radius: 2%;
+    height: 550px;
+    border-top: 2px solid var(--color-terciario);
+    border-bottom: 2px solid var(--color-terciario);
     padding: 1%;
     list-style: none;
-    overflow-y: auto;
+    overflow: auto;
 }
 
 .lista-compras li {
