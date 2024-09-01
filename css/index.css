@@ -80,6 +80,12 @@ main {
     z-index: 1;
 }
 
+#close-sesion{
+    font-size: 36px;
+    margin: 10px;
+    color: var(--color-fondo);
+}
+
 #scanner-qr {
     position: absolute;
     display: flex;
