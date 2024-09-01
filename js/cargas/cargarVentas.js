@@ -49,7 +49,6 @@ function crearVentaUnitaria(ventaUnitaria) {
                 <div class="producto-precio">Precio: $${ventaUnitaria.Precio}</div>
                 <div class="producto-cantidad">Cantidad: ${ventaUnitaria.cantidad}</div>
                 <div class="producto-monto">Monto: ${ventaUnitaria.Monto}</div>
-                <a href="#" onclick="cerrarPestaña(${ventaUnitaria.productoID})">Cerrar</a>
             </div>
     </div>`;
     return template;

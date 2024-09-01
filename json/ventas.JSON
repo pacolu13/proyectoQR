@@ -109,6 +109,42 @@
                 "Precio": 100,
                 "cantidad": 200,
                 "Monto": 20000
+            },
+            {
+                "productoID": 4,
+                "Precio": 10000,
+                "cantidad": 4,
+                "Monto": 40000
+            },
+            {
+                "productoID": 5,
+                "Precio": 50,
+                "cantidad": 100,
+                "Monto": 5000
+            },
+            {
+                "productoID": 6,
+                "Precio": 100,
+                "cantidad": 200,
+                "Monto": 20000
+            },
+            {
+                "productoID": 4,
+                "Precio": 10000,
+                "cantidad": 4,
+                "Monto": 40000
+            },
+            {
+                "productoID": 5,
+                "Precio": 50,
+                "cantidad": 100,
+                "Monto": 5000
+            },
+            {
+                "productoID": 6,
+                "Precio": 100,
+                "cantidad": 200,
+                "Monto": 20000
             }
         ]
     }
