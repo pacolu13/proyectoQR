@@ -7,10 +7,16 @@
     --quinto-color: #FFC400;
 }
 
+
 header {
     background: linear-gradient(to right, var(--color-fondo) 75%, var(--color-fondo) 30%, var(--color-primario));
     border-bottom: 2px solid var(--color-primario);
     padding: 1%;
+}
+
+main{
+    min-height: 100vh; /* Asegura que main cubra al menos el 100% de la altura del viewport */
+
 }
 
 footer {
@@ -132,7 +138,8 @@ main {
 }
 
 .nav-footer ul li{
-    margin: 10px;
+    margin-left: -30px;
+    margin-top: 10px;
 }
 .nav-footer ul li a{
     color: var(--color-primario);
