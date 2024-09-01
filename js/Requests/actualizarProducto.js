@@ -1,4 +1,4 @@
-const modalConfiguration = document.getElementById('modalConfiguration');
+let modalConfiguration = document.getElementById('modalConfiguration');
 const btnActualizarStock = document.getElementById('btnActualizarStock');
 const btnConfirmarStock = document.getElementById('confirmarStock');
 
@@ -10,7 +10,11 @@ const cantAcomprar = document.getElementById('cantAcomprar');
 let idProducto = ""; // Cambiado a let
 
 function actualizarProducto(productoID) {
+
+    let modalConfiguration = document.getElementById('modalConfiguration');
     modalConfiguration.style.display = 'block';
+
+    //ESPERAR AL BOTON DE CONFIRMAR
 
     let urlActualizarProducto = `${urlConfiguracion}/${productoID}`;
     fetch(urlActualizarProducto, {
@@ -26,7 +30,7 @@ function actualizarProducto(productoID) {
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error al actualizar el producto: ' + response.statusText);
+                generarError(response.statusText);
             }
             return response.json();
         })
@@ -34,7 +38,7 @@ function actualizarProducto(productoID) {
             console.log('Producto actualizado exitosamente:', data);
             modalConfiguration.style.display = 'none';
         })
-        .catch(error => console.error('Error:', error));
+        .catch(error => generarError(error));
 }
 
 

@@ -10,14 +10,13 @@ function añadirProducto(Productos) {
         });
 
         if (!response.ok) {
-            throw new Error('Error al crear el producto: ' + response.statusText);
+            generarError(response.statusText);
         }
 
         const data = response.json();
         // Mostrar una notificación o hacer cualquier otra acción después de la creación exitosa
         console.log('Producto creado exitosamente:', data);
     } catch (error) {
-        console.error('Error en añadirProducto:', error);
-        throw error;
+        generarError(error);
     }
 }

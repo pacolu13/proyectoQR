@@ -77,5 +77,7 @@ function abrirPestaña(styleID) {
 function cerrarPestaña(styleID) {
 
     const modalConfirmacion = document.getElementById(styleID);
-    modalConfirmacion.style.display = 'none';
+    if (modalConfirmacion) {
+        modalConfirmacion.parentElement.style.display = 'none'; // Oculta el modal
+    }
 }

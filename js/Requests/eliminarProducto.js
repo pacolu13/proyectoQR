@@ -20,7 +20,7 @@ function eliminarProducto(productoID) {
         })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error('Error en la eliminación del producto: ' + response.statusText);
+                    generarError(response.statusText);
                 }
             })
             .then(data => {
@@ -29,7 +29,7 @@ function eliminarProducto(productoID) {
             })
             .catch(error => {
                 // Mostrar el modal de notificación con mensaje de error
-                mostrarNotificacion('Error al eliminar el producto.');
+               generarError(error);
             });
     };
 

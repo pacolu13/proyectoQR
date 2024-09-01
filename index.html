@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/productos.css">
     <link rel="stylesheet" href="css/styleMenu.css">
+    <link rel="stylesheet" href="css/errores.css">
     <!--Bootstrap-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -76,21 +77,7 @@
         </div>
 
         <!--Popup configuracion-->
-        <div id="modalConfiguration" class="modal">
-            <div class="modal-content">
-                <form action="">
-                    <label for="">Nuevo stock Minimo:</label>
-                    <input type="text" id="cantidadMinima" placeholder="Stock mínimo...">
-                    <label for="">Precio deseado:</label>
-                    <input type="text" id="precioDeseado" placeholder="Precio deseado...">
-                    <label for="">Cantidad a comprar:</label>
-                    <input type="text" id="cantAcomprar" placeholder="Cantidad a comprar...">
-                    <button id="btnActualizarStock" type="button">Actualizar</button>
-                    <a href="#" onclick="cerrarPestaña('modalConfiguration')">Cancelar</a>
-                </form>
-            </div>
-        </div>
-
+        <div id="configuracionContainer"></div>
 
         <!--MENU-->
         <div class="tab-content" id="myTabContent">
@@ -181,10 +168,12 @@
 
     <script src="https://kit.fontawesome.com/b97dc99dd0.js" crossorigin="anonymous"></script>
 
+    <script src="js/cargas/datos/cargarErrores.js"></script>
     <script src="js/cargas/datos/cargarCompras.js"></script>
     <script src="js/cargas/datos/cargarProductos.js"></script>
     <script src="js/cargas/datos/cargarVentas.js"></script>
     <script src="js/cargas/datos/cargarVentasUnitarias.js"></script>
+    <script src="js/cargas/datos/cargarConfiguracion.js"></script>
 
     <script src="js/cargas/Filtros/cargarFiltroGenero.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroEditorial.js"></script>

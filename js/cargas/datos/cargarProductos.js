@@ -14,6 +14,9 @@ function cargarProductos(listaProductos) {
         let card = document.createElement('li');
         card.innerHTML = crearProducto(element);
 
+        //crear model-configuration para cada producto
+        cargarConfiguracion(productosPrueba, element);
+
         container.appendChild(card);
     });
 }
@@ -103,3 +106,4 @@ function crearProductosQR(libro) {
 function abrirPopup() {
     popup.style.display = 'block';
 }
+
