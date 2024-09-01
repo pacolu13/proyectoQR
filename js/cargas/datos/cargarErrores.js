@@ -1,5 +1,7 @@
+const modalError = document.createElement("div");
+
 function generarError(mensajeError) {
-    let modalError = document.createElement("div");
+    modalError.innerHTML = "";
     modalError.classList.add("modal-error");
 
     let contenedorError = document.createElement("div");
@@ -15,7 +17,7 @@ function generarError(mensajeError) {
     error.innerHTML = mensajeError;
 
     // Usar el valor de idError en el onclick
-    error.innerHTML += `<a href='#' onclick='cerrarPestaña("${idError}")'><i class="fa-regular fa-circle-xmark"></i></a>`;
+    error.innerHTML += `<a href='#' onclick='cerrarPestañaError()'><i class="fa-regular fa-circle-xmark"></i></a>`;
    
     modalError.style.display = "block";  // Asegurar que el modal se muestre
 
@@ -23,3 +25,10 @@ function generarError(mensajeError) {
     modalError.appendChild(contenedorError);
     document.body.appendChild(modalError);
 }
+
+function cerrarPestañaError(){
+    modalError.style.display = "none";
+}
+
+
+

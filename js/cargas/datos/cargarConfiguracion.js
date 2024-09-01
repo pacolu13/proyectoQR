@@ -14,7 +14,7 @@ function cargarConfiguracion(productosPrueba, libro) {
                         <input type="text" id="precioDeseado" placeholder="Precio deseado...">
                         <label for="">Cantidad a comprar:</label>
                         <input type="text" id="cantAcomprar" placeholder="Cantidad a comprar...">
-                        <button id="btnActualizarStock" type="button" onclick="actualizarProducto('${libro.libroID}')">Actualizar</button>
+                        <button id="btnActualizarStock" type="button" onclick="actualizarProducto()">Actualizar</button>
                         <a href="#" onclick="cerrarPestaña('modalConfiguration')">Cancelar</a>
                     </form>
                 </div>

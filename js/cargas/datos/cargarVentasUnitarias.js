@@ -72,12 +72,9 @@ function abrirPestaña(styleID) {
     });
 }
 
-
-
 function cerrarPestaña(styleID) {
 
     const modalConfirmacion = document.getElementById(styleID);
-    if (modalConfirmacion) {
-        modalConfirmacion.parentElement.style.display = 'none'; // Oculta el modal
-    }
+    modalConfirmacion.style.display = 'none'; // Oculta el modal
+    
 }

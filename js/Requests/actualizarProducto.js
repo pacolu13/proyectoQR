@@ -1,31 +1,71 @@
-let modalConfiguration = document.getElementById('modalConfiguration');
-const btnActualizarStock = document.getElementById('btnActualizarStock');
-const btnConfirmarStock = document.getElementById('confirmarStock');
+let idProducto = ""; // Almacena la ID del producto
+let productosPruebaConfiguracion = []; //Lugar donde voy a añadir los productos que me traiga la API
 
-const cantidadMinimaInput = document.getElementById('cantidadMinima');
-const precioDeseado = document.getElementById('precioDeseado');
-const cantAcomprar = document.getElementById('cantAcomprar');
+let cantMinimaActual = 0;
+let precioDeseadoActual = 0;
+let cantAcomprarActual = 0;
+
+fetch('json/productos.JSON')
+    .then(response => response.json())
+    .then(data => {
+        productosPruebaConfiguracion = data;
+    })
+    .catch(error => console.error('Error al cargar productos:', error));
 
 
-let idProducto = ""; // Cambiado a let
 
-function actualizarProducto(productoID) {
+function mostrarModalConfiguracion(productoID) {
+    productosPruebaConfiguracion.forEach(producto => function () {
+        if (producto.productoID === productoID) {
+
+            cantMinimaActual = producto.cantMinima;
+            precioDeseadoActual = producto.precioDeseado;
+            cantAcomprarActual = producto.cantAcomprar;
+        }
+    });
 
     let modalConfiguration = document.getElementById('modalConfiguration');
     modalConfiguration.style.display = 'block';
+    idProducto = productoID;
+}
 
-    //ESPERAR AL BOTON DE CONFIRMAR
+function actualizarProducto() {
+    let cantidadMinimaDecidida = 0;
+    let precioDeseadoDecidida = 0;
+    let cantAcomprarDecidida = 0;
 
-    let urlActualizarProducto = `${urlConfiguracion}/${productoID}`;
+    let cantidadMinimaInput = document.getElementById('cantidadMinima');
+    let precioDeseadoInput = document.getElementById('precioDeseado');
+    let cantAcomprarInput = document.getElementById('cantAcomprar');
+
+    if (cantidadMinimaInput === null) {
+        cantidadMinimaDecidida = cantMinimaActual;
+    } else {
+        cantidadMinimaDecidida = cantidadMinimaInput;
+    }
+
+    if (precioDeseadoInput === null) {
+        precioDeseadoDecidida = precioDeseadoActual;
+    } else {
+        precioDeseadoDecidida = precioDeseadoInput;
+    }
+    
+    if (cantAcomprarInput === null) {
+        cantAcomprarDecidida = cantAcomprarInput;
+    } else {
+        cantAcomprarDecidida = cantAcomprarInput;
+    }
+
+    let urlActualizarProducto = `${urlConfiguracion}/${idProducto}`;
     fetch(urlActualizarProducto, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            StockMinimo: cantidadMinimaInput.value,
-            PrecioDeseado: precioDeseado.value,
-            CantAcomprar: cantAcomprar.value
+            StockMinimo: cantidadMinimaDecidida,
+            PrecioDeseado: precioDeseadoDecidida,
+            CantAcomprar: cantAcomprarDecidida
         })
     })
         .then(response => {
@@ -36,10 +76,19 @@ function actualizarProducto(productoID) {
         })
         .then(data => {
             console.log('Producto actualizado exitosamente:', data);
+            let modalConfiguration = document.getElementById('modalConfiguration');
             modalConfiguration.style.display = 'none';
         })
         .catch(error => generarError(error));
 }
+
+
+
+
+
+
+
+
 
 
 

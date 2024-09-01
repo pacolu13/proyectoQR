@@ -59,7 +59,7 @@ function crearProducto(libro) {
                 </div>
                 <div class="producto-buttons">
                     <a href="#" onclick="eliminarProducto(${libro.libroID})"><i class="fa-solid fa-trash"></i></a>
-                    <a href="#" onclick="actualizarProducto(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
+                    <a href="#" onclick="mostrarModalConfiguracion(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
                 </div>
             </li>`;
         }
@@ -107,3 +107,7 @@ function abrirPopup() {
     popup.style.display = 'block';
 }
 
+function cerrarPopup(){
+    popup.style.display = 'none';
+
+}
