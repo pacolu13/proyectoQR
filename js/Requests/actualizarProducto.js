@@ -11,9 +11,6 @@ let idProducto = ""; // Cambiado a let
 
 function actualizarProducto(productoID) {
     modalConfiguration.style.display = 'block';
-}
-
-btnConfirmarStock.addEventListener("click", function () {
 
     let urlActualizarProducto = `${urlConfiguracion}/${productoID}`;
     fetch(urlActualizarProducto, {
@@ -38,7 +35,7 @@ btnConfirmarStock.addEventListener("click", function () {
             modalConfiguration.style.display = 'none';
         })
         .catch(error => console.error('Error:', error));
-});
+}
 
 
 
