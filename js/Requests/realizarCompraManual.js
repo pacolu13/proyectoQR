@@ -1,7 +1,7 @@
 let idProductoManual = "";
 
-let btnSiCompraManual = document.getElementById('btnSi-compraManual');
-let btnNoCompraManual = document.getElementById('btnNo-compraManual');
+const btnSiCompraManual = document.getElementById('btnSi-compraManual');
+const btnNoCompraManual = document.getElementById('btnNo-compraManual');
 
 function mostrarCompraManual(productoID) {
     let modalCompraManual = document.getElementById('modalCompraManual');
@@ -11,40 +11,37 @@ function mostrarCompraManual(productoID) {
 
 function realizarCompra() {
 
-    btnSiCompraManual.onclick = function () {
+    let cantInput = parseInt(document.getElementById('cantCompraManual').value);
+    modalCompraManual.style.display = 'none';
 
-        let cantInput = parseInt(document.getElementById('cantCompraManual').value);
-        modalCompraManual.style.display = 'none';
-
-        fetch(urlCompras, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                codigoproducto: idProductoManual,
-                cantcomprada: cantInput,
-            })
+    fetch(urlCompras, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            codigoproducto: idProductoManual,
+            cantcomprada: cantInput,
         })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Compra realizada exitosamente:', data);
-                // Ventana emergente o alguna notificación
-            })
-            .catch(error => {
-                generarError(error);
-            });
-    };
+    })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(response.statusText);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Compra realizada exitosamente:', data);
+            // Ventana emergente o alguna notificación
+        })
+        .catch(error => {
+            generarError(error);
+        });
+}
 
-    btnNoCompraManual.onclick = function () {
-        let modalCompraManual = document.getElementById('modalCompraManual');
-        modalCompraManual.style.display = 'none';
-    };
+function cerrarVentaManual() {
+    let modalCompraManual = document.getElementById('modalCompraManual');
+    modalCompraManual.style.display = 'none';
 }
 
 
