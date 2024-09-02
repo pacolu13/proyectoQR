@@ -57,9 +57,9 @@ function crearProducto(producto) {
                 <a href="#" class="exclamation-button" onclick="abrirPopup()">${signoExclamacion}</a>
             </div>
             <div class="producto-buttons">
-                <a href="#" onclick="eliminarProducto(${producto.codigoUnico})"><i class="fa-solid fa-trash"></i></a>
-                <a href="#" onclick="mostrarModalConfiguracion(${producto.codigoUnico})"><i class="fa-solid fa-gear"></i></a>
-                <a href="#" onclick="realizarCompra(${producto.codigoUnico})"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="#" onclick="eliminarProducto(${producto.ID})"><i class="fa-solid fa-trash"></i></a>
+                <a href="#" onclick="mostrarModalConfiguracion(${producto.ID})"><i class="fa-solid fa-gear"></i></a>
+                <a href="#" onclick="realizarCompra(${producto.ID})"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
         </li>`;
     return template;

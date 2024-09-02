@@ -21,9 +21,6 @@ function eliminarProducto(productoID) {
                     generarError(response.statusText);
                 }
             })
-            .then(data => {
-                //Ventana emergente de que se elimino el producto
-            })
             .catch(error => {
                 generarError(error);
             });
