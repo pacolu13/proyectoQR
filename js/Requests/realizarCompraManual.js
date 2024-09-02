@@ -13,9 +13,6 @@ function realizarCompra() {
 
     let cantInput = parseInt(document.getElementById('cantCompraManual').value);
     
-    console.log(cantInput);
-    console.log(idProductoManual);
-
     fetch(urlCompras, {
         method: 'POST',
         headers: {
@@ -30,7 +27,6 @@ function realizarCompra() {
             if (!response.ok) {
                 throw new Error(response.statusText);
             }
-            return response.json();
         })
         .then(data => {
             console.log('Compra realizada exitosamente:', data);
