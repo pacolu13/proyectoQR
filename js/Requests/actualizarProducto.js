@@ -19,7 +19,7 @@ fetch(urlProductos)
 
 function mostrarModalConfiguracion(productoID) {
     productosPruebaConfiguracion.forEach(producto => function () {
-        if (producto.productoID === productoID) {
+        if (producto.ID === productoID) {
 
             cantMinimaActual = producto.cantMinima;
             precioDeseadoActual = producto.precioDeseado;
