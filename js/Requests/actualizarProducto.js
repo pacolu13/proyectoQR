@@ -66,14 +66,14 @@ function actualizarProducto() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            stock_minimo: cantidadMinimaDecidida,
-            precio_deseado: precioDeseadoDecidida,
-            cant_a_comprar: cantAcomprarDecidida
+            stockminimo: cantidadMinimaDecidida,
+            preciodeseado: precioDeseadoDecidida,
+            cantacomprar: cantAcomprarDecidida
         })
     })
         .then(response => {
             if (!response.ok) {
-                generarError(response.statusText);
+                generarError("exploto aca" ,response.statusText);
             }
             return response.json();
         })
