@@ -1,6 +1,8 @@
+const urlProductos = 'https://go-postgresql-restapi-toek.onrender.com/productos';
+
 let productosPrueba = []; //Lugar donde voy a añadir los productos que me traiga la API
 
-fetch('json/productos.JSON')
+fetch(urlProductos)
     .then(response => response.json())
     .then(data => {
         productosPrueba = data;
@@ -57,6 +59,7 @@ function crearProducto(producto) {
             <div class="producto-buttons">
                 <a href="#" onclick="eliminarProducto(${producto.codigoUnico})"><i class="fa-solid fa-trash"></i></a>
                 <a href="#" onclick="mostrarModalConfiguracion(${producto.codigoUnico})"><i class="fa-solid fa-gear"></i></a>
+                <a href="#" onclick="realizarCompra(${producto.codigoUnico})"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
         </li>`;
     return template;

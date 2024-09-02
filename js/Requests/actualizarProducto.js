@@ -1,3 +1,4 @@
+const urlConfiguracion = 'https://go-postgresql-restapi-toek.onrender.com/configuracion';
 let idProducto = ""; // Almacena la ID del producto
 let productosPruebaConfiguracion = []; //Lugar donde voy a añadir los productos que me traiga la API
 
@@ -7,7 +8,7 @@ let cantAcomprarActual = 0;
 
 //REEMPLAZAR POR URL DE CONFIGURACION
 
-fetch('json/productos.JSON')
+fetch(urlProductos)
     .then(response => response.json())
     .then(data => {
         productosPruebaConfiguracion = data;
@@ -65,9 +66,9 @@ function actualizarProducto() {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            StockMinimo: cantidadMinimaDecidida,
-            PrecioDeseado: precioDeseadoDecidida,
-            CantAcomprar: cantAcomprarDecidida
+            stock_minimo: cantidadMinimaDecidida,
+            precio_deseado: precioDeseadoDecidida,
+            cant_a_comprar: cantAcomprarDecidida
         })
     })
         .then(response => {

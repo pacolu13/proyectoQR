@@ -1,5 +1,7 @@
 
-fetch('json/ventas.JSON')
+const urlCarritos = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
+
+fetch(urlCarritos)
     .then(response => response.json()) // Parsear el JSON
     .then(data => {
 

@@ -1,5 +1,5 @@
-
-fetch('json/compras.JSON')
+const urlCompras = 'https://go-postgresql-restapi-toek.onrender.com/compras';
+fetch(urlCompras)
     .then(response => response.json()) // Parsear el JSON
     .then(data => cargarCompras(data)) // Pasar los datos al método de muestra
     .catch(error => console.error('Error al leer el archivo JSON:', error));
