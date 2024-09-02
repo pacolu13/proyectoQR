@@ -12,7 +12,9 @@ function mostrarCompraManual(productoID) {
 function realizarCompra() {
 
     let cantInput = parseInt(document.getElementById('cantCompraManual').value);
-    modalCompraManual.style.display = 'none';
+    
+    console.log(cantInput);
+    console.log(idProductoManual);
 
     fetch(urlCompras, {
         method: 'POST',
@@ -37,6 +39,9 @@ function realizarCompra() {
         .catch(error => {
             generarError(error);
         });
+
+        modalCompraManual.style.display = 'none';
+
 }
 
 function cerrarVentaManual() {
