@@ -65,11 +65,11 @@ function actualizarProducto() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
+        body: {
             stockminimo: cantidadMinimaDecidida,
             preciodeseado: precioDeseadoDecidida,
             cantacomprar: cantAcomprarDecidida
-        })
+        }
     })
         .then(data => {
             console.log('Producto actualizado exitosamente:', data);
