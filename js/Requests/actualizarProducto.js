@@ -1,27 +1,26 @@
 const urlConfiguracion = 'https://go-postgresql-restapi-toek.onrender.com/configuracion';
 let idProducto = ""; // Almacena la ID del producto
-let productosPruebaConfiguracion = []; // Lugar donde voy a añadir los productos que me traiga la API
+let productosPruebaConfiguracion = []; //Lugar donde voy a añadir los productos que me traiga la API
 
 let cantMinimaActual = 0;
 let precioDeseadoActual = 0;
 let cantAcomprarActual = 0;
 
-// REEMPLAZAR POR URL DE CONFIGURACION
+//REEMPLAZAR POR URL DE CONFIGURACION
+
 fetch(urlProductos)
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Error en la solicitud: ' + response.statusText);
-        }
-        return response.json();
-    })
+    .then(response => response.json())
     .then(data => {
         productosPruebaConfiguracion = data;
     })
     .catch(error => console.error('Error al cargar productos:', error));
 
+
+
 function mostrarModalConfiguracion(productoID) {
-    productosPruebaConfiguracion.forEach(producto => {
+    productosPruebaConfiguracion.forEach(producto => function () {
         if (producto.productoID === productoID) {
+
             cantMinimaActual = producto.cantMinima;
             precioDeseadoActual = producto.precioDeseado;
             cantAcomprarActual = producto.cantAcomprar;
@@ -34,13 +33,31 @@ function mostrarModalConfiguracion(productoID) {
 }
 
 function actualizarProducto() {
-    let cantidadMinimaInput = document.getElementById('cantidadMinima').value;
-    let precioDeseadoInput = document.getElementById('precioDeseado').value;
-    let cantAcomprarInput = document.getElementById('cantAcomprar').value;
+    let cantidadMinimaDecidida = 0;
+    let precioDeseadoDecidida = 0;
+    let cantAcomprarDecidida = 0;
 
-    let cantidadMinimaDecidida = cantidadMinimaInput !== "" ? cantidadMinimaInput : cantMinimaActual;
-    let precioDeseadoDecidida = precioDeseadoInput !== "" ? precioDeseadoInput : precioDeseadoActual;
-    let cantAcomprarDecidida = cantAcomprarInput !== "" ? cantAcomprarInput : cantAcomprarActual;
+    let cantidadMinimaInput = document.getElementById('cantidadMinima');
+    let precioDeseadoInput = document.getElementById('precioDeseado');
+    let cantAcomprarInput = document.getElementById('cantAcomprar');
+
+    if (cantidadMinimaInput === null) {
+        cantidadMinimaDecidida = cantMinimaActual;
+    } else {
+        cantidadMinimaDecidida = cantidadMinimaInput;
+    }
+
+    if (precioDeseadoInput === null) {
+        precioDeseadoDecidida = precioDeseadoActual;
+    } else {
+        precioDeseadoDecidida = precioDeseadoInput;
+    }
+    
+    if (cantAcomprarInput === null) {
+        cantAcomprarDecidida = cantAcomprarInput;
+    } else {
+        cantAcomprarDecidida = cantAcomprarInput;
+    }
 
     let urlActualizarProducto = `${urlConfiguracion}/${idProducto}`;
     fetch(urlActualizarProducto, {
@@ -56,10 +73,9 @@ function actualizarProducto() {
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Error en la solicitud: ' + response.statusText);
+                generarError(response.statusText);
             }
-            // Verificar si la respuesta tiene contenido antes de intentar parsearlo
-            return response.text().then(text => text ? JSON.parse(text) : {});
+            return response.json();
         })
         .then(data => {
             console.log('Producto actualizado exitosamente:', data);
@@ -68,7 +84,6 @@ function actualizarProducto() {
         })
         .catch(error => generarError(error));
 }
-
 
 
 
