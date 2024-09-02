@@ -75,7 +75,7 @@ function cargarProductosQR(listaProductos) {
     });
 }
 
-function crearProductosQR(libro) {
+function crearProductosQR(producto) {
 
     let template = ``;
 

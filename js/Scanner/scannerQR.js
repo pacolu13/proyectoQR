@@ -27,8 +27,8 @@ function scanQRCode() {
         if (code) {
             Productos = JSON.parse(code.data); // Parsear el JSON a un objeto
 
-            cargarProductosQR(Productos);
             añadirProducto(Productos);
+            cargarProductosQR(Productos);
             cerrarPestaña('container');
             
             if (video.srcObject) {
