@@ -75,7 +75,6 @@ function actualizarProducto() {
             if (!response.ok) {
                 generarError("exploto aca" ,response.statusText);
             }
-            return response.json();
         })
         .then(data => {
             console.log('Producto actualizado exitosamente:', data);
