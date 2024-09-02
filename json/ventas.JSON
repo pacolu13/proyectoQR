@@ -1,150 +1,132 @@
 [
     {
-        "ventaID": 1,
+        "CodigoCarrito": 1,
         "MontoTotal": 15000,
-        "cantProductos": 3,
-        "ventas": [
+        "FechaVenta": "",
+        "VentasUnitarias": [
             {   
-                "productoID": 1,
-                "Precio": 15,
-                "cantidad": 100,
+                "CodigoCarritFK": 1,
+                "CodigoUnicoProducto": 1,
+                "Cantidad": 100,
                 "Monto": 1500
             },
             {
-                "productoID": 2,
-                "Precio": 100,
-                "cantidad": 100,
-                "Monto": 10000
+                "CodigoCarritFK": 1,
+                "CodigoUnicoProducto": 2,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 3,
-                "Precio": 175,
-                "cantidad": 20,
-                "Monto": 3500
-            }
-        ]
-    },
-    {
-        "ventaID": 2,
-        "MontoTotal": 65000,
-        "cantProductos": 3,
-        "ventas": [
-            {
-                "productoID": 4,
-                "Precio": 10000,
-                "cantidad": 4,
-                "Monto": 40000
-            },
-            {
-                "productoID": 5,
-                "Precio": 50,
-                "cantidad": 100,
-                "Monto": 5000
-            },
-            {
-                "productoID": 6,
-                "Precio": 100,
-                "cantidad": 200,
-                "Monto": 20000
-            }
-        ]
-    },
-    {
-        "ventaID": 3,
-        "MontoTotal": 1500,
-        "cantProductos": 1,
-        "ventas": [
-            {
-                "productoID": 1,
-                "Precio": 15,
-                "cantidad": 100,
+                "CodigoCarritFK": 1,
+                "CodigoUnicoProducto": 3,
+                "Cantidad": 100,
                 "Monto": 1500
             }
         ]
     },
     {
-        "ventaID": 4,
-        "MontoTotal": 65000,
-        "cantProductos": 3,
-        "ventas": [
+        "CodigoCarrito": 2,
+        "MontoTotal": 15000,
+        "FechaVenta": "",
+        "VentasUnitarias": [
             {
-                "productoID": 4,
-                "Precio": 10000,
-                "cantidad": 4,
-                "Monto": 40000
+                "CodigoCarritFK": 2,
+                "CodigoUnicoProducto": 1,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 5,
-                "Precio": 50,
-                "cantidad": 100,
-                "Monto": 5000
+                "CodigoCarritFK": 2,
+                "CodigoUnicoProducto": 2,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 6,
-                "Precio": 100,
-                "cantidad": 200,
-                "Monto": 20000
+                "CodigoCarritFK": 2,
+                "CodigoUnicoProducto": 3,
+                "Cantidad": 100,
+                "Monto": 1500
             }
         ]
     },
     {
-        "ventaID": 5,
-        "MontoTotal": 65000,
-        "cantProductos": 3,
-        "ventas": [
+        "CodigoCarrito": 3,
+        "MontoTotal": 15000,
+        "FechaVenta": "",
+        "VentasUnitarias": [
             {
-                "productoID": 4,
-                "Precio": 10000,
-                "cantidad": 4,
-                "Monto": 40000
+                "CodigoCarritFK": 3,
+                "CodigoUnicoProducto": 1,
+                "Cantidad": 100,
+                "Monto": 1500
+            }
+        ]
+    },
+    {
+        "CodigoCarrito": 4,
+        "MontoTotal": 15000,
+        "FechaVenta": "",
+        "VentasUnitarias": [
+            {
+                "CodigoCarritFK": 4,
+                "CodigoUnicoProducto": 2,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 5,
-                "Precio": 50,
-                "cantidad": 100,
-                "Monto": 5000
+                "CodigoCarritFK": 4,
+                "CodigoUnicoProducto": 3,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 6,
-                "Precio": 100,
-                "cantidad": 200,
-                "Monto": 20000
+                "CodigoCarritFK": 4,
+                "CodigoUnicoProducto": 4,
+                "Cantidad": 100,
+                "Monto": 1500
+            }
+        ]
+    },
+    {
+        "CodigoCarrito": 5,
+        "MontoTotal": 15000,
+        "FechaVenta": "",
+        "VentasUnitarias": [
+            {
+                "CodigoCarritFK": 5,
+                "CodigoUnicoProducto": 1,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 4,
-                "Precio": 10000,
-                "cantidad": 4,
-                "Monto": 40000
+                "CodigoCarritFK": 5,
+                "CodigoUnicoProducto": 2,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 5,
-                "Precio": 50,
-                "cantidad": 100,
-                "Monto": 5000
+                "CodigoCarritFK": 5,
+                "CodigoUnicoProducto": 3,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 6,
-                "Precio": 100,
-                "cantidad": 200,
-                "Monto": 20000
+                "CodigoCarritFK": 5,
+                "CodigoUnicoProducto": 4,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 4,
-                "Precio": 10000,
-                "cantidad": 4,
-                "Monto": 40000
+                "CodigoCarritFK": 5,
+                "CodigoUnicoProducto": 5,
+                "Cantidad": 100,
+                "Monto": 1500
             },
             {
-                "productoID": 5,
-                "Precio": 50,
-                "cantidad": 100,
-                "Monto": 5000
-            },
-            {
-                "productoID": 6,
-                "Precio": 100,
-                "cantidad": 200,
-                "Monto": 20000
+                "CodigoCarritFK": 5,
+                "CodigoUnicoProducto": 6,
+                "Cantidad": 100,
+                "Monto": 1500
             }
         ]
     }

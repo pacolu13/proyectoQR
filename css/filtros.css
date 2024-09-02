@@ -45,8 +45,8 @@
     padding: 5px;
 }
 
-#filtroGenero,
-#filtroEditorial {
+#filtroTipo,
+#filtroMarca {
     color: white;
     margin: 5px;
     padding: 8px;
@@ -58,15 +58,16 @@
 
 }
 
-#filtroGenero {
+#filtroTipo {
+    
     background-color: var(--color-secundario);
 }
 
-#filtroEditorial {
+#filtroMarca {
     background-color: var(--cuarto-color);
 }
 
-#añadirProductos {
+#añadirProductos, #acreditarVenta {
     margin: 10px;
     padding: 6px;
     background-color: var(--color-primario);
@@ -78,7 +79,7 @@
     box-shadow: 5px 5px 5px gray;
 }
 
-#añadirProductos p {
+#añadirProductos p, #acreditarVenta p {
     color: white;
     text-align: center;
     margin: 5px;

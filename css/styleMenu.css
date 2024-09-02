@@ -10,7 +10,7 @@
 .openbtn{
     font-size: 36px;
     color: var(--color-primario);
-    background-color: var(--color-fondo);
+    background-color: white;
 }
 
 .closebtn{
@@ -18,8 +18,8 @@
 }
 
 .sidebar {
-    background-color: var(--color-fondo);
-    box-shadow: 5px 5px 1px #f1ddbf;
+    background-color: white;
+    box-shadow: 3px 3px 1px var(--color-secundario);
     border-radius: 15px;
 }
 
@@ -29,7 +29,7 @@
 
 .nav-item{
     margin: 5px;
-    background-color: var(--color-fondo);
+    background-color: white;
 }
 
 .nav-item button{

@@ -7,6 +7,11 @@
     --quinto-color: #FFC400;
 }
 
+.boton-venta{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .lista-ventas {
     margin: 2%;
@@ -20,7 +25,7 @@
 }
 
 .lista-ventas li {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin-top: 10px;
     margin-bottom: 10px;
     display: flex;
@@ -48,7 +53,7 @@
 }
 
 .modal-venta-unitaria-medio {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: white;
     margin: 15% auto;
     padding: 20px;
@@ -69,7 +74,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: var(--color-fondo);
+    background-color: white;
     margin-top: -20px;
     padding: 10px;
     border-radius: 10px;
@@ -82,7 +87,7 @@
 }
 .modal-venta-titulo{
     text-transform: uppercase; /* Mayúsculas */
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     display: flex;
     justify-content: center;
     text-align: center;

@@ -26,7 +26,7 @@
                 <button id="openbtn" class="openbtn" onclick="openNav()">&#9776;</button>
             </div>
             <div class="titulo">
-                <img src="Agregar_un_titulo.png" alt="" srcset="">
+                <img src="Logo.png" alt="" srcset="">
             </div>
         </div>
         <div id="container">
@@ -95,11 +95,11 @@
                     </div>
 
                     <div class="filtro-select">
-                        <select id="filtroGenero">
+                        <select id="filtroTipo">
                             <!-- Las opciones se generarán aquí -->
                         </select>
 
-                        <select id="filtroEditorial">
+                        <select id="filtroMarca">
                             <!-- Las opciones se generarán aquí -->
                         </select>
                     </div>
@@ -131,7 +131,11 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+                <div class="boton-venta">
+                    <button id="acreditarVenta" onclick="iniciarEscaneo()">
+                        <p>Acreditar venta</p>
+                    </button>
+                </div>
                 <div class="modal-ventaUnitaria">
                     <!--Ventas unitarias-->
                 </div>
@@ -175,8 +179,8 @@
     <script src="js/cargas/datos/cargarVentasUnitarias.js"></script>
     <script src="js/cargas/datos/cargarConfiguracion.js"></script>
 
-    <script src="js/cargas/Filtros/cargarFiltroGenero.js"></script>
-    <script src="js/cargas/Filtros/cargarFiltroEditorial.js"></script>
+    <script src="js/cargas/Filtros/cargarFiltroTipo.js"></script>
+    <script src="js/cargas/Filtros/cargarFiltroMarca.js"></script>
 
     <script src="js/cargas/Filtros/añadirFiltros.js"></script>
 

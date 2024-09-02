@@ -1,20 +1,23 @@
 [
     {
-        "codigoCompra": 1,
-        "Precio": 15,
-        "cantidad": 100,
-        "Monto": 1500
+        "codigoProducto": 1,
+        "cantComprada": 15,
+        "Monto": 100,
+        "Fecha": "2024-10-04",
+        "Estado": "cancelado"
     },
     {
-        "codigoCompra": 2,
-        "Precio": 100,
-        "cantidad": 100,
-        "Monto": 10000
+        "codigoProducto": 3,
+        "cantComprada": 15,
+        "Monto": 100,
+        "Fecha": "2024-10-04",
+        "Estado": "confirmado"
     },
     {
-        "codigoCompra": 3,
-        "Precio": 175,
-        "cantidad": 20,
-        "Monto": 3500
+        "codigoProducto": 5,
+        "cantComprada": 15,
+        "Monto": 100,
+        "Fecha": "2024-10-04",
+        "Estado": "confirmado"
     }
 ]

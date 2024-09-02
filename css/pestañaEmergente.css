@@ -22,7 +22,7 @@
 .modal-content {
     max-width: 350px;
     width: 65%;
-    background-color: var(--color-fondo);
+    background-color: white;
     margin: 15% auto;
     padding: 20px;
     text-align: center;

@@ -16,9 +16,12 @@ function cargarCompras(listaCompras) {
 
 function crearCompra(compra) {
     let template = `
-    <div>
-      <div>Codigo de producto: ${compra.codigoUnico} - ${compra.fecha} </div>
-      Stock comprado: ${compra.cantidad}
+    <div class="compra">
+      <div>Codigo de producto: ${compra.codigoProducto} </div>
+      <div class="compra-caracteristicas">Fecha de emision: ${compra.Fecha} </div>
+      <div class="compra-caracteristicas">Stock comprado: ${compra.cantComprada}</div>
+      <div class="compra-caracteristicas">Monto total: ${compra.Monto}</div>
+      <div class="compra-estado">Estado: ${compra.Estado}</div>
     </div>`;
     return template;
 }

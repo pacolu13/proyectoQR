@@ -9,7 +9,7 @@
 
 
 header {
-    background: linear-gradient(to right, var(--color-fondo) 75%, var(--color-fondo) 30%, var(--color-primario));
+    background: linear-gradient(to right, white 65%,  var(--color-primario));
     border-bottom: 2px solid var(--color-primario);
     padding: 1%;
 }
@@ -26,7 +26,7 @@ footer {
 
 footer,
 main {
-    background-color: var(--color-fondo);
+    background-color: var(white);
 }
 
 .header{

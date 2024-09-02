@@ -21,49 +21,44 @@ function cargarProductos(listaProductos) {
     });
 }
 
-const editoriales = [];
-const generos = [];
 
-function crearProducto(libro) {
+const marcas = [];
+const tipos = [];
 
-    if (!editoriales.includes(libro.editorial)) {
-        editoriales.push(libro.editorial);
+function crearProducto(producto) {
+    if(!marcas.includes(producto.Marca)){
+        marcas.push(producto.Marca);
     }
 
-    if (!generos.includes(libro.genero)) {
-        generos.push(libro.genero);
+    if(!tipos.includes(producto.Tipo)){
+        tipos.push(producto.Tipo);
     }
-
-    cargarFiltrosEditorial();
-    cargarFiltrosGenero();
+    
+    filtrarTipo();
+    filtrarMarca();
 
     let template = ``;
 
-    productosPrueba.forEach(producto => {
-        if (producto.codigoUnico === libro.libroID) {
+    let signoExclamacion = "";
 
-            let signoExclamacion = "";
+    if (producto.stockMinimo === 0) {
+        signoExclamacion = `<i class="fa-solid fa-exclamation"></i>`;
+    };
 
-            if (producto.stockMinimo === 0) {
-                signoExclamacion = `<i class="fa-solid fa-exclamation"></i>`;
-            };
-
-            template = `
-            <li class="producto" id="${libro.libroID}">
-                <div class="producto-titulo">${libro.nombre}</div>
-                <div class="producto-caracteristicas">Autor: ${libro.autor} - Genero: ${libro.genero}</div>
-                <div class="producto-caracteristicas">Editorial: ${libro.editorial}</div>
-                <div class="producto-caracteristicas">Stock Disponible: ${producto.stockDisponible}</div>
-                <div class="producto-caracteristicas">Stock Minimo: ${producto.stockMinimo} 
-                    <a href="#" class="exclamation-button" onclick="abrirPopup()">${signoExclamacion}</a>
-                </div>
-                <div class="producto-buttons">
-                    <a href="#" onclick="eliminarProducto(${libro.libroID})"><i class="fa-solid fa-trash"></i></a>
-                    <a href="#" onclick="mostrarModalConfiguracion(${libro.libroID})"><i class="fa-solid fa-gear"></i></a>
-                </div>
-            </li>`;
-        }
-    })
+    template = `
+        <li class="producto" id="${producto.codigoUnico}">
+            <div class="producto-titulo">${producto.Nombre}</div>
+            <div class="producto-caracteristicas">Tipo: ${producto.Tipo} - Marca: ${producto.Marca}</div>
+            <div class="producto-caracteristicas">Descripcion: ${producto.Descripcion}</div>
+            <div class="producto-caracteristicas">Stock Disponible: ${producto.StockDisponible}</div>
+            <div class="producto-caracteristicas">Stock Minimo: ${producto.StockMinimo} 
+                <a href="#" class="exclamation-button" onclick="abrirPopup()">${signoExclamacion}</a>
+            </div>
+            <div class="producto-buttons">
+                <a href="#" onclick="eliminarProducto(${producto.codigoUnico})"><i class="fa-solid fa-trash"></i></a>
+                <a href="#" onclick="mostrarModalConfiguracion(${producto.codigoUnico})"><i class="fa-solid fa-gear"></i></a>
+            </div>
+        </li>`;
     return template;
 }
 
@@ -81,25 +76,14 @@ function crearProductosQR(libro) {
 
     let template = ``;
 
-    productosPrueba.forEach(producto => {
-        if (producto.codigoUnico === libro.libroID) {
-
-            let signoExclamacion = "";
-
-            if (producto.stockMinimo === 0) {
-                signoExclamacion = `<i class="fa-solid fa-exclamation"></i>`;
-            };
-
-            template = `
-            <li class="producto" id="${libro.libroID}">
-                <div class="producto-titulo">${libro.nombre}</div>
-                <div class="producto-caracteristicas">Autor: ${libro.autor} - Genero: ${libro.genero}</div>
-                <div class="producto-caracteristicas">Editorial: ${libro.editorial}</div>
-                <div class="producto-caracteristicas">Stock Disponible: ${producto.stockDisponible}</div>
-                <div class="producto-caracteristicas">Stock Minimo: ${producto.stockMinimo}</div>
-            </li>`;
-        }
-    })
+    template = `
+        <li class="producto" id="${producto.codigoUnico}">
+            <div class="producto-titulo">${producto.Nombre}</div>
+            <div class="producto-caracteristicas">Tipo: ${producto.Tipo} - Marca: ${producto.Marca}</div>
+            <div class="producto-caracteristicas">Descripcion: ${producto.Descripcion}</div>
+            <div class="producto-caracteristicas">Stock Disponible: ${producto.StockDisponible}</div>
+            <div class="producto-caracteristicas">Stock Minimo: ${producto.StockMinimo}</div>
+        </li>`;
     return template;
 }
 
@@ -107,7 +91,7 @@ function abrirPopup() {
     popup.style.display = 'block';
 }
 
-function cerrarPopup(){
+function cerrarPopup() {
     popup.style.display = 'none';
 
 }

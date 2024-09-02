@@ -52,7 +52,7 @@
   justify-content: center;
   align-items: center;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  border-bottom: 3px dotted gray; 
+  border-bottom: 3px solid var(--color-secundario); 
   padding-bottom: 5px; /* Espacio entre texto y borde */
   margin-bottom: 15px; /* Espacio debajo del título */
   line-height: 1.2; /* Altura de línea */
@@ -62,7 +62,7 @@
 }
 
 .producto-caracteristicas{
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .exclamation-button{
