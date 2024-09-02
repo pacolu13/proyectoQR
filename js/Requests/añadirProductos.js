@@ -13,8 +13,6 @@ function añadirProducto(Productos) {
         if (!response.ok) {
             generarError(response.statusText);
         }
-        const data = response.json();
-
         //PESTAÑA EMERGENTE DE QUE SE AÑADIERON CORRECTAMENTE
         
     } catch (error) {
