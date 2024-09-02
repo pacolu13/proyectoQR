@@ -52,7 +52,7 @@ function actualizarProducto() {
     } else {
         precioDeseadoDecidida = precioDeseadoInput;
     }
-    
+
     if (cantAcomprarInput === null) {
         cantAcomprarDecidida = cantAcomprarInput;
     } else {
@@ -71,11 +71,6 @@ function actualizarProducto() {
             cantacomprar: cantAcomprarDecidida
         })
     })
-        .then(response => {
-            if (!response.ok) {
-                generarError("exploto aca" ,response.statusText);
-            }
-        })
         .then(data => {
             console.log('Producto actualizado exitosamente:', data);
             let modalConfiguration = document.getElementById('modalConfiguration');
