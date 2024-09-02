@@ -60,16 +60,17 @@ function actualizarProducto() {
     }
 
     let urlActualizarProducto = `${urlConfiguracion}/${idProducto}`;
+
     fetch(urlActualizarProducto, {
-        method: 'PUT',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: {
+        body: JSON.stringify({
             stockminimo: cantidadMinimaDecidida,
             preciodeseado: precioDeseadoDecidida,
             cantacomprar: cantAcomprarDecidida
-        }
+        })
     })
         .then(data => {
             console.log('Producto actualizado exitosamente:', data);
