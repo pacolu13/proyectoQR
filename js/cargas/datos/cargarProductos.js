@@ -59,7 +59,7 @@ function crearProducto(producto) {
             <div class="producto-buttons">
                 <a href="#" onclick="eliminarProducto(${producto.ID})"><i class="fa-solid fa-trash"></i></a>
                 <a href="#" onclick="mostrarModalConfiguracion(${producto.ID})"><i class="fa-solid fa-gear"></i></a>
-                <a href="#" onclick="realizarCompra(${producto.ID})"><i class="fa-solid fa-bag-shopping"></i></a>
+                <a href="#" onclick="mostrarCompraManual(${producto.ID})"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
         </li>`;
     return template;

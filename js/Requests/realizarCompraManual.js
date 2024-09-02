@@ -1,15 +1,19 @@
-const cantInput = document.getElementById("cantAcomprar");
-const modalCompraManual = document.getElementById('modalCompraManual');
+let idProductoManual = "";
 
-modalConfirmacion.style.display = 'block';
+let btnSiCompraManual = document.getElementById('btnSi-compraManual');
+let btnNoCompraManual = document.getElementById('btnNo-compraManual');
 
-const btnSiCompraManual = document.getElementById('btnSi-compraManual');
-const btnNoCompraManual = document.getElementById('btnNo-compraManual');
+function mostrarCompraManual(productoID) {
+    let modalCompraManual = document.getElementById('modalCompraManual');
+    modalCompraManual.style.display = 'block';
+    idProductoManual = productoID;
+}
 
+function realizarCompra() {
 
-function realizarCompra(codigoProducto) {
+    btnSiCompraManual.onclick = function () {
 
-    btnSi.onclick = function () {
+        let cantInput = parseInt(document.getElementById('cantCompraManual').value);
         modalCompraManual.style.display = 'none';
 
         fetch(urlCompras, {
@@ -18,25 +22,28 @@ function realizarCompra(codigoProducto) {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                codigo_producto: codigoProducto,
-                cant_comprada: cantInput,
+                codigoproducto: idProductoManual,
+                cantcomprada: cantInput,
             })
         })
             .then(response => {
                 if (!response.ok) {
-                    generarError(response.statusText);
+                    throw new Error(response.statusText);
                 }
+                return response.json();
             })
             .then(data => {
-                //Ventana emergente de que se elimino el producto
+                console.log('Compra realizada exitosamente:', data);
+                // Ventana emergente o alguna notificación
             })
             .catch(error => {
                 generarError(error);
             });
     };
 
-    btnNo.onclick = function () {
-        modalConfirmacion.style.display = 'none';
+    btnNoCompraManual.onclick = function () {
+        let modalCompraManual = document.getElementById('modalCompraManual');
+        modalCompraManual.style.display = 'none';
     };
 }
 

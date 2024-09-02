@@ -37,9 +37,9 @@ function actualizarProducto() {
     let precioDeseadoDecidida = 0;
     let cantAcomprarDecidida = 0;
 
-    let cantidadMinimaInput = document.getElementById('cantidadMinima');
-    let precioDeseadoInput = document.getElementById('precioDeseado');
-    let cantAcomprarInput = document.getElementById('cantAcomprar');
+    let cantidadMinimaInput = parseInt(document.getElementById('cantidadMinima').value);
+    let precioDeseadoInput = parseFloat(document.getElementById('precioDeseado').value);
+    let cantAcomprarInput = parseInt(document.getElementById('cantAcomprar').value);
 
     if (cantidadMinimaInput === null) {
         cantidadMinimaDecidida = cantMinimaActual;
@@ -60,6 +60,10 @@ function actualizarProducto() {
     }
 
     let urlActualizarProducto = `${urlConfiguracion}/${idProducto}`;
+
+    console.log(cantidadMinimaDecidida);
+    console.log(precioDeseadoDecidida);
+    console.log(cantAcomprarDecidida);
 
     fetch(urlActualizarProducto, {
         method: 'POST',
