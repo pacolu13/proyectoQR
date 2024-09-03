@@ -24,6 +24,8 @@ function añadirFiltros() {
     })
     .then(response => response.json())
     .then(data => {
+        let productosContainer = document.getElementById("listaProductos");
+        productosContainer.innerHTML = "";
         cargarProductos(data);
     })
     .catch(error => {

@@ -14,9 +14,21 @@ function añadirProducto(Productos) {
         return response.json(); // Procesar la respuesta JSON
     })
     .then(data => {
+        recargarProductos();
         console.log('Producto añadido con éxito:', data);
     })
     .catch(error => {
         console.error('Hubo un problema con la operación de añadir el producto:', error);
     });
 }
+
+function recargarProductos(){
+    fetch(urlProductos)
+    .then(response => response.json())
+    .then(data => {
+        let productosContainer = document.getElementById("listaProductos");
+        productosContainer.innerHTML = "";
+        cargarProductos(data)
+    })
+}
+

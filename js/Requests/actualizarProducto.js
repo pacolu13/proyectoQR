@@ -61,10 +61,6 @@ function actualizarProducto() {
 
     let urlActualizarProducto = `${urlConfiguracion}/${idProducto}`;
 
-    console.log(cantidadMinimaDecidida);
-    console.log(precioDeseadoDecidida);
-    console.log(cantAcomprarDecidida);
-
     fetch(urlActualizarProducto, {
         method: 'POST',
         headers: {
