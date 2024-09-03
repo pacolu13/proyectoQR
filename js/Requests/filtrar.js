@@ -22,7 +22,6 @@ function añadirFiltros() {
         body: filtrosJSON
 
     })
-    .then(response => response.json())
     .then(data => {
         let productosContainer = document.getElementById("listaProductos");
         productosContainer.innerHTML = "";
