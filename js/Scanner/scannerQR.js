@@ -38,7 +38,6 @@ function scanQRCode() {
             else{
                 let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/ventas';
                 añadirItems(items,urlParametro);
-
             }
 
             cerrarPestaña('container');
@@ -50,7 +49,6 @@ function scanQRCode() {
             output.textContent = "No se detectó ningún código QR.";
         }
     }
-    requestAnimationFrame(scanQRCode);
 }
 
 
