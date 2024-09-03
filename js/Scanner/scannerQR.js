@@ -3,19 +3,20 @@ const canvasElement = document.getElementById('canvas');
 const canvas = canvasElement.getContext('2d');
 const output = document.getElementById('output');
 let items = "";
-
-function iniciarEscaneo(parametro) {
+let parametro = "";
+function iniciarEscaneo(tipoAccion) {
+    parametro = tipoAccion;
     document.getElementById('container').style.display = 'block';
 
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
         video.srcObject = stream;
         video.setAttribute("playsinline", true); // necesario para que funcione en iOS
         video.play();
-        requestAnimationFrame(scanQRCode(parametro));
+        requestAnimationFrame(scanQRCode());
     });
 }
 
-function scanQRCode(parametro) {
+function scanQRCode() {
 
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
         canvasElement.height = video.videoHeight;
@@ -48,7 +49,7 @@ function scanQRCode(parametro) {
             output.textContent = "No se detectó ningún código QR.";
         }
     }
-    requestAnimationFrame(scanQRCode);
+    requestAnimationFrame(scanQRCode());
 }
 
 
