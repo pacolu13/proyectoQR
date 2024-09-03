@@ -8,7 +8,6 @@ function añadirProducto(Productos) {
         body: JSON.stringify(Productos) // Convertir el producto a una cadena JSON
     })
     .then(response => {
-        recargarProductos();
         if (!response.ok) {
             generarError(response.statusText);
         }
@@ -20,16 +19,6 @@ function añadirProducto(Productos) {
     .catch(error => {
         console.error('Hubo un problema con la operación de añadir el producto:', error);
     });
-}
-
-function recargarProductos(){
-    fetch(urlProductos)
-    .then(response => response.json())
-    .then(data => {
-        let productosContainer = document.getElementById("listaProductos");
-        productosContainer.innerHTML = "";
-        cargarProductos(data)
-    })
 }
 
 

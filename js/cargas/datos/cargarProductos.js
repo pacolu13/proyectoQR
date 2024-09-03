@@ -29,14 +29,14 @@ const marcas = [];
 const tipos = [];
 
 function crearProducto(producto) {
-    if(!marcas.includes(producto.Marca)){
+    if (!marcas.includes(producto.Marca)) {
         marcas.push(producto.Marca);
     }
 
-    if(!tipos.includes(producto.Tipo)){
+    if (!tipos.includes(producto.Tipo)) {
         tipos.push(producto.Tipo);
     }
-    
+
     filtrarTipo();
     filtrarMarca();
 
@@ -99,3 +99,7 @@ function cerrarPopup() {
     popup.style.display = 'none';
 
 }
+
+
+
+
