@@ -25,7 +25,7 @@ function realizarCompra() {
     })
         .then(response => {
             if (!response.ok) {
-                throw new Error(response.statusText);
+                throw new Error(`No se pudo realizar la compra de forma manual`);
             }
         })
         .then(data => {

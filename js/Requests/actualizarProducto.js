@@ -72,8 +72,16 @@ function actualizarProducto() {
             cantacomprar: cantAcomprarDecidida
         })
     })
+        .then(response => {
+            if (!response.ok) {
+                let modalConfiguration = document.getElementById('modalConfiguration');
+                modalConfiguration.style.display = 'none'
+                throw new Error(`No se pudo actualizar el producto`);
+            }
+            return JSON.stringify(response); // Convierte la respuesta a JSON
+        })
         .then(data => {
-            console.log('Producto actualizado exitosamente:', data);
+            generarConfirmaciones('Producto actualizado exitosamente');
             let modalConfiguration = document.getElementById('modalConfiguration');
             modalConfiguration.style.display = 'none';
             cargarProductos();

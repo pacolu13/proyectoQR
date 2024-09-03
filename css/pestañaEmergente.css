@@ -79,6 +79,7 @@
     border-radius: 5px;
     border-style: none;
     border-color: var(--color-terciario);
+    color: white;
     background: linear-gradient(to right, var(--color-primario), var(--color-secundario), var(--color-terciario));
     text-align: center;
 }

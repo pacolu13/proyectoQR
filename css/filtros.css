@@ -22,6 +22,7 @@
 #filtro-nombre {
     padding: 10px;
     margin: 10px;
+    color: white;
     background-color: var(--color-terciario);
     border-radius: 25px;
     border-style: none;
