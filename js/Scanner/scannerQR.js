@@ -36,15 +36,12 @@ function scanQRCode() {
             if (parametro === "productos") {
                 try {
                     let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
-                    try{
-                        añadirItems(items, urlParametro);
-                    } catch(error){
-                        generarError(`Error en productos: ${error.message}`);
-                    }
-                    cargarProductosQR(items);
+                    añadirItems(items, urlParametro);
                 } catch (error) {
-                    
+                    generarError(`Error en productos: ${error.message}`);
+                    return;
                 }
+                cargarProductosQR(items);
             } else {
                 try {
                     let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
