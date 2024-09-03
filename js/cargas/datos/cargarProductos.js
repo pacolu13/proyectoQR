@@ -52,7 +52,7 @@ function crearProducto(producto) {
 
     template = `
         <li class="producto" id="${producto.codigoUnico}">
-            <div class="producto-titulo">${producto.Nombre}</div>
+            <div class="producto-titulo">${producto.Nombre} - COD: ${producto.CodigoUnico}</div>
             <div class="producto-caracteristicas">Tipo: ${producto.Tipo} - Marca: ${producto.Marca}</div>
             <div class="producto-caracteristicas">Descripcion: ${producto.Descripcion}</div>
             <div class="producto-caracteristicas">Stock Disponible: ${producto.StockDisponible}</div>
