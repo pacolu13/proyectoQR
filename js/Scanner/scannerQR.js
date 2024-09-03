@@ -27,11 +27,22 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            items = JSON.parse(code.data); // Parsear el JSON a un objeto
-
+            try{
+                items = JSON.parse(code.data); // Parsear el JSON a un objeto
+            }
+            catch{
+                generarError("QUE ME PASASTE?");
+            }
+            
             if(parametro === "productos"){
-                let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
-                añadirItems(items,urlParametro);
+                try{
+                    let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
+                    añadirItems(items,urlParametro);
+                }
+                catch{
+                    generarError("CAPO NO TE FUNCIONA")
+                }
+                
                 cargarProductosQR(items);
 
             }
@@ -52,6 +63,8 @@ function scanQRCode() {
     }
     requestAnimationFrame(scanQRCode);
 }
+
+
 
 
 
