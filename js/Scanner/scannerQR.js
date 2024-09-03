@@ -27,33 +27,35 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            try{
-                items = JSON.parse(code.data); // Parsear el JSON a un objeto
+            try {
+                items = JSON.parse(code.data);
+            } catch (error) {
+                generarError(`Error al parsear JSON: ${error.message}`);
+                return;
             }
-            catch{
-                generarError("QUE ME PASASTE?");
-            }
-            
-            if(parametro === "productos"){
-                try{
+            if (parametro === "productos") {
+                try {
                     let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
-                    añadirItems(items,urlParametro);
+                    try{
+                        añadirItems(items, urlParametro);
+                    } catch(error){
+                        generarError(`Error en productos: ${error.message}`);
+                    }
+                    cargarProductosQR(items);
+                } catch (error) {
+                    
                 }
-                catch{
-                    generarError("CAPO NO TE FUNCIONA")
+            } else {
+                try {
+                    let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
+                    añadirItems(items, urlParametro);
+                } catch (error) {
+                    generarError(`Error en carrito: ${error.message}`);
                 }
-                
-                cargarProductosQR(items);
-
-            }
-            else{
-                let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
-                añadirItems(items,urlParametro);
-
             }
 
             cerrarPestaña('container');
-            
+
             if (video.srcObject) {
                 video.srcObject.getTracks().forEach(track => track.stop());
             }
