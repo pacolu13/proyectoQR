@@ -27,28 +27,19 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            try {
-                items = JSON.parse(code.data);
-            } catch (error) {
-                generarError(`Error al parsear JSON: ${error.message}`);
-                return;
-            }
+            items = JSON.parse(code.data);
+            generarError(`Error al parsear JSON: ${error.message}`);
+
             if (parametro === "productos") {
-                try {
-                    let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
-                    añadirItems(items, urlParametro);
-                } catch (error) {
-                    generarError(`Error en productos: ${error.message}`);
-                    return;
-                }
+                let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
+                añadirItems(items, urlParametro);
+                generarError(`Error en productos: ${error.message}`);
                 cargarProductosQR(items);
+
             } else {
-                try {
-                    let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
-                    añadirItems(items, urlParametro);
-                } catch (error) {
-                    generarError(`Error en carrito: ${error.message}`);
-                }
+                let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
+                añadirItems(items, urlParametro);
+                generarError(`Error en carrito: ${error.message}`);
             }
 
             cerrarPestaña('container');
