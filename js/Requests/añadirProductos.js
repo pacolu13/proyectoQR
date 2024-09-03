@@ -8,13 +8,13 @@ function añadirProducto(Productos) {
         body: JSON.stringify(Productos) // Convertir el producto a una cadena JSON
     })
     .then(response => {
+        recargarProductos();
         if (!response.ok) {
             generarError(response.statusText);
         }
         return response.json(); // Procesar la respuesta JSON
     })
     .then(data => {
-        recargarProductos();
         console.log('Producto añadido con éxito:', data);
     })
     .catch(error => {
@@ -31,4 +31,5 @@ function recargarProductos(){
         cargarProductos(data)
     })
 }
+
 
