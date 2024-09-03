@@ -1,16 +1,19 @@
 const urlProductos = 'https://go-postgresql-restapi-toek.onrender.com/productos';
 
 let productosPrueba = []; //Lugar donde voy a añadir los productos que me traiga la API
+function cargarProductos() {
+    let productosContainer = document.getElementById("listaProductos");
+    productosContainer.innerHTML = "";
+    fetch(urlProductos)
+        .then(response => response.json())
+        .then(data => {
+            productosPrueba = data;
+            generarProductos(productosPrueba)
+        })
+        .catch(error => console.error('Error al cargar productos:', error));
+}
 
-fetch(urlProductos)
-    .then(response => response.json())
-    .then(data => {
-        productosPrueba = data;
-        cargarProductos(productosPrueba)
-    })
-    .catch(error => console.error('Error al cargar productos:', error));
-
-function cargarProductos(listaProductos) {
+function generarProductos(listaProductos) {
     const container = document.querySelector('.lista-productos');
     container.innerHTML = "";
     listaProductos.forEach(element => {
@@ -100,6 +103,4 @@ function cerrarPopup() {
 
 }
 
-
-
-
+cargarProductos();

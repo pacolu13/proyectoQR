@@ -20,6 +20,7 @@ function eliminarProducto(productoID) {
                 if (!response.ok) {
                     generarError(response.statusText);
                 }
+                cargarProductos();
             })
             .catch(error => {
                 generarError(error);

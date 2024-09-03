@@ -11,6 +11,7 @@ function añadirProducto(Productos) {
         if (!response.ok) {
             generarError(response.statusText);
         }
+        cargarProductos();
         return response.json(); // Procesar la respuesta JSON
     })
     .then(data => {

@@ -25,7 +25,7 @@ function añadirFiltros() {
     .then(data => {
         let productosContainer = document.getElementById("listaProductos");
         productosContainer.innerHTML = "";
-        cargarProductos(data);
+        generarProductos(data);
     })
     .catch(error => {
         console.error('Error al cargar los productos:', error);
