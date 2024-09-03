@@ -1,9 +1,8 @@
-let ventas = [];
 
-fetch('json/ventas.JSON')
+let ventas = [];
+fetch(urlCarritos)
     .then(response => response.json()) // Parsear el JSON
     .then(data => {
-
         ventas = data;
 
         data.forEach(venta => {
@@ -23,7 +22,6 @@ function abrirPestaña(styleID) {
     let enlace = document.createElement("a");
     enlace.href = "#"; // Puedes configurar el href si es necesario
     enlace.innerHTML = '<i class="fa-regular fa-circle-xmark"></i>'; // Usa innerHTML para insertar el icono
-    enlace.onclick = cerrarPestaña(styleID);
     modalVenta.appendChild(enlace);
     let modalTituloVenta = document.createElement("div");
     modalTituloVenta.classList.add("modal-venta-titulo");
@@ -76,5 +74,5 @@ function cerrarPestaña(styleID) {
 
     const modalConfirmacion = document.getElementById(styleID);
     modalConfirmacion.style.display = 'none'; // Oculta el modal
-    
+
 }

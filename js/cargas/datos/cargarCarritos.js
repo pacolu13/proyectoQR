@@ -37,7 +37,7 @@ function crearVenta(venta) {
         <div class="carrito-id">NRO VENTA: ${venta.CodigoCarrito}</div>
         <div class="carrito-monto">MONTO TOTAL: $${venta.MontoTotal}</div>
         <div class="carrito-monto">FECHA DE EMISION: ${venta.FechaVenta}</div>
-        <a href="#" onclick="abrirPestaña(${venta.CodigoCarrito})">Ver detalle</a>
+        <a href="#" onclick="abrirPestaña('${venta.CodigoCarrito}')">Ver detalle</a>
     </div>`;
     return template;
 }

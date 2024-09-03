@@ -30,12 +30,9 @@ function scanQRCode() {
             items = JSON.parse(code.data); // Parsear el JSON a un objeto
 
             if(parametro === "productos"){
-                console.log("Hola")
                 let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
                 añadirItems(items,urlParametro);
                 cargarProductosQR(items);
-                console.log("termine")
-
 
             }
             else{
