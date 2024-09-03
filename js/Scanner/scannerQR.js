@@ -36,11 +36,8 @@ function scanQRCode() {
 
             }
             else{
-                console.log("Hola pero con ventas")
-
                 let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
                 añadirItems(items,urlParametro);
-                console.log("termine con ventas")
 
             }
 

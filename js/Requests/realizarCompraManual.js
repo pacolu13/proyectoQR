@@ -12,7 +12,7 @@ function mostrarCompraManual(productoID) {
 function realizarCompra() {
 
     let cantInput = parseInt(document.getElementById('cantCompraManual').value);
-    
+
     fetch(urlCompras, {
         method: 'POST',
         headers: {
@@ -29,14 +29,14 @@ function realizarCompra() {
             }
         })
         .then(data => {
-            console.log('Compra realizada exitosamente:', data);
-            // Ventana emergente o alguna notificación
+            generarConfirmaciones('Compra realizada exitosamente');
+            cargarProductos();
         })
         .catch(error => {
             generarError(error);
         });
 
-        modalCompraManual.style.display = 'none';
+    modalCompraManual.style.display = 'none';
 
 }
 
