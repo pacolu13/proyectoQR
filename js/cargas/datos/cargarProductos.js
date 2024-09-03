@@ -81,12 +81,12 @@ function crearProductosQR(producto) {
     let template = ``;
 
     template = `
-        <li class="producto" id="${producto.codigoUnico}">
-            <div class="producto-titulo">${producto.Nombre}</div>
-            <div class="producto-caracteristicas">Tipo: ${producto.Tipo} - Marca: ${producto.Marca}</div>
-            <div class="producto-caracteristicas">Descripcion: ${producto.Descripcion}</div>
-            <div class="producto-caracteristicas">Stock Disponible: ${producto.StockDisponible}</div>
-            <div class="producto-caracteristicas">Stock Minimo: ${producto.StockMinimo}</div>
+        <li class="producto" id="${producto.codigounico}">
+            <div class="producto-titulo">${producto.nombre}</div>
+            <div class="producto-caracteristicas">Tipo: ${producto.tipo} - Marca: ${producto.marca}</div>
+            <div class="producto-caracteristicas">Descripcion: ${producto.descripcion}</div>
+            <div class="producto-caracteristicas">Stock Disponible: ${producto.stockdisponible}</div>
+            <div class="producto-caracteristicas">Stock Minimo: ${producto.stockminimo}</div>
         </li>`;
     return template;
 }
