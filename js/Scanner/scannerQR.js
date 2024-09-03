@@ -4,6 +4,7 @@ const canvas = canvasElement.getContext('2d');
 const output = document.getElementById('output');
 let items = "";
 let parametro = "";
+
 function iniciarEscaneo(tipoAccion) {
     parametro = tipoAccion;
     document.getElementById('container').style.display = 'block';
