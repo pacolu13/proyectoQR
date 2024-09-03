@@ -28,18 +28,15 @@ function scanQRCode() {
 
         if (code) {
             items = JSON.parse(code.data);
-            generarError(`Error al parsear JSON: ${error.message}`);
 
             if (parametro === "productos") {
                 let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
                 añadirItems(items, urlParametro);
-                generarError(`Error en productos: ${error.message}`);
                 cargarProductosQR(items);
 
             } else {
                 let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
                 añadirItems(items, urlParametro);
-                generarError(`Error en carrito: ${error.message}`);
             }
 
             cerrarPestaña('container');
