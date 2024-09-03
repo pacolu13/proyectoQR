@@ -31,13 +31,13 @@ function scanQRCode() {
 
             if(parametro === "productos"){
                 let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
-                añadirProducto(items,urlParametro);
+                añadirItems(items,urlParametro);
                 cargarProductosQR(items);
 
             }
             else{
                 let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/ventas';
-                añadirProducto(items,urlParametro);
+                añadirItems(items,urlParametro);
 
             }
 
