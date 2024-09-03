@@ -79,9 +79,10 @@
 
         <div id="modalCompraManual">
             <div class="buttons-compraManual">
-                <input type="text" id="cantCompraManual">Ingrese la cantidad a comprar
-                <button onclick="realizarCompra()">Confirmar</button>
-                <button onclick="cerrarVentaManual()">Cancelar</button>
+                <label for="">Ingrese la cantidad a comprar</label>
+                <input type="text" id="cantCompraManual">
+                <button onclick="realizarCompra()" id="compraManualConfirmar">Confirmar</button>
+                <button onclick="cerrarVentaManual()" id="compraManualCancelar">Cancelar</button>
             </div>
         </div>
 
@@ -111,6 +112,10 @@
                         <select id="filtroMarca">
                             <!-- Las opciones se generarán aquí -->
                         </select>
+                    </div>
+
+                    <div class="div-buttonFiltrar">
+                        <button onclick="añadirFiltros()" id="buttonFiltrar">Filtrar</button>
                     </div>
                 </div>
 

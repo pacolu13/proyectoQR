@@ -46,7 +46,8 @@
 }
 
 #filtroTipo,
-#filtroMarca {
+#filtroMarca,
+#buttonFiltrar {
     color: white;
     margin: 5px;
     padding: 8px;
@@ -56,6 +57,14 @@
     border-style: none;
     box-shadow: 5px 5px 5px gray;
 
+}
+
+.div-buttonFiltrar{
+    display: flex;
+    justify-content: center;
+}
+#buttonFiltrar{
+    background-color: var(--color-terciario);
 }
 
 #filtroTipo {

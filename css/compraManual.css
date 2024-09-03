@@ -1,3 +1,11 @@
+:root {
+    --color-primario: #5B1647;
+    --color-secundario: #93063E;
+    --color-terciario: #C90035;
+    --cuarto-color: #FF5627;
+    --quinto-color: #FFC400;
+}
+
 #modalCompraManual{
     display: none;
     position: fixed;
@@ -12,10 +20,60 @@
 
 .buttons-compraManual{
     max-width: 350px;
-    width: 65%;
+    width: 75%;
+    height: 28%;
     background-color: white;
     margin: 15% auto;
     padding: 20px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
+
+#compraManualConfirmar, #compraManualCancelar{
+    padding: 5px;
+    color: white;
+    margin-top: 25px;
+    margin-left: 5px;
+    border-radius: 15px;
+    border-style: none;
+    box-shadow: 5px 5px 5px gray;
+}
+
+#compraManualConfirmar{
+    background-color: var(--cuarto-color);
+}
+
+#compraManualCancelar{
+    background-color: var(--color-terciario);
+}
+
+#cantCompraManual {
+    background-color: var(--color-primario); 
+    border: 2px solid var(--color-secundario); 
+    border-radius: 5px; 
+    padding: 5px; 
+    font-size: 15px; 
+    color: white; 
+    outline: none; 
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out; 
+}
+
+.buttons-compraManual label {
+    display: block; /* Asegura que el label ocupe una línea completa */
+    font-size: 15px; /* Tamaño de fuente más grande para resaltar */
+    color: var(--color-primario); /* Color del texto del label */
+    margin-bottom: 5px; /* Espaciado debajo del label */
+}
+
+
+
+
+
+/*<div id="modalCompraManual">
+<div class="buttons-compraManual">
+    <input type="text" id="cantCompraManual">Ingrese la cantidad a comprar
+    <button onclick="realizarCompra()">Confirmar</button>
+    <button onclick="cerrarVentaManual()">Cancelar</button>
+</div>
+</div>
+*/

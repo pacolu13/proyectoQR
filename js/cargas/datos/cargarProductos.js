@@ -6,6 +6,7 @@ fetch(urlProductos)
     .then(response => response.json())
     .then(data => {
         productosPrueba = data;
+        cargarProductos(productosPrueba)
     })
     .catch(error => console.error('Error al cargar productos:', error));
 
