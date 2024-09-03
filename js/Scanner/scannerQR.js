@@ -50,7 +50,7 @@ function scanQRCode() {
             output.textContent = "No se detectó ningún código QR.";
         }
     }
-    requestAnimationFrame(scanQRCode());
+    requestAnimationFrame(scanQRCode);
 }
 
 
