@@ -13,7 +13,7 @@ function iniciarEscaneo(tipoAccion) {
         video.srcObject = stream;
         video.setAttribute("playsinline", true); // necesario para que funcione en iOS
         video.play();
-        requestAnimationFrame(scanQRCode());
+        requestAnimationFrame(scanQRCode);
     });
 }
 
