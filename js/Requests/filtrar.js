@@ -2,10 +2,9 @@ const urlFiltros = 'https://go-postgresql-restapi-toek.onrender.com/productosFil
 
 function añadirFiltros() {
     let filtroMarca = document.getElementById("filtroMarca").value;
-    let filtroTipo = document.getElementById("filtroTipo").value; // Cambié a "filtroTipo"
+    let filtroTipo = document.getElementById("filtroTipo").value;
     let nombreInput = document.getElementById("filtro-nombre").value;
 
-    // Construimos la URL con los parámetros de filtro
     let filtros = {
         nombre: nombreInput,
         tipo: filtroTipo,
@@ -20,14 +19,20 @@ function añadirFiltros() {
             'Content-Type': 'application/json'
         },
         body: filtrosJSON
-
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la solicitud: ' + response.statusText);
+        }
+        return response.json(); // Aquí obtenemos los datos en formato JSON
     })
     .then(data => {
         let productosContainer = document.getElementById("listaProductos");
-        productosContainer.innerHTML = "";
-        generarProductos(data);
+        productosContainer.innerHTML = ""; 
+        generarProductos(data); 
     })
     .catch(error => {
         console.error('Error al cargar los productos:', error);
     });
 }
+

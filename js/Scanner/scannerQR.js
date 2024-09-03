@@ -2,20 +2,20 @@ const video = document.getElementById('video');
 const canvasElement = document.getElementById('canvas');
 const canvas = canvasElement.getContext('2d');
 const output = document.getElementById('output');
-let Productos = "";
+let items = "";
 
-function iniciarEscaneo() {
+function iniciarEscaneo(parametro) {
     document.getElementById('container').style.display = 'block';
 
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } }).then(function (stream) {
         video.srcObject = stream;
         video.setAttribute("playsinline", true); // necesario para que funcione en iOS
         video.play();
-        requestAnimationFrame(scanQRCode);
+        requestAnimationFrame(scanQRCode(parametro));
     });
 }
 
-function scanQRCode() {
+function scanQRCode(parametro) {
 
     if (video.readyState === video.HAVE_ENOUGH_DATA) {
         canvasElement.height = video.videoHeight;
@@ -25,10 +25,20 @@ function scanQRCode() {
         const code = jsQR(imageData.data, imageData.width, imageData.height);
 
         if (code) {
-            Productos = JSON.parse(code.data); // Parsear el JSON a un objeto
+            items = JSON.parse(code.data); // Parsear el JSON a un objeto
 
-            añadirProducto(Productos);
-            cargarProductosQR(Productos);
+            if(parametro === "productos"){
+                let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/productos';
+                añadirProducto(items,urlParametro);
+                cargarProductosQR(items);
+
+            }
+            else{
+                let urlParametro = 'https://go-postgresql-restapi-toek.onrender.com/ventas';
+                añadirProducto(items,urlParametro);
+
+            }
+
             cerrarPestaña('container');
             
             if (video.srcObject) {

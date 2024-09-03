@@ -1,9 +1,9 @@
-function cargarConfiguracion(productosPrueba, libro) {
+function cargarConfiguracion(productos, productoGeneral) {
 
     let template = ``;
 
-    productosPrueba.forEach(producto => {
-        if (producto.codigoUnico === libro.libroID) {
+    productos.forEach(producto => {
+        if (producto.codigoUnico === productoGeneral.codigoUnico) {
             template = `
             <div id="modalConfiguration" class="modal">
                 <div class="modal-content">

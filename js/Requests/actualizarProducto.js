@@ -76,6 +76,7 @@ function actualizarProducto() {
             console.log('Producto actualizado exitosamente:', data);
             let modalConfiguration = document.getElementById('modalConfiguration');
             modalConfiguration.style.display = 'none';
+            cargarProductos();
         })
         .catch(error => generarError(error));
 }
