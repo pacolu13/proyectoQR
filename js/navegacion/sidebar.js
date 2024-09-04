@@ -10,5 +10,3 @@ function closeNav() {
     document.getElementById("openbtn").style.display = "block";
 
 }
-
-// holis :3
