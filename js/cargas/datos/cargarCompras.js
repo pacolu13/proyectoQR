@@ -1,5 +1,4 @@
 const urlCompras = 'https://go-postgresql-restapi-toek.onrender.com/compras';
-
 async function cargarCompras() {
     try {
         const response = await fetch(urlCompras);
@@ -24,9 +23,13 @@ function mostrarCompras(listaCompras) {
 }
 
 function crearCompra(compra) {
+    let producto = nombreProductos.find(producto => producto.CodigoUnico === compra.CodigoProducto);
+    let nombreProductoCompra = producto ? producto.Nombre : 'Producto no disponible';
+
     return `
     <div class="compra">
-        <div>Codigo de producto: ${compra.CodigoProducto}</div>
+        <div>Nombre: ${nombreProductoCompra}</div>
+        <div class="compra-caracteristicas">Codigo de producto: ${compra.CodigoProducto}</div>
         <div class="compra-caracteristicas">Fecha de emisión: ${compra.Fecha}</div>
         <div class="compra-caracteristicas">Stock comprado: ${compra.CantComprada}</div>
         <div class="compra-caracteristicas">Monto total: $${compra.Monto}</div>
@@ -34,6 +37,9 @@ function crearCompra(compra) {
     </div>`;
 }
 
-cargarCompras();
+document.addEventListener('DOMContentLoaded', (event) => {
+    cargarCompras();
+});
+
 
 

@@ -1,7 +1,7 @@
 const urlFiltroCompras = 'https://go-postgresql-restapi-toek.onrender.com/comprasFiltro';
 
-function filtrarTipoCompras() {
-
+function filtrarCompras() {
+    
     let filtroTipoInput = document.getElementById("filtroTipoCompra").value; //Manual, automatica
     let filtroEstadoInput = document.getElementById("filtroEstadoCompra").value; //Rechazado, confirmado
 

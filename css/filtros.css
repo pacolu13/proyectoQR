@@ -7,12 +7,12 @@
     --quinto-color: #FFC400;
 }
 
-.filtros {
+.filtros, .filtros-compras{
     display: flex;
     flex-direction: column;
 }
 
-.filtro-input {
+.filtro-input{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +47,7 @@
 #filtroMarca,
 #filtroTipoCompra,
 #filtroEstadoCompra,
-#buttonFiltrar {
+#botonFiltrarProductos,#botonFiltrarCompras,#botonFiltrarVentas {
     color: white;
     margin: 5px;
     padding: 10px 15px; /* Unifica el padding para consistencia */
@@ -56,12 +56,12 @@
     box-shadow: 3px 3px 3px gray; /* Sombra más sutil para botones de filtros */
 }
 
-.div-buttonFiltrar {
+.div-buttonFiltrar,.div-buttonFiltrarCompras {
     display: flex;
     justify-content: center;
 }
 
-#buttonFiltrar {
+#botonFiltrarProductos,#botonFiltrarCompras,#botonFiltrarVentas {
     background-color: var(--color-terciario);
 }
 

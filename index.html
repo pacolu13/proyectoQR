@@ -114,8 +114,8 @@
                         </select>
                     </div>
 
-                    <div class="div-buttonFiltrar">
-                        <button onclick="añadirFiltros()" id="buttonFiltrar">Filtrar</button>
+                    <div class="div-buttonFiltrar" id="filtrarProductos">
+                        <!--Boton para filtrar productos-->
                     </div>
                 </div>
 
@@ -151,21 +151,25 @@
                     <button id="acreditarVenta" onclick="iniciarEscaneo('ventas')">
                         <p>Acreditar venta</p>
                     </button>
-                </div>
-                <div class="modal-ventaUnitaria">
-                    <!--Ventas unitarias-->
-                </div>
-                <div class="productos">
-                    <ul class="lista-ventas">
-                        <!--Ventas generadas automaticamente-->
-                    </ul>
+                    <div id="filtrarVentas">
+                        <!--Boton para filtrar productos-->
+
+                    </div>
+                    <div class="modal-ventaUnitaria">
+                        <!--Ventas unitarias-->
+                    </div>
+                    <div class="productos">
+                        <ul class="lista-ventas">
+                            <!--Ventas generadas automaticamente-->
+                        </ul>
+                    </div>
                 </div>
             </div>
-
             <!--Panel de compras-->
 
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                <div class="filtros">
+                <div class="filtros-compras">
+
                     <div class="filtro-select">
                         <select id="filtroTipoCompra">
                             <!-- Las opciones se generarán aquí -->
@@ -174,6 +178,10 @@
                         <select id="filtroEstadoCompra">
                             <!-- Las opciones se generarán aquí -->
                         </select>
+                    </div>
+
+                    <div class="div-buttonFiltrar" id="filtrarCompras">
+                        <!--Boton para filtrar compras-->
                     </div>
                 </div>
 
@@ -210,15 +218,18 @@
     <script src="js/cargas/datos/cargarVentasUnitarias.js"></script>
     <script src="js/cargas/datos/cargarConfiguracion.js"></script>
 
+
+    <script src="js/Requests/filtrarCompras.js"></script>
+    <script src="js/Requests/filtrarProductos.js"></script>
+    <script src="js/Requests/filtrarCarritos.js"></script>
+
     <script src="js/cargas/Filtros/cargarFiltroTipo.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroMarca.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroCompras.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroVentas.js"></script>
 
+    <script src="js/cargas/Filtros/cargarBotonesFiltrar.js"></script>
 
-    <script src="js/Requests/filtrarProductos.js"></script>
-    <script src="js/Requests/filtrarCompras.js"></script>
-    <script src="js/Requests/filtrarCarritos.js"></script>
     <script src="js/Requests/añadirItems.js"></script>
     <script src="js/Requests/actualizarProducto.js"></script>
     <script src="js/Requests/eliminarProducto.js"></script>

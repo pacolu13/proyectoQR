@@ -22,7 +22,6 @@ function añadirFiltroTipoCompras() {
     filtroTipoCompra.appendChild(tipoAutomatico);
 }
 
-
 function añadirFiltroEstadoCompras() {
 
     // Añade la opción "Ninguno" al principio
