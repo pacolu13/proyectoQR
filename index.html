@@ -27,7 +27,7 @@
                 <button id="openbtn" class="openbtn" onclick="openNav()">&#9776;</button>
             </div>
             <div class="titulo">
-                <img src="Logo.png" alt="" srcset="">
+                <img src="Logo.png" srcset="" alt="Logo">
             </div>
         </div>
         <div id="container">
@@ -79,7 +79,7 @@
 
         <div id="modalCompraManual">
             <div class="buttons-compraManual">
-                <label for="">Ingrese la cantidad a comprar</label>
+                <label for="cantCompraManual">Ingrese la cantidad a comprar</label>
                 <input type="text" id="cantCompraManual">
                 <button onclick="realizarCompra()" id="compraManualConfirmar">Confirmar</button>
                 <button onclick="cerrarVentaManual()" id="compraManualCancelar">Cancelar</button>
@@ -87,14 +87,14 @@
         </div>
 
         <!--Popup configuracion-->
-        <div id="configuracionContainer"></div>
+        <div id="configuracionContainer">
+        </div>
 
-        <!--MENU-->
         <div class="tab-content" id="myTabContent">
+
+            <!--Solapa Principal-->
+
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-
-                <!--Solapa Principal-->
-
                 <div class="filtros">
                     <div class="filtro-input">
                         <input type="text" id="filtro-nombre" name="filtroNombre" placeholder="Buscar un producto..."
@@ -143,6 +143,9 @@
                     </ul>
                 </div>
             </div>
+
+            <!--Panel de ventas-->
+
             <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="boton-venta">
                     <button id="acreditarVenta" onclick="iniciarEscaneo('ventas')">
@@ -158,7 +161,22 @@
                     </ul>
                 </div>
             </div>
+
+            <!--Panel de compras-->
+
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                <div class="filtros">
+                    <div class="filtro-select">
+                        <select id="filtroTipoCompra">
+                            <!-- Las opciones se generarán aquí -->
+                        </select>
+
+                        <select id="filtroEstadoCompra">
+                            <!-- Las opciones se generarán aquí -->
+                        </select>
+                    </div>
+                </div>
+
                 <div class="productos">
                     <ul class="lista-compras">
                         <!--Compras generadas automaticamente-->
@@ -194,8 +212,13 @@
 
     <script src="js/cargas/Filtros/cargarFiltroTipo.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroMarca.js"></script>
+    <script src="js/cargas/Filtros/cargarFiltroCompras.js"></script>
+    <script src="js/cargas/Filtros/cargarFiltroVentas.js"></script>
 
-    <script src="js/Requests/filtrar.js"></script>
+
+    <script src="js/Requests/filtrarProductos.js"></script>
+    <script src="js/Requests/filtrarCompras.js"></script>
+    <script src="js/Requests/filtrarCarritos.js"></script>
     <script src="js/Requests/añadirItems.js"></script>
     <script src="js/Requests/actualizarProducto.js"></script>
     <script src="js/Requests/eliminarProducto.js"></script>

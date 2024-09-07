@@ -1,6 +1,6 @@
 const filtroTipo = document.getElementById("filtroTipo");
 
-function filtrarTipo() {
+function filtrarTipo(Tipos) {
 
     // Limpia las opciones actuales
     filtroTipo.innerHTML = "";
@@ -11,7 +11,7 @@ function filtrarTipo() {
     opcionNinguno.textContent = "Tipo";
     filtroTipo.appendChild(opcionNinguno);
 
-    tipos.forEach(element => {
+    Tipos.forEach(element => {
         // Crea una opción y establece sus valores
         const option = document.createElement('option');
         option.value = element;

@@ -1,27 +1,39 @@
-
 const urlCarritos = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
+const carritos = document.querySelector('.lista-ventas');
 
-fetch(urlCarritos)
-    .then(response => response.json()) // Parsear el JSON
-    .then(data => {
+let nombreProductos = [];
 
-        cargarVentas(data);
+// Cargar todos los datos necesarios
+async function cargarCarritosDeVentas() {
+    try {
+        const [carritosResponse, productosResponse] = await Promise.all([
+            fetch(urlCarritos),
+            fetch(urlProductos)
+        ]);
 
-        data.forEach(venta => {
-            cargarVentasUnitarias(venta.VentasUnitarias);
-        })
-    });
+        const carritosData = await carritosResponse.json();
+        nombreProductos = await productosResponse.json();
+        
+        // Procesar ventas y ventas unitarias
+        cargarCarritos(carritosData);
+        carritosData.forEach(carrito => cargarVentasUnitarias(carrito.VentasUnitarias));
 
-function cargarVentas(listaVentas) {
-    const ventas = document.querySelector('.lista-ventas');
-    listaVentas.forEach(venta => {
+    } catch (error) {
+        console.error('Error al cargar los datos:', error);
+    }
+}
+
+// Cargar las ventas
+function cargarCarritos(listaCarritos) {
+    carritos.innerHTML = "";
+    listaCarritos.forEach(carrito => {
         let card = document.createElement('li');
-        card.innerHTML = crearVenta(venta);
-
-        ventas.appendChild(card);
+        card.innerHTML = crearCarrito(carrito);
+        carritos.appendChild(card);
     });
 }
 
+// Cargar las ventas unitarias
 function cargarVentasUnitarias(listaVentasUnitarias) {
     const VentaUnitaria = document.querySelector('.modal-ventaUnitaria');
     listaVentasUnitarias.forEach(venta => {
@@ -31,26 +43,33 @@ function cargarVentasUnitarias(listaVentasUnitarias) {
     });
 }
 
-function crearVenta(venta) {
-    let template = `
+// Crear la tarjeta para cada carrito
+function crearCarrito(carrito) {
+    return `
     <div class="carrito">
-        <div class="carrito-id">NRO VENTA: ${venta.CodigoCarrito}</div>
-        <div class="carrito-monto">MONTO TOTAL: $${venta.MontoTotal}</div>
-        <div class="carrito-monto">FECHA DE EMISION: ${venta.FechaVenta}</div>
-        <a href="#" onclick="abrirPestaña('${venta.CodigoCarrito}')">Ver detalle</a>
+        <div class="carrito-id">NRO VENTA: ${carrito.CodigoCarrito}</div>
+        <div class="carrito-monto">MONTO TOTAL: $${carrito.MontoTotal}</div>
+        <div class="carrito-monto">FECHA DE EMISION: ${carrito.FechaVenta}</div>
+        <a href="#" onclick="abrirPestaña('${carrito.CodigoCarrito}')">Ver detalle</a>
     </div>`;
-    return template;
 }
 
+// Crear la tarjeta para cada venta unitaria
 function crearVentaUnitaria(ventaUnitaria) {
-    let template = `
+    let producto = nombreProductos.find(producto => producto.CodigoUnico === ventaUnitaria.CodigoUnicoProducto);
+    let nombreProducto = producto ? producto.Nombre : 'Producto no disponible';
+
+    return `
     <div class="modal-venta-unitaria" id="${ventaUnitaria.CodigoUnicoProducto}">
         <div class="modal-venta-unitaria-medio">
             <div class="venta-unitaria">
-                <div class="producto-id">Codigo de producto: ${ventaUnitaria.CodigoUnicoProducto}</div>
+                <div class="producto-nombre">Nombre: ${nombreProducto}</div>
+                <div class="producto-id">Codigo: ${ventaUnitaria.CodigoUnicoProducto}</div>
                 <div class="producto-cantidad">Cantidad: ${ventaUnitaria.Cantidad}</div>
                 <div class="producto-monto">Monto: $${ventaUnitaria.Monto}</div>
             </div>
+        </div>
     </div>`;
-    return template;
 }
+
+cargarCarritosDeVentas();

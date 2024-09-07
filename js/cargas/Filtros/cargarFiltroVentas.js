@@ -1,23 +1,23 @@
-const filtroMarca = document.getElementById("filtroMarca");
+const filtroVentas = document.getElementById("filtroVentas");
 
-function filtrarMarca(marcas) {
+function filtrarVentas() {
 
     // Limpia las opciones actuales
-    filtroMarca.innerHTML = "";
+    filtroTipo.innerHTML = "";
 
     // Añade la opción "Ninguno" al principio
     const opcionNinguno = document.createElement('option');
     opcionNinguno.value = "";
-    opcionNinguno.textContent = "Marca";
-    filtroMarca.appendChild(opcionNinguno);
+    opcionNinguno.textContent = "Tipo";
+    filtroVentas.appendChild(opcionNinguno);
 
-    marcas.forEach(element => {
+    Tipos.forEach(element => {
         // Crea una opción y establece sus valores
         const option = document.createElement('option');
         option.value = element;
         option.textContent = element;
 
         // Añade la opción al <select>
-        filtroMarca.appendChild(option);
+        filtroVentas.appendChild(option);
     });
 }

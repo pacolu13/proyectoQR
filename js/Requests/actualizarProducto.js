@@ -76,7 +76,7 @@ function actualizarProducto() {
             if (!response.ok) {
                 let modalConfiguration = document.getElementById('modalConfiguration');
                 modalConfiguration.style.display = 'none'
-                throw new Error(`No se pudo actualizar el producto`);
+                throw new Error(`No se pudo actualizar el producto ${response.statusText}`);
             }
             return JSON.stringify(response); // Convierte la respuesta a JSON
         })
@@ -87,6 +87,7 @@ function actualizarProducto() {
             cargarProductos();
         })
         .catch(error => generarError(error));
+
 }
 
 

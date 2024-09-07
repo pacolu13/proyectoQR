@@ -1,62 +1,54 @@
 const urlProductos = 'https://go-postgresql-restapi-toek.onrender.com/productos';
 const productosContainer = document.getElementById("listaProductos");
+const containerQR = document.querySelector('.productos-qr');
+const popup = document.getElementById('popup');
 
-let productosPrueba = []; //Lugar donde voy a añadir los productos que me traiga la API
+let productos = []; 
 
-function cargarProductos() {
-    productosContainer.innerHTML = "";
-    fetch(urlProductos)
-        .then(response => response.json())
-        .then(data => {
-            productosPrueba = data;
-            generarProductos(productosPrueba)
-        })
-        .catch(error => console.error('Error al cargar productos:', error));
+// Función principal para cargar productos
+async function cargarProductos() {
+    try {
+        const response = await fetch(urlProductos);
+        productos = await response.json();
+        generarProductos(productos);
+    } catch (error) {
+        console.error('Error al cargar productos:', error);
+    }
 }
 
 function generarProductos(listaProductos) {
-    listaProductos.forEach(element => {
+    const Marcas = new Set();
+    const Tipos = new Set();
+    productosContainer.innerHTML = "";
+
+    listaProductos.forEach(producto => {
+        Marcas.add(producto.Marca);
+        Tipos.add(producto.Tipo);
+
+        cargarConfiguracion(productos, producto);
+
         let card = document.createElement('li');
-        card.innerHTML = crearProducto(element);
-
-        //crear model-configuration para cada producto
-        cargarConfiguracion(productosPrueba, element);
-
+        card.innerHTML = crearProducto(producto);
         productosContainer.appendChild(card);
     });
+
+    // Añadir a las opciones de filtros
+    
+    filtrarTipo(Array.from(Tipos));
+    filtrarMarca(Array.from(Marcas));
 }
 
-
-const marcas = [];
-const tipos = [];
-
 function crearProducto(producto) {
-    if (!marcas.includes(producto.Marca)) {
-        marcas.push(producto.Marca);
-    }
+    let signoExclamacion = producto.StockMinimo === 0 ? '<i class="fa-solid fa-exclamation"></i>' : '';
 
-    if (!tipos.includes(producto.Tipo)) {
-        tipos.push(producto.Tipo);
-    }
-
-    filtrarTipo();
-    filtrarMarca();
-
-    let template = ``;
-
-    let signoExclamacion = "";
-
-    if (producto.stockMinimo === 0) {
-        signoExclamacion = `<i class="fa-solid fa-exclamation"></i>`;
-    };
-
-    template = `
-        <li class="producto" id="${producto.codigoUnico}">
+    return `
+        <li class="producto" id="${producto.CodigoUnico}">
             <div class="producto-titulo">${producto.Nombre} - COD: ${producto.CodigoUnico}</div>
             <div class="producto-caracteristicas">Tipo: ${producto.Tipo} - Marca: ${producto.Marca}</div>
-            <div class="producto-caracteristicas">Descripcion: ${producto.Descripcion}</div>
+            <div class="producto-caracteristicas">Descripción: ${producto.Descripcion}</div>
+            <div class="producto-caracteristicas">Precio: $${producto.Precio}</div>
             <div class="producto-caracteristicas">Stock Disponible: ${producto.StockDisponible}</div>
-            <div class="producto-caracteristicas">Stock Minimo: ${producto.StockMinimo} 
+            <div class="producto-caracteristicas">Stock Mínimo: ${producto.StockMinimo} 
                 <a href="#" class="exclamation-button" onclick="abrirPopup()">${signoExclamacion}</a>
             </div>
             <div class="producto-buttons">
@@ -65,41 +57,36 @@ function crearProducto(producto) {
                 <a href="#" onclick="mostrarCompraManual('${producto.CodigoUnico}')"><i class="fa-solid fa-bag-shopping"></i></a>
             </div>
         </li>`;
-    return template;
-}
-
-function cargarProductosQR(listaProductos) {
-    const container = document.querySelector('.productos-qr');
-    listaProductos.forEach(element => {
-        let card = document.createElement('li');
-        card.innerHTML = crearProductosQR(element);
-
-        container.appendChild(card);
-    });
 }
 
 function crearProductosQR(producto) {
-
-    let template = ``;
-
-    template = `
-        <li class="producto" id="${producto.codigounico}">
-            <div class="producto-titulo">${producto.nombre}</div>
-            <div class="producto-caracteristicas">Tipo: ${producto.tipo} - Marca: ${producto.marca}</div>
-            <div class="producto-caracteristicas">Descripcion: ${producto.descripcion}</div>
-            <div class="producto-caracteristicas">Stock Disponible: ${producto.stockdisponible}</div>
-            <div class="producto-caracteristicas">Stock Minimo: ${producto.stockminimo}</div>
+    return `
+        <li class="producto" id="${producto.CodigoUnico}">
+            <div class="producto-titulo">${producto.Nombre}</div>
+            <div class="producto-caracteristicas">Tipo: ${producto.Tipo} - Marca: ${producto.maMarcarca}</div>
+            <div class="producto-caracteristicas">Descripción: ${producto.Descripcion}</div>
+            <div class="producto-caracteristicas">Stock Disponible: ${producto.StockDisponible}</div>
+            <div class="producto-caracteristicas">Stock Mínimo: ${producto.StockMinimo}</div>
         </li>`;
-    return template;
 }
 
+function cargarProductosQR(listaProductos) {
+    containerQR.innerHTML = ""; // Limpiar el contenedor antes de añadir nuevos productos
+
+    listaProductos.forEach(producto => {
+        let card = document.createElement('li');
+        card.innerHTML = crearProductosQR(producto);
+        containerQR.appendChild(card);
+    });
+}
+
+// Abrir y cerrar el popup
 function abrirPopup() {
     popup.style.display = 'block';
 }
-
 function cerrarPopup() {
     popup.style.display = 'none';
-
 }
 
+// Llamar a la función para cargar productos al cargar la página
 cargarProductos();

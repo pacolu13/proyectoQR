@@ -29,13 +29,10 @@
     text-align: center;
     /* Centra el texto horizontalmente */
     box-shadow: 5px 5px 5px gray;
-
-
 }
 
 #filtro-nombre::placeholder {
     color: white;
-
 }
 
 .filtro-select {
@@ -48,39 +45,37 @@
 
 #filtroTipo,
 #filtroMarca,
+#filtroTipoCompra,
+#filtroEstadoCompra,
 #buttonFiltrar {
     color: white;
     margin: 5px;
-    padding: 8px;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding: 10px 15px; /* Unifica el padding para consistencia */
     border-radius: 15px;
     border-style: none;
-    box-shadow: 5px 5px 5px gray;
-
+    box-shadow: 3px 3px 3px gray; /* Sombra más sutil para botones de filtros */
 }
 
-
-.div-buttonFiltrar{
+.div-buttonFiltrar {
     display: flex;
     justify-content: center;
 }
-#buttonFiltrar{
+
+#buttonFiltrar {
     background-color: var(--color-terciario);
 }
 
-#filtroTipo {
-    
+#filtroTipo, #filtroEstadoCompra {
     background-color: var(--color-secundario);
 }
 
-#filtroMarca {
+#filtroMarca, #filtroTipoCompra {
     background-color: var(--cuarto-color);
 }
 
 #añadirProductos, #acreditarVenta {
     margin: 10px;
-    padding: 6px;
+    padding: 10px 15px; /* Padding unificado */
     background-color: var(--color-primario);
     justify-content: center;
     display: flex;
@@ -97,16 +92,26 @@
     /* Asegura que no haya margen extra que pueda afectar el centrado */
 }
 
+/* Transiciones y efectos hover */
+button:hover {
+    background-color: darken(var(--color-primario), 10%);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
 @media only screen and (max-width: 1290px) {
     #añadirProductos {
         width: 20%;
-
     }
 }
 
 @media only screen and (max-width: 500px) {
     #añadirProductos {
         width: 40%;
+    }
 
+    #añadirProductos, #acreditarVenta {
+        margin: 5px; /* Ajustes para pantallas pequeñas */
+        padding: 10px;
     }
 }

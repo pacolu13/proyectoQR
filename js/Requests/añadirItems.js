@@ -9,7 +9,7 @@ function añadirItems(items, urlDeEnvio) {
     })
     .then(response => {
         if (!response.ok) {
-            generarError(response.statusText);
+            throw new Error(`No se pudo realizar la transaccion:${response.statusText}`);
         }
         cargarProductos();
         return response.json(); // Procesar la respuesta JSON
