@@ -2,16 +2,20 @@ const urlFiltroCarrito = 'https://go-postgresql-restapi-toek.onrender.com/carrit
 
 function filtrarCarritos() {
 
-    let filtroInput = document.getElementById("filtroFechaCarrito").value; //DIA? SEMANA? MES? COMO?
+    let filtroDiaInput = document.getElementById("filtroFechaDiaCarrito").value;
+    let filtroMesInput = document.getElementById("filtroFechaMesCarrito").value;
+    let filtroAñoInput = document.getElementById("filtroFechaAñoCarrito").value;
 
     let filtros = {
-        fecha: filtroInput,
+        dia: filtroDiaInput,
+        mes: filtroMesInput,
+        año: filtroAñoInput
     };
 
     let filtrosJSON = JSON.stringify(filtros);
 
     fetch(urlFiltroCarrito, {
-        method: 'PUT',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },

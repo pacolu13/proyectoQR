@@ -1,0 +1,47 @@
+[
+    {
+        "codigoproducto": "a21",
+        "precioactual": 23,
+        "proveedor": "vALEN Inc."
+    },
+    {
+        "codigoproducto": "a26",
+        "precioactual": 20,
+        "proveedor": "Luca"
+    },
+    {
+        "codigoproducto": "b51",
+        "precioactual": 1,
+        "proveedor": "Vital S.A."
+    },
+    {
+        "codigoproducto": "c77",
+        "precioactual": 5,
+        "proveedor": "CleanX Corp."
+    },
+    {
+        "codigoproducto": "d82",
+        "precioactual": 25,
+        "proveedor": "ElectroMix Ltd."
+    },
+    {
+        "codigoproducto": "e14",
+        "precioactual": 15,
+        "proveedor": "WearIt Inc."
+    },
+    {
+        "codigoproducto": "f63",
+        "precioactual": 30,
+        "proveedor": "SoundX Tech."
+    },
+    {
+        "codigoproducto": "f80",
+        "precioactual": 150,
+        "proveedor": "WearIt Inc."
+    },
+    {
+        "codigoproducto": "f90",
+        "precioactual": 1550,
+        "proveedor": "ElectroMix Ltd."
+    }
+]

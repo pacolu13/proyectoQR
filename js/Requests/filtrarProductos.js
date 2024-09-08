@@ -14,7 +14,7 @@ function añadirFiltros() {
     let filtrosJSON = JSON.stringify(filtros);
 
     fetch(urlFiltros, {
-        method: 'PUT',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },

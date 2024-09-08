@@ -13,7 +13,7 @@ function filtrarCompras() {
     let filtrosJSON = JSON.stringify(filtros);
 
     fetch(urlFiltroCompras, {
-        method: 'PUT',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },

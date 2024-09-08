@@ -1,0 +1,110 @@
+[
+    {
+        "codigounico": "a21",
+        "tipo": "Hogar",
+        "nombre": "Placar",
+        "marca": "BrightLite",
+        "stockdisponible": 100,
+        "stockminimo": 20,
+        "precio": 25,
+        "cantacomprar": 5,
+        "preciodeseado": 100,
+        "descripcion": "Placar de acuerdo a tus comodidades."
+    },
+    {
+        "codigounico": "a26",
+        "tipo": "Hogar",
+        "nombre": "Lámpara LED",
+        "marca": "BrightLite",
+        "stockdisponible": 100,
+        "stockminimo": 20,
+        "precio": 25,
+        "cantacomprar": 5,
+        "preciodeseado": 100,
+        "descripcion": "Lámpara LED con intensidad ajustable."
+    },
+    {
+        "codigounico": "b51",
+        "tipo": "Deportivo",
+        "nombre": "Zapatillas",
+        "marca": "SpeedStar",
+        "stockdisponible": 30,
+        "stockminimo": 8,
+        "precio": 80,
+        "cantacomprar": 12,
+        "preciodeseado": 150,
+        "descripcion": "Zapatillas para correr con amortiguación mejorada."
+    },
+    {
+        "codigounico": "c77",
+        "tipo": "Tecnología",
+        "nombre": "Tablet",
+        "marca": "TabPro",
+        "stockdisponible": 60,
+        "stockminimo": 10,
+        "precio": 200,
+        "cantacomprar": 7,
+        "preciodeseado": 250,
+        "descripcion": "Tablet con pantalla de 10 pulgadas y gran capacidad de almacenamiento."
+    },
+    {
+        "codigounico": "d82",
+        "tipo": "Mobiliario",
+        "nombre": "Silla ergonómica",
+        "marca": "ComfySeat",
+        "stockdisponible": 15,
+        "stockminimo": 3,
+        "precio": 150,
+        "cantacomprar": 2,
+        "preciodeseado": 180,
+        "descripcion": "Silla ergonómica con soporte lumbar ajustable."
+    },
+    {
+        "codigounico": "e14",
+        "tipo": "Moda",
+        "nombre": "Camisa casual",
+        "marca": "UrbanStyle",
+        "stockdisponible": 80,
+        "stockminimo": 10,
+        "precio": 45,
+        "cantacomprar": 20,
+        "preciodeseado": 120,
+        "descripcion": "Camisa de algodón en distintos colores y tallas."
+    },
+    {
+        "codigounico": "f63",
+        "tipo": "Tecnología",
+        "nombre": "Teclado mecánico",
+        "marca": "KeyBlast",
+        "stockdisponible": 40,
+        "stockminimo": 5,
+        "precio": 90,
+        "cantacomprar": 10,
+        "preciodeseado": 180,
+        "descripcion": "Teclado mecánico con retroiluminación RGB."
+    },
+    {
+        "codigounico": "f80",
+        "tipo": "Deporte",
+        "nombre": "Pelota de fútbol",
+        "marca": "KickPro",
+        "stockdisponible": 70,
+        "stockminimo": 15,
+        "precio": 30,
+        "cantacomprar": 12,
+        "preciodeseado": 50,
+        "descripcion": "Pelota de fútbol oficial de tamaño reglamentario."
+    },
+    {
+        "codigounico": "f90",
+        "tipo": "Automotriz",
+        "nombre": "Cargador de auto",
+        "marca": "AutoCharge",
+        "stockdisponible": 90,
+        "stockminimo": 10,
+        "precio": 20,
+        "cantacomprar": 15,
+        "preciodeseado": 60,
+        "descripcion": "Cargador rápido para automóvil con múltiples puertos USB."
+    }
+]

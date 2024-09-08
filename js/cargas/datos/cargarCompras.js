@@ -1,8 +1,15 @@
 const urlCompras = 'https://go-postgresql-restapi-toek.onrender.com/compras';
+let nombreProductoCompras = [];
+
 async function cargarCompras() {
     try {
-        const response = await fetch(urlCompras);
-        const listaCompras = await response.json();
+        const [comprasResponse, productosNombreResponse] = await Promise.all([
+            fetch(urlCompras),
+            fetch(urlProductos)
+        ]);
+
+        const listaCompras = await comprasResponse.json();
+        nombreProductoCompras = await productosNombreResponse.json();
         
         mostrarCompras(listaCompras);
     } catch (error) {
@@ -23,7 +30,7 @@ function mostrarCompras(listaCompras) {
 }
 
 function crearCompra(compra) {
-    let producto = nombreProductos.find(producto => producto.CodigoUnico === compra.CodigoProducto);
+    let producto = nombreProductoCompras.find(producto => producto.CodigoUnico === compra.CodigoProducto);
     let nombreProductoCompra = producto ? producto.Nombre : 'Producto no disponible';
 
     return `
