@@ -10,7 +10,7 @@ async function cargarCompras() {
 
         const listaCompras = await comprasResponse.json();
         nombreProductoCompras = await productosNombreResponse.json();
-        
+
         mostrarCompras(listaCompras);
     } catch (error) {
         console.error('Error al leer el archivo JSON:', error);

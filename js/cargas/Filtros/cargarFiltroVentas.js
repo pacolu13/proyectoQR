@@ -21,3 +21,21 @@ function filtrarVentas() {
         filtroVentas.appendChild(option);
     });
 }
+
+//Acreditar fecha con el modelo estandar solicitado
+
+const fechaInput = document.getElementById('fechaVenta');
+
+fechaInput.addEventListener('input', function (e) {
+    let valor = fechaInput.value;
+    valor = valor.replace(/[^0-9\-]/g, '');
+
+    if (e.inputType === 'deleteContentBackward') {
+        return;
+    }
+    if (valor.length === 2 || valor.length === 5) {
+        fechaInput.value = valor + '-';
+    } else {
+        fechaInput.value = valor; 
+    }
+});

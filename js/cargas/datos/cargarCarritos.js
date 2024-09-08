@@ -11,9 +11,9 @@ async function cargarCarritosDeVentas() {
             fetch(urlProductos)
         ]);
 
-        const carritosData = await carritosResponse.json();
         nombreProductos = await productosResponse.json();
-        
+        const carritosData = await carritosResponse.json();
+
         // Procesar ventas y ventas unitarias
         cargarCarritos(carritosData);
         carritosData.forEach(carrito => cargarVentasUnitarias(carrito.VentasUnitarias));
@@ -56,6 +56,7 @@ function crearCarrito(carrito) {
 
 // Crear la tarjeta para cada venta unitaria
 function crearVentaUnitaria(ventaUnitaria) {
+
     let producto = nombreProductos.find(producto => producto.CodigoUnico === ventaUnitaria.CodigoUnicoProducto);
     let nombreProducto = producto ? producto.Nombre : 'Producto no disponible';
 
@@ -72,4 +73,6 @@ function crearVentaUnitaria(ventaUnitaria) {
     </div>`;
 }
 
-cargarCarritosDeVentas();
+document.addEventListener('DOMContentLoaded', (event) => {
+    cargarCarritosDeVentas();
+});
