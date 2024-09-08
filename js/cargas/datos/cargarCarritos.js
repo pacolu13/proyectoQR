@@ -3,15 +3,23 @@ const carritos = document.querySelector('.lista-ventas');
 
 let nombreProductos = [];
 
+function cargarNombreDeProductos() {
+    fetch(urlProductos)
+        .then(response => response.json())
+        .then(data => {
+            nombreProductos = data;
+        })
+}
+
+
 // Cargar todos los datos necesarios
 async function cargarCarritosDeVentas() {
     try {
-        const [carritosResponse, productosResponse] = await Promise.all([
+        const [carritosResponse] = await Promise.all([
             fetch(urlCarritos),
-            fetch(urlProductos)
+
         ]);
 
-        nombreProductos = await productosResponse.json();
         const carritosData = await carritosResponse.json();
 
         // Procesar ventas y ventas unitarias
@@ -38,7 +46,8 @@ function cargarVentasUnitarias(listaVentasUnitarias) {
     const VentaUnitaria = document.querySelector('.modal-ventaUnitaria');
     listaVentasUnitarias.forEach(venta => {
         let card = document.createElement('div');
-        card.innerHTML = crearVentaUnitaria(venta);
+        let arrayConCinta = nombreProductos;
+        card.innerHTML = crearVentaUnitaria(venta, arrayConCinta);
         VentaUnitaria.appendChild(card);
     });
 }
@@ -55,9 +64,9 @@ function crearCarrito(carrito) {
 }
 
 // Crear la tarjeta para cada venta unitaria
-function crearVentaUnitaria(ventaUnitaria) {
+function crearVentaUnitaria(ventaUnitaria, array) {
 
-    let producto = nombreProductos.find(producto => producto.CodigoUnico === ventaUnitaria.CodigoUnicoProducto);
+    let producto = array.find(producto => producto.CodigoUnico === ventaUnitaria.CodigoUnicoProducto);
     let nombreProducto = producto ? producto.Nombre : 'Producto no disponible';
 
     return `
@@ -73,6 +82,9 @@ function crearVentaUnitaria(ventaUnitaria) {
     </div>`;
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    cargarCarritosDeVentas();
+cargarNombreDeProductos();
+
+document.addEventListener('DOMContentLoaded', async (event) => {
+    cargarCarritosDeVentas(); 
 });
+

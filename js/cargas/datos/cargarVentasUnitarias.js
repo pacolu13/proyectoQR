@@ -1,13 +1,8 @@
-
 let ventas = [];
 fetch(urlCarritos)
     .then(response => response.json()) // Parsear el JSON
     .then(data => {
         ventas = data;
-
-        data.forEach(venta => {
-            cargarVentasUnitarias(venta.VentasUnitarias);
-        })
     });
 
 function abrirPestaña(styleID) {

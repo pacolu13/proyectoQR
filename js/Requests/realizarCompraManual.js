@@ -31,6 +31,7 @@ function realizarCompra() {
         .then(data => {
             generarConfirmaciones('Compra realizada exitosamente');
             cargarProductos();
+            cargarCompras();
         })
         .catch(error => {
             generarError(error);
