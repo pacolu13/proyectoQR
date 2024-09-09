@@ -1,5 +1,4 @@
 :root {
-    --color-fondo: #FBF0DC;
     --color-primario: #5B1647;
     --color-secundario: #93063E;
     --color-terciario: #C90035;
@@ -22,7 +21,7 @@
 .modal-content-error {
     height: 25%;
     width: 65%;
-    background-color: var(--color-fondo);
+    background-color: white;
     margin: 15% auto;
     padding: 20px;
     text-align: center;
@@ -31,13 +30,13 @@
 
 .modal-content-error-message{
     font-size: 20px;
-    color: var(--color-primario);
+    color: var(--color-secundario);
     display: flex;
     flex-direction: column;
 }
 
 .modal-content-error-message a{
     font-size: 20px;
-    color: var(--color-primario);
+    color: var(--color-secundario);
 
 }

@@ -31,14 +31,14 @@ function añadirFiltroEstadoCompras() {
     filtroEstadoCompra.appendChild(opcionNinguno);
 
     var estadoConfirmado = document.createElement('option');
-    estadoConfirmado.value = "Confirmado";
-    estadoConfirmado.textContent = "Confirmado";
+    estadoConfirmado.value = "completado";
+    estadoConfirmado.textContent = "Completado";
 
     filtroEstadoCompra.appendChild(estadoConfirmado);
 
     var estadoRechazado = document.createElement('option');
-    estadoRechazado.value = "Rechazado";
-    estadoRechazado.textContent = "Rechazado";
+    estadoRechazado.value = "no completado";
+    estadoRechazado.textContent = "No completado";
 
     filtroEstadoCompra.appendChild(estadoRechazado); 
 }

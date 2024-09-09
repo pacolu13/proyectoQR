@@ -61,6 +61,7 @@ function desplegarPopupDePrecios() {
                 if (!response.ok) {
                     throw new Error(`No se pudo realizar la transacción: ${response.statusText}`);
                 }
+                generarConfirmaciones("Precios actualizados correctamente.")
                 cargarProductos();
                 popupPrecios.style.display = "none";
             })
