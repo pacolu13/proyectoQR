@@ -90,7 +90,6 @@ function crearCarritoNoConfirmado(carrito) {
     </div>`;
 }
 
-
 // Crear la tarjeta para cada venta unitaria
 function crearVentaUnitaria(ventaUnitaria, array) {
 

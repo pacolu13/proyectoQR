@@ -6,6 +6,7 @@ let items = "";
 let parametro = "";
 
 function iniciarEscaneo(tipoAccion) {
+    closeNav();
     parametro = tipoAccion;
     document.getElementById('container').style.display = 'block';
 

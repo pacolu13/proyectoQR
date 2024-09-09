@@ -1,6 +1,6 @@
-function desplegarPopupDePrecios() {
+const popupPrecios = document.createElement("div");
 
-    let popupPrecios = document.createElement("div");
+function generarPopupDePrecios() {
     popupPrecios.className = "modal";
     popupPrecios.id = "popupAumentarPrecios";
 
@@ -23,8 +23,19 @@ function desplegarPopupDePrecios() {
     let actualizar = document.createElement("button");
     actualizar.textContent = "Actualizar";
 
-    let cancelar = document.createElement("button");
+    const cancelar = document.createElement("button");
     cancelar.textContent = "Cancelar";
+
+    // Define la función cerrarAumentoPrecios afuera
+    function cerrarAumentoPrecios() {
+        let popup = document.getElementById("popupAumentarPrecios");
+        if (popup) {
+            popup.style.display = 'none';
+        }
+    }
+
+    // Asigna la función cerrarAumentoPrecios al botón cancelar
+    cancelar.onclick = cerrarAumentoPrecios;
 
     contenedorDeLosDatos.appendChild(descripcion);
     contenedorDeLosDatos.appendChild(porcentajeDeAumentoNuevo);
@@ -33,19 +44,9 @@ function desplegarPopupDePrecios() {
     contenedorDeLosDatos.appendChild(contenedorDeBotones);
     popupCentralPrecios.appendChild(contenedorDeLosDatos);
     popupPrecios.appendChild(popupCentralPrecios);
-
-    popupPrecios.style.display = "block";
-
     document.body.appendChild(popupPrecios);
 
-    // Aquí están las funciones correctas para los eventos onclick
-    cancelar.addEventListener('click', cerrarAumentoPrecios);
     actualizar.addEventListener('click', aumentarPorcentaje);
-
-    function cerrarAumentoPrecios() {
-        let popup = document.getElementById("popupAumentarPrecios");
-        popup.style.display = "none";
-    };
 
     function aumentarPorcentaje() {
         let aumentoNuevo = parseInt(document.getElementById('porcentajeNuevo').value);
@@ -55,19 +56,28 @@ function desplegarPopupDePrecios() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: aumentoNuevo
+            body: JSON.stringify({ aumento: aumentoNuevo }) // Asegúrate de enviar el body como JSON
         })
             .then(response => {
                 if (!response.ok) {
                     throw new Error(`No se pudo realizar la transacción: ${response.statusText}`);
                 }
-                generarConfirmaciones("Precios actualizados correctamente.")
+                generarConfirmaciones("Precios actualizados correctamente.");
                 cargarProductos();
-                popupPrecios.style.display = "none";
+                cerrarAumentoPrecios(); // Usar la misma función para cerrar el popup
             })
             .catch(error => {
                 console.error('Hubo un problema con la operación:', error);
             });
+
     }
+
+    popupPrecios.style.display = "none";
 }
 
+generarPopupDePrecios();
+
+function desplegarPopupDePrecios(){
+    closeNav();
+    popupPrecios.style.display = "block";
+}
