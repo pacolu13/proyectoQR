@@ -26,7 +26,6 @@ function mostrarModalConfiguracion(productoID) {
             cantAcomprarActual = producto.cantAcomprar;
         }
     });
-
     let modalConfiguration = document.getElementById('modalConfiguration');
     modalConfiguration.style.display = 'block';
     idProducto = productoID;
