@@ -119,12 +119,10 @@ main {
 .container-precioNuevo input {
     margin-bottom: 5px;
     padding: 5px;
+    border: none;
     border-radius: 15px;
-    background-color: #5B1647;
-}
-
-.container-precioNuevo input ::placeholder {
     color: white;
+    background-color: #5B1647;
 }
 
 #close-sesion {
