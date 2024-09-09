@@ -18,6 +18,8 @@ async function cargarCompras() {
 }
 
 function mostrarCompras(listaCompras) {
+    añadirFiltroEstadoCompras();
+    añadirFiltroTipoCompras();
     const container = document.querySelector('.lista-compras');
     container.innerHTML = ''; // Limpiar el contenedor antes de cargar
 

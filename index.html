@@ -154,8 +154,8 @@
                     <button id="acreditarVenta" onclick="iniciarEscaneo('ventas')">
                         <p>Acreditar venta</p>
                     </button>
-                
-                    
+
+
                     <select name="" id="filtroVentas">
                     </select>
 
@@ -169,6 +169,13 @@
                         <!--Ventas unitarias-->
                     </div>
                     <div class="productos">
+                        <div class="titulo-ventasNuevas">VENTAS NUEVAS</div>
+                        <ul class="lista-ventas-nuevas">
+                            <!--Ventas sin confirmar-->
+                        </ul>
+                    </div>
+                    <div class="productos">
+                        <div class="titulo-ventasNuevas">VENTAS CONFIRMADAS</div>
                         <ul class="lista-ventas">
                             <!--Ventas generadas automaticamente-->
                         </ul>
@@ -237,13 +244,14 @@
     <script src="js/cargas/Filtros/cargarFiltroTipo.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroMarca.js"></script>
     <script src="js/cargas/Filtros/cargarFiltroCompras.js"></script>
-    <script src="js/cargas/Filtros/cargarFiltroVentas.js"></script>
+    <script src="js/cargas/Filtros/cargarFiltroCarritos.js"></script>
 
     <script src="js/cargas/Filtros/cargarBotonesFiltrar.js"></script>
 
     <script src="js/Requests/añadirItems.js"></script>
     <script src="js/Requests/actualizarProducto.js"></script>
     <script src="js/Requests/eliminarProducto.js"></script>
+    <script src="js/Requests/confirmarCarritos.js"></script>
 
     <script src="js/Scanner/scannerQR.js"></script>
     <script src="js/navegacion/sidebar.js"></script>

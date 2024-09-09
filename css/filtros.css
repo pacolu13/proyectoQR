@@ -116,7 +116,8 @@
     background-color: var(--color-secundario);
     box-shadow: 5px 5px 5px gray;
     appearance: none;
-    text-align-last: center; /* Opcional, centra el texto */
+    text-align-last: center;
+    /* Opcional, centra el texto */
     position: relative;
     overflow: hidden;
 }
@@ -127,7 +128,8 @@
 }
 
 #filtroVentas option:last-child {
-    border-bottom: none; /* Remueve la línea de la última opción */
+    border-bottom: none;
+    /* Remueve la línea de la última opción */
 }
 
 /* Flecha personalizada (opcional) */
@@ -148,14 +150,26 @@
     padding: 8px;
     border-radius: 25px;
     text-align: center;
-    color: white;
-    border: none;
-    background-color: var(--color-secundario);
     box-shadow: 5px 5px 5px gray;
+    transition: background-color 0.8s ease, border-color 0.5s ease;
 }
 
 #fechaVenta::placeholder {
     color: white;
+}
+
+#fechaVenta:disabled {
+    background-color: gray;
+    border: 2px solid #CCCCCC;
+    color: #7d7d7d;
+    cursor: not-allowed;
+}
+
+#fechaVenta:enabled {
+    background-color: var(--color-secundario);
+    border: 2px solid #CCCCCC;
+    color: #7d7d7d;
+    cursor: not-allowed;
 }
 
 

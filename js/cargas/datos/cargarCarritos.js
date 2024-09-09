@@ -1,5 +1,6 @@
 const urlCarritos = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
-const carritos = document.querySelector('.lista-ventas');
+const carritosConfirmados = document.querySelector('.lista-ventas');
+const carritosNoConfirmados = document.querySelector('.lista-ventas-nuevas');
 
 let nombreProductos = [];
 
@@ -33,11 +34,22 @@ async function cargarCarritosDeVentas() {
 
 // Cargar las ventas
 function cargarCarritos(listaCarritos) {
-    carritos.innerHTML = "";
+
+    carritosConfirmados.innerHTML = "";
+    carritosNoConfirmados.innerHTML = "";
+
     listaCarritos.forEach(carrito => {
-        let card = document.createElement('li');
-        card.innerHTML = crearCarrito(carrito);
-        carritos.appendChild(card);
+        if (carrito.Estado === "Pendiente") {
+            let card = document.createElement('li');
+            card.innerHTML = crearCarritoNoConfirmado(carrito);
+            carritosNoConfirmados.appendChild(card);
+        }
+        else {
+            let card = document.createElement('li');
+            card.innerHTML = crearCarritoConfirmado(carrito);
+            carritosConfirmados.appendChild(card);
+        }
+
     });
 }
 
@@ -53,7 +65,7 @@ function cargarVentasUnitarias(listaVentasUnitarias) {
 }
 
 // Crear la tarjeta para cada carrito
-function crearCarrito(carrito) {
+function crearCarritoConfirmado(carrito) {
     return `
     <div class="carrito">
         <div class="carrito-id">NRO VENTA: ${carrito.CodigoCarrito}</div>
@@ -62,6 +74,22 @@ function crearCarrito(carrito) {
         <a href="#" onclick="abrirPestaña('${carrito.CodigoCarrito}')">Ver detalle</a>
     </div>`;
 }
+
+function crearCarritoNoConfirmado(carrito) {
+    return `
+    <div class="carrito">
+        <div class="carrito-id">COD VENTA: ${carrito.CodigoCarrito} 
+        <a href="#" onclick="abrirPestaña('${carrito.CodigoCarrito}')">Ver detalle</a>
+        </div>
+        <div class="carrito-monto">MONTO TOTAL: $${carrito.MontoTotal}</div>
+        <div class="carrito-monto">FECHA DE EMISION: ${carrito.FechaVenta}</div>
+        <div class="buttons-confirmarVenta">
+            <button onclick="validarCarrito('${carrito.ID}','confirmado')">Confirmar</button>
+            <button onclick="validarCarrito('${carrito.ID}','cancelado')">Cancelar</button>
+        </div>
+    </div>`;
+}
+
 
 // Crear la tarjeta para cada venta unitaria
 function crearVentaUnitaria(ventaUnitaria, array) {
@@ -82,9 +110,15 @@ function crearVentaUnitaria(ventaUnitaria, array) {
     </div>`;
 }
 
-cargarNombreDeProductos();
 
-document.addEventListener('DOMContentLoaded', async (event) => {
-    cargarCarritosDeVentas(); 
-});
+function cargarTodosLosCarritos() {
+    cargarNombreDeProductos();
+
+    document.addEventListener('DOMContentLoaded', async (event) => {
+        cargarCarritosDeVentas();
+    });
+}
+
+cargarTodosLosCarritos();
+
 

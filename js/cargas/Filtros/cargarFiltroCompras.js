@@ -2,7 +2,7 @@ const filtroTipoCompra = document.getElementById("filtroTipoCompra");
 const filtroEstadoCompra = document.getElementById("filtroEstadoCompra");
 
 function añadirFiltroTipoCompras() {
-
+    filtroTipoCompra.innerHTML = "";
     // Añade la opción "Ninguno" al principio
     var opcionNinguno = document.createElement('option');
     opcionNinguno.value = "";
@@ -23,7 +23,7 @@ function añadirFiltroTipoCompras() {
 }
 
 function añadirFiltroEstadoCompras() {
-
+    filtroEstadoCompra.innerHTML = "";
     // Añade la opción "Ninguno" al principio
     var opcionNinguno = document.createElement('option');
     opcionNinguno.value = "";
@@ -43,5 +43,4 @@ function añadirFiltroEstadoCompras() {
     filtroEstadoCompra.appendChild(estadoRechazado); 
 }
 
-añadirFiltroEstadoCompras()
-añadirFiltroTipoCompras()
+
