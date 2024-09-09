@@ -105,6 +105,44 @@
     /* Asegura que no haya margen extra que pueda afectar el centrado */
 }
 
+/* Filtro ventas por fechas */
+
+#filtroVentas {
+    margin: 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    background-color: var(--color-secundario);
+    box-shadow: 5px 5px 5px gray;
+    appearance: none;
+    text-align-last: center; /* Opcional, centra el texto */
+    position: relative;
+    overflow: hidden;
+}
+
+#filtroVentas option {
+    background-color: white;
+    color: black;
+}
+
+#filtroVentas option:last-child {
+    border-bottom: none; /* Remueve la línea de la última opción */
+}
+
+/* Flecha personalizada (opcional) */
+#filtroVentas::after {
+    content: '▼';
+    font-size: 12px;
+    color: white;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+
 #fechaVenta {
     margin: 10px;
     padding: 8px;
@@ -119,6 +157,7 @@
 #fechaVenta::placeholder {
     color: white;
 }
+
 
 /* Transiciones y efectos hover */
 button:hover {

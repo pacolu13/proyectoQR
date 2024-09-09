@@ -9,4 +9,4 @@ function añadirBotonFiltrar(contenedor,funcion,idBoton) {
 
 añadirBotonFiltrar("filtrarCompras", filtrarCompras, "botonFiltrarCompras");
 añadirBotonFiltrar("filtrarProductos", añadirFiltros, "botonFiltrarProductos");
-añadirBotonFiltrar("filtrarVentas", filtrarVentas, "botonFiltrarVentas");
+añadirBotonFiltrar("filtrarVentas", filtrarCarritos, "botonFiltrarVentas");
