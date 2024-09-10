@@ -10,13 +10,13 @@ function añadirFiltroTipoCompras() {
     filtroTipoCompra.appendChild(opcionNinguno);
 
     var tipoManual = document.createElement('option');
-    tipoManual.value = "Manual";
+    tipoManual.value = "manual";
     tipoManual.textContent = "Manual";
 
     filtroTipoCompra.appendChild(tipoManual);
 
     var tipoAutomatico = document.createElement('option');
-    tipoAutomatico.value = "Automatico";
+    tipoAutomatico.value = "automatica";
     tipoAutomatico.textContent = "Automatico";
 
     filtroTipoCompra.appendChild(tipoAutomatico);
