@@ -20,8 +20,14 @@ function validarCarrito(codigoCarrito, estado) {
             cargarProductos();
         })
         .then(data => {
-            generarConfirmaciones("Carrito confirmado.");
-            cargarTodosLosCarritos();
+            if(estado === "confirmado"){
+                generarConfirmaciones("Carrito confirmado.");
+
+            }
+            else{
+                generarConfirmaciones("Carrito cancelado.");
+            }
+            cargarCarritosDeVentas();
         })
         .catch(error => {
             console.error('Hubo un problema con la operación de añadir el producto:', error);

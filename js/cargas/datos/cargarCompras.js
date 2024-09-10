@@ -35,7 +35,17 @@ function crearCompra(compra) {
     let producto = nombreProductoCompras.find(producto => producto.CodigoUnico === compra.CodigoProducto);
     let nombreProductoCompra = producto ? producto.Nombre : 'Producto no disponible';
 
-    return `
+    if (compra.Estado !== "Completado") {
+        return `
+        <div class="compra">
+            <div>Nombre: ${nombreProductoCompra}</div>
+            <div class="compra-caracteristicas">Codigo de producto: ${compra.CodigoProducto}</div>
+            <div class="compra-caracteristicas">Fecha de emisión: ${compra.Fecha}</div>
+            <div class="compra-estado">Estado: ${compra.Estado}</div>
+            <div class="compra-estado">Tipo: ${compra.Tipo}</div>
+        </div>`;
+    } else {
+        return `
     <div class="compra">
         <div>Nombre: ${nombreProductoCompra}</div>
         <div class="compra-caracteristicas">Codigo de producto: ${compra.CodigoProducto}</div>
@@ -45,6 +55,8 @@ function crearCompra(compra) {
         <div class="compra-estado">Estado: ${compra.Estado}</div>
         <div class="compra-estado">Tipo: ${compra.Tipo}</div>
     </div>`;
+    }
+
 }
 
 document.addEventListener('DOMContentLoaded', (event) => {
