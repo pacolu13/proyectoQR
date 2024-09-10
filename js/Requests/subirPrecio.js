@@ -56,7 +56,7 @@ function generarPopupDePrecios() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ aumento: aumentoNuevo }) // Asegúrate de enviar el body como JSON
+            body: aumentoNuevo // Asegúrate de enviar el body como JSON
         })
             .then(response => {
                 if (!response.ok) {
