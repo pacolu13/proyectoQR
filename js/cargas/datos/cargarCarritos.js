@@ -1,6 +1,8 @@
 const urlCarritos = 'https://go-postgresql-restapi-toek.onrender.com/carrito';
 const carritosConfirmados = document.querySelector('.lista-ventas');
 const carritosNoConfirmados = document.querySelector('.lista-ventas-nuevas');
+const VentaUnitaria = document.querySelector('.modal-ventaUnitaria');
+
 
 let nombreProductos = [];
 
@@ -55,7 +57,7 @@ function cargarCarritos(listaCarritos) {
 
 // Cargar las ventas unitarias
 function cargarVentasUnitarias(listaVentasUnitarias) {
-    const VentaUnitaria = document.querySelector('.modal-ventaUnitaria');
+    VentaUnitaria.innerHTML = "";
     listaVentasUnitarias.forEach(venta => {
         let card = document.createElement('div');
         let arrayConCinta = nombreProductos;
