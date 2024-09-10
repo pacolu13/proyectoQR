@@ -12,7 +12,6 @@ function añadirItems(items, urlDeEnvio) {
             throw new Error(`No se pudo realizar la transaccion:${response.statusText}`);
         }
         cargarProductos();
-        return response.json(); // Procesar la respuesta JSON
     })
     .then(data => {
         console.log('Producto añadido con éxito:', data);
