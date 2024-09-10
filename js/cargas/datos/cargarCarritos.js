@@ -27,7 +27,6 @@ async function cargarCarritosDeVentas() {
 
         // Procesar ventas y ventas unitarias
         cargarCarritos(carritosData);
-        carritosData.forEach(carrito => cargarVentasUnitarias(carrito.VentasUnitarias));
 
     } catch (error) {
         console.error('Error al cargar los datos:', error);
@@ -45,19 +44,20 @@ function cargarCarritos(listaCarritos) {
             let card = document.createElement('li');
             card.innerHTML = crearCarritoNoConfirmado(carrito);
             carritosNoConfirmados.appendChild(card);
+            cargarVentasUnitarias(carrito.VentasUnitarias);
         }
         else {
             let card = document.createElement('li');
             card.innerHTML = crearCarritoConfirmado(carrito);
             carritosConfirmados.appendChild(card);
-        }
+            cargarVentasUnitarias(carrito.VentasUnitarias);
+            }
 
     });
 }
 
 // Cargar las ventas unitarias
 function cargarVentasUnitarias(listaVentasUnitarias) {
-    VentaUnitaria.innerHTML = "";
     listaVentasUnitarias.forEach(venta => {
         let card = document.createElement('div');
         let arrayConCinta = nombreProductos;
