@@ -12,6 +12,7 @@ function añadirItems(items, urlDeEnvio) {
             throw new Error(`No se pudo realizar la transaccion:${response.statusText}`);
         }
         cargarProductos();
+        cargarCarritosDeVentas();
     })
     .then(data => {
         console.log('Producto añadido con éxito:', data);
