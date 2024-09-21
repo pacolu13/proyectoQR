@@ -29,7 +29,8 @@ function filtrarVentas() {
     // Desactiva el input de fecha al inicio
     fechaInput.disabled = true;
 }
-
+          // DDD  
+          // LUCA GAY
 // Función para adaptar el campo de fecha según la selección
 filtroVentas.addEventListener('change', function () {
     const seleccion = filtroVentas.value;
